@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedagogia | Faculdade Filos</title>
+  <meta name="description" content="Curso de Pedagogia na Faculdade Filos em Águas Lindas de Goiás. Capacitação docente inovadora para atuar na educação infantil e na gestão educacional.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css?v=5.0">
+  <link rel="stylesheet" href="../css/global.css?v=5.0">
+  <link rel="stylesheet" href="../css/components.css?v=5.36">
+  <link rel="stylesheet" href="../css/pages.css?v=1.2">
+  <link rel="stylesheet" href="../css/responsive.css?v=5.20">
+  <style>
+    :root {
+      --container: min(94vw, 1720px);
+      --container-wide: min(96vw, 1840px);
+      --page-gutter: clamp(16px, 2.5vw, 40px);
+    }
+
+    /* --- ESTILOS SEÇÃO MATRIZ CURRICULAR --- */
+    .section-matriz-pedagogia {
+      position: relative;
+      background-color: #07162c; /* Azul escuro premium */
+      padding: clamp(6rem, 10vw, 10rem) 0 clamp(6rem, 10vw, 10rem) 0;
+      overflow: visible;
+      overflow-x: clip;
+      z-index: 7;
+    }
+
+    .matriz-watermark {
+      position: absolute;
+      left: 42%; /* Ajustado para o vão central maior */
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transform-origin: center;
+      font-family: var(--font-title);
+      font-size: clamp(25rem, 35vw, 48rem); /* Escala colossal */
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.15); /* Visível */
+      pointer-events: none;
+      z-index: 1;
+      user-select: none;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .matriz-container {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      max-width: var(--container-wide);
+      width: min(100% - 2 * var(--page-gutter), var(--container-wide));
+      margin-inline: auto;
+    }
+
+    .matriz-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .matriz-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .matriz-icon-phi {
+      font-family: var(--font-title), serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 400;
+      color: var(--text-white);
+      line-height: 1;
+    }
+
+    .matriz-title {
+      font-family: var(--font-title);
+      font-size: clamp(3.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .matriz-title strong {
+      font-weight: 800;
+    }
+
+    .matriz-subtitle {
+      font-family: var(--font-body);
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .matriz-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    .matriz-accordion-item {
+      background-color: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all var(--transition-normal);
+      overflow: hidden;
+    }
+
+    .matriz-accordion-item:hover {
+      background-color: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .matriz-accordion-header {
+      width: 100%;
+      padding: 2rem 2.5rem;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-white);
+      font-family: var(--font-title);
+      font-size: 2.25rem;
+      font-weight: 700;
+      text-align: left;
+      transition: all var(--transition-fast);
+      letter-spacing: 0.05em;
+    }
+
+    .accordion-icon {
+      font-size: 1.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .matriz-accordion-item.active {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .matriz-accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+      color: var(--text-white);
+    }
+
+    .matriz-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+      padding: 0 2rem;
+    }
+
+    .matriz-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: 32px;
+      margin-bottom: 1.5rem;
+    }
+
+    .matriz-table th {
+      font-family: var(--font-title);
+      font-size: 32px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+      padding: 1rem 1.25rem;
+      text-align: left;
+    }
+
+    .matriz-table td {
+      padding: 1.6rem 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: left;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .matriz-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matriz-table .text-center {
+      text-align: center;
+      width: 80px;
+    }
+
+    .matriz-download {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--font-body);
+      font-size: 1.85rem;
+    }
+
+    .matriz-download p strong {
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .btn-download-matriz {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--text-white);
+      color: #07162c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.8rem;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-download-matriz:hover {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      transform: scale(1.1);
+      box-shadow: 0 6px 18px rgba(84, 152, 136, 0.4);
+    }
+
+    .matriz-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .matriz-student-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1300px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      transform: translate(15rem, 130px);
+      margin-bottom: -130px;
+    }
+
+    .matriz-student-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+    }
+
+    .matriz-student-image-wrapper:hover .matriz-student-img {
+      transform: scale(1.03);
+    }
+
+    .matriz-footer-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 10rem;
+      position: relative;
+      z-index: 10;
+      margin-bottom: -14rem;
+    }
+
+    .btn-matriz-enroll {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      border-radius: 50px;
+      padding: 1.25rem 3.5rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 15px rgba(84, 152, 136, 0.4);
+      letter-spacing: 0.05em;
+    }
+
+    .btn-matriz-enroll:hover {
+      background-color: var(--cta-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(84, 152, 136, 0.55);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1024px) {
+      .matriz-student-image-wrapper {
+        transform: none;
+        margin-bottom: 0;
+      }
+      .matriz-footer-cta {
+        margin-top: 4.5rem;
+      }
+      .matriz-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .matriz-watermark {
+        display: none;
+      }
+      .matriz-right {
+        order: 2;
+      }
+      .matriz-left {
+        order: 1;
+      }
+      .matriz-header {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+      .matriz-download {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    .section-matriz-pedagogia {
+      padding: clamp(4rem, 7vw, 7rem) 0 clamp(4rem, 7vw, 7rem) 0;
+    }
+
+    .matriz-watermark {
+      font-size: clamp(14rem, 24vw, 30rem);
+    }
+
+    .matriz-container {
+      gap: clamp(1.5rem, 4vw, 4rem);
+    }
+
+    .matriz-left {
+      gap: 1.35rem;
+    }
+
+    .matriz-icon-phi {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+    }
+
+    .matriz-title {
+      font-size: clamp(2.35rem, 3.8vw, 3.4rem);
+    }
+
+    .matriz-subtitle {
+      font-size: 1.35rem;
+    }
+
+    .matriz-accordion {
+      gap: 0.85rem;
+    }
+
+    .matriz-accordion-item {
+      border-radius: 16px;
+    }
+
+    .matriz-accordion-header {
+      padding: 1.25rem 1.7rem;
+      font-size: 1.45rem;
+    }
+
+    .accordion-icon {
+      font-size: 1.25rem;
+    }
+
+    .matriz-accordion-content {
+      padding: 0 1.5rem;
+    }
+
+    .matriz-table,
+    .matriz-table th {
+      font-size: 1rem;
+    }
+
+    .matriz-table {
+      margin-bottom: 1rem;
+    }
+
+    .matriz-table th {
+      padding: 0.75rem 1rem;
+    }
+
+    .matriz-table td {
+      padding: 0.9rem 1rem;
+      font-weight: 500;
+    }
+
+    .matriz-download {
+      display: none !important;
+    }
+
+    .matriz-student-image-wrapper {
+      max-width: 760px;
+      transform: translate(9rem, 90px);
+      margin-bottom: -90px;
+    }
+
+    .matriz-footer-cta {
+      margin-top: 5rem;
+      margin-bottom: -8rem;
+    }
+
+    .btn-matriz-enroll {
+      padding: 0.9rem 2.4rem;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+                                <header class="site-header" id="site-header">
+    <div class="header-top-wrapper">
+      <div class="header-shell">
+        <div class="header-top header-row">
+          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
+          <div class="header-row__center">
+            <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial da Faculdade Filos">
+              <img src="../assets/images/logo-filos-oficial.png" alt="Faculdade Filos" class="site-logo-img" width="332" height="112">
+            </a>
+          </div>
+          <div class="header-row__side header-row__side--end">
+            <div class="header-login-container">
+              <a href="#" class="header-login" id="login-menu-toggle" aria-expanded="false" aria-haspopup="true">
+                Login / Cadastrar <i class="fa-solid fa-chevron-down dropdown-chevron" style="font-size: 0.7rem; margin-left: 0.4rem; transition: transform 0.2s ease;"></i>
+              </a>
+              <div class="login-dropdown-menu" id="login-dropdown" aria-label="Opções de Login">
+                <a href="https://faculdadefilos.jacad.com.br/academico/aluno-v2/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Aluno</a>
+                <a href="https://faculdadefilos.jacad.com.br/academico/professor/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Professor</a>
+                <a href="https://ava-faculdadefilos.bashsolutions.com.br/login/index.php" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">AVA</a>
+                <a href="https://faculdadefilos.jacad.com.br/academico/diploma-digital/" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal do Egresso</a>
+              </div>
+            </div>
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav-wrapper">
+      <div class="header-shell">
+        <div class="header-nav header-row">
+          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
+          <div class="header-row__center">
+            <nav id="nav-menu" class="nav-menu" aria-label="Menu principal">
+              <a href="../index.html#inicio" class="nav-link" data-nav="home">Home</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#cursos" class="nav-link" data-nav="cursos">Cursos</a>
+                <div class="dropdown-menu-cursos">
+                  <div class="dropdown-menu-cursos-content">
+                    <!-- Coluna 1: GRADUAÇÃO -->
+                    <div class="dropdown-column dropdown-column--dark">
+                      <h4 class="dropdown-column-title">GRADUAÇÃO</h4>
+                      <ul class="dropdown-list">
+                        <li><a href="direito.html" class="dropdown-item">Direito</a></li>
+                        <li><a href="administracao.html" class="dropdown-item">Administração</a></li>
+                        <li><a href="pedagogia.html" class="dropdown-item">Pedagogia</a></li>
+                        <li><a href="radiologia.html" class="dropdown-item">Radiologia</a></li>
+                      </ul>
+                    </div>
+                    <!-- Coluna 2: PÓS-GRADUAÇÃO -->
+                    <div class="dropdown-column dropdown-column--light">
+                      <h4 class="dropdown-column-title">PÓS - GRADUAÇÃO</h4>
+                      <ul class="dropdown-list">
+                        <li><a href="direito-penal.html" class="dropdown-item">Direito Penal</a></li>
+                        <li><a href="direito-imobiliario.html" class="dropdown-item">Direito Imobiliário</a></li>
+                        <li><a href="gestao-de-operacoes.html" class="dropdown-item">Gestão de Operações 4.0</a></li>
+                        <li><a href="inteligencia-artificial.html" class="dropdown-item">Inteligência Artificial Aplicada aos Negócios</a></li>
+                        <li><a href="docencia-ensino-superior.html" class="dropdown-item">Docência no Ensino Superior</a></li>
+                        <li><a href="ressonancia-magnetica.html" class="dropdown-item">Ressonância Magnética</a></li>
+                        <li><a href="neuropsicopedagogia.html" class="dropdown-item">Neuropsicopedagogia</a></li>
+                      </ul>
+                    </div>
+                    <!-- Coluna 3: CURSOS EXTENSIONISTAS -->
+                    <div class="dropdown-column dropdown-column--light dropdown-column-scrollable">
+                      <h4 class="dropdown-column-title">CURSOS EXTENSIONISTAS</h4>
+                      <div class="dropdown-scroll-wrapper">
+                        <ul class="dropdown-list">
+                          <li><a href="controle-qualidade-imagem.html" class="dropdown-item">Controle de Qualidade de Imagem e Artefatos Médicos</a></li>
+                          <li><a href="vendas-digitais.html" class="dropdown-item">Vendas Digitais (Redes Sociais e WhatsApp)</a></li>
+                          <li><a href="excelencia-atendimento.html" class="dropdown-item">Excelência no Atendimento e Fidelização</a></li>
+                          <li><a href="tecnicas-vendas.html" class="dropdown-item">Técnicas de Vendas e Negociação</a></li>
+                          <li><a href="dominio-ias.html" class="dropdown-item">Domínio das I.As: Criação de Textos e Imagens</a></li>
+                          <li><a href="automacao-pratica.html" class="dropdown-item">Automação Prática sem Programação</a></li>
+                          <li><a href="nocoes-direito-penal.html" class="dropdown-item">Noções de Direito Penal e Segurança Cidadã</a></li>
+                          <li><a href="lei-maria-da-penha.html" class="dropdown-item">Lei Maria da Penha e Proteção à Família</a></li>
+                          <li><a href="introducao-regularizacao-imoveis.html" class="dropdown-item">Introdução à Regularização de Imóveis</a></li>
+                          <li><a href="reurb-na-pratica.html" class="dropdown-item">REURB na Prática (Legalização)</a></li>
+                          <li><a href="biosseguranca-ressonancia.html" class="dropdown-item">Biossegurança em Ressonância</a></li>
+                          <li><a href="anatomia-seccional.html" class="dropdown-item">Anatomia Seccional (Leitura Básica)</a></li>
+                          <li><a href="praticas-inclusao.html" class="dropdown-item">Práticas de Inclusão e Direitos na Educação</a></li>
+                          <li><a href="ferramentas-digitais.html" class="dropdown-item">Ferramentas Digitais e Gamificação</a></li>
+                          <li><a href="oratoria-comunicacao.html" class="dropdown-item">Oratória e Comunicação Assertiva</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="../index.html#inicio" class="nav-link" data-nav="vestibular">Vestibular</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#quem-somos" class="nav-link" data-nav="institucional">Institucional</a>
+                <div class="dropdown-menu-institucional">
+                  <ul class="dropdown-list-vertical">
+                    <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Revista</a></li>
+                    <li><a href="../ouvidoria.html" class="dropdown-item-vertical">Ouvidoria</a></li>
+                    <li><a href="../biblioteca.html" class="dropdown-item-vertical">Biblioteca</a></li>
+                    <li><a href="../cpa.html" class="dropdown-item-vertical">CPA</a></li>
+                  </ul>
+                </div>
+              </div>
+              <a href="../index.html#quem-somos" class="nav-link" data-nav="sobre">Sobre</a>
+              <a href="#" class="nav-link" data-nav="blog">Blog</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#contato" class="nav-link" data-nav="contato">Contato</a>
+                <div class="dropdown-menu-contato">
+                  <ul class="dropdown-list-vertical">
+                    <li><a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Whatsapp</a></li>
+                    <li><a href="tel:6136188111" class="dropdown-item-vertical">Telefone</a></li>
+                    <li><a href="../index.html#contato" class="dropdown-item-vertical">Formulário</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="header-row__side header-row__side--end">
+            <button type="button" class="header-favorites-btn" aria-label="Favoritos">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- COURSE HERO --- -->
+  <section class="course-hero-new" style="background-image: url('../assets/images/bg-classroom-blur.jpg');">
+    <div class="hero-bg-wrapper">
+      <div class="hero-new-overlay"></div>
+      <div class="hero-phi-logo-bg">FILOS</div>
+    </div>
+
+    <div class="container hero-new-container">
+      <div class="hero-new-left">
+        <div class="hero-new-content">
+          <span class="hero-new-subtitle">CURSO SUPERIOR</span>
+          <h1 class="hero-new-title">PEDAGOGIA</h1>
+          <p class="hero-new-desc">Capacitação docente inovadora para atuar na educação infantil e na gestão educacional.</p>
+          <a href="https://wa.me/5561999061757" class="btn-hero-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-new-right">
+        <div class="inscription-card-wrapper">
+          <div class="inscription-card" data-price-card data-price-default="475,55">
+            <h2 class="inscription-card-title">PEDAGOGIA</h2>
+            <div class="inscription-card-divider"></div>
+
+            <div class="inscription-card-switches">
+              <div class="toggle-switch">
+                <input type="checkbox" id="hero-transferencia-pedagogia" checked data-price-toggle data-price="475,55">
+                <label for="hero-transferencia-pedagogia"></label>
+                <span>Transferência Acadêmica</span>
+              </div>
+              <div class="toggle-switch">
+                <input type="checkbox" id="hero-alunos-pedagogia" data-price-toggle data-price="190,22">
+                <label for="hero-alunos-pedagogia"></label>
+                <span>Alunos e Ex Alunos</span>
+              </div>
+            </div>
+
+            <div class="inscription-card-meta-block">
+              <p>Duração de 4 anos | <strong>8 semestres</strong></p>
+              <p>Reconhecido pelo Mec | <strong>Licenciatura</strong></p>
+              <p><strong>Período Noturno</strong> | Presencial</p>
+            </div>
+
+            <div class="inscription-card-discount-block">
+              <p>Início imediato • <strong>Desconto de pontualidade</strong></p>
+            </div>
+
+            <div class="inscription-card-price" data-price-output>
+              475,55
+            </div>
+
+            <a href="https://wa.me/5561999061757" class="btn-card-enroll-now">
+              <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE AGORA
+            </a>
+          </div>
+          <div class="inscription-card-footer-accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- POR QUE CURSAR --- -->
+  <section class="section section-why-admin">
+    <div class="container why-admin-container">
+      <h2 class="why-admin-title">Por que cursar Pedagogia?</h2>
+      <div class="why-admin-text-wrapper">
+        <p>A licenciatura em Pedagogia prepara professores para atuarem na docência da Educação Infantil, séries iniciais do Ensino Fundamental e na coordenação e gestão de espaços escolares públicos e privados.</p>
+        <p>O profissional formado poderá atuar em diversos setores, públicos ou privados, bem como desenvolver atividades de consultoria e empreendedorismo com segurança jurídica e técnica.</p>
+        <p>A formação contempla temas como Didática e Metodologia de Ensino, Psicologia da Aprendizagem, Gestão Democrática e Escolar e Língua Brasileira de Sinais (LIBRAS), conectando teoria e prática de forma objetiva.</p>
+      </div>
+      <p class="why-admin-highlight">Construa sua carreira com uma graduação reconhecida pelo MEC e prepare-se para atuar com segurança em Pedagogia.</p>
+      <a href="https://wa.me/5561999061757" class="btn-why-admin-enroll">
+        <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+      </a>
+    </div>
+  </section>
+
+  <!-- --- DIFERENCIAIS ACADÊMICOS --- -->
+  <section class="section section-diferenciais-admin section-with-bottom-tab" style="--module-bg: #ffffff; z-index: 8;">
+    <div class="container">
+      <div class="diferenciais-header text-center">
+        <h2 class="diferenciais-main-title">DIFERENCIAIS <strong>ACADÊMICOS</strong></h2>
+        <p class="diferenciais-subtitle">Do curso de Pedagogia</p>
+      </div>
+
+      <div class="diferenciais-grid-new">
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Didática e Metodologia de Ensino</h3>
+            <p class="diferencial-card-desc">Aprendizado aplicado à realidade profissional.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Psicologia da Aprendizagem</h3>
+            <p class="diferencial-card-desc">Professores com experiência acadêmica e mercado.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Grade atualizada</h3>
+            <p class="diferencial-card-desc">Conteúdo alinhado às demandas atuais da profissão.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Preparação profissional</h3>
+            <p class="diferencial-card-desc">Foco em empregabilidade e crescimento de carreira.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+      </div>
+
+      <div class="diferenciais-footer-note">
+        <p><strong>Pedagogia na Faculdade Filos.</strong> Formação com atendimento próximo, prática e direcionamento para sua evolução profissional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- MATRIZ CURRICULAR --- -->
+  <section class="section section-matriz-pedagogia">
+    <!-- Marca d'água de fundo -->
+    <div class="matriz-watermark" aria-hidden="true">FILOS</div>
+
+    <div class="container matriz-container">
+      <!-- Lado Esquerdo: Conteúdo e Acordeões -->
+      <div class="matriz-left">
+        <div class="matriz-header">
+          <div class="matriz-icon-phi">Φ</div>
+          <h2 class="matriz-title">MATRIZ <strong>CURRICULAR</strong></h2>
+          <p class="matriz-subtitle">Do curso de pedagogia</p>
+        </div>
+
+        <div class="matriz-accordion">
+          <!-- 1º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>1º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Responsabilidade Social e Meio Ambiente</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Desenvolvimento Pessoal e Profissional</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Leitura e Produção de Texto</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estatística Geral</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Informática Básica</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 2º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>2º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Filosofia e Sociologia da Educação</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>História da Educação</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Psicologia do Desenvolvimento da Educação</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Infância e Educação infantil</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia do Trabalho Científico</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 3º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>3º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Planejamento da Educação</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estrutura e Organização educacional</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Avaliação Educacional</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Recursos Didáticos e Pedagógicos</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia do Ensino da Língua Portuguesa</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 4º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>4º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Teoria e Prática de Alfabetização</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia de Ensino de História</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia do Ensino da Matemática I</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Políticas Educacionais</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia do Ensino da Arte e Lazer</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 5º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>5º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Metodologia de Ensino da Ciência</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Orientação e supervisão escolar</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Estatísticas Aplicadas a Educação</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Literatura Infantil</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estágio Supervisionado I (Educação Infantil e Anos Iniciais do Ensino Fundamental I)</td>
+                    <td class="text-center">120</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 6º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>6º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Educação de Jovens e Adultos</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Língua Brasileira de Sinais (LIBRAS) e Inclusão</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Higiene e saúde</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Currículo e Diversidade</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estágio Supervisionado II (Anos Iniciais do Ensino Fundamental da EJA e Administração Escolar)</td>
+                    <td class="text-center">140</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 7º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>7º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Subsidio para trabalho de conclusão de curso</td>
+                    <td class="text-center">20</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia da Alfabetização</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia do Ensino da Matemática II</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Dificuldade de Aprendizagem</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Gestão Educacional Aplicada</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estagio Supervisionado III (Educação Infantil, Ed. Profissional e Orientação Educacional)</td>
+                    <td class="text-center">140</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 8º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>8º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Trabalho de Conclusão de Curso</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Inclusão e Educação especial</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Letramento e Alfabetização</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia do Ensino da Geografia</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Psicolinguística</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lado Direito: Imagem da Estudante -->
+      <div class="matriz-right">
+        <div class="matriz-student-image-wrapper">
+          <img src="../assets/images/student-pink-isolated.png" alt="Estudante de Pedagogia - Faculdade Filos" class="matriz-student-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão de Inscrição Flutuante Centralizado na Linha de Divisão -->
+    <div class="matriz-footer-cta">
+      <a href="https://wa.me/5561999061757" class="btn-matriz-enroll">
+        <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+      </a>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <img src="../assets/images/logo-faculdade-filos-white.svg" alt="Logo Faculdade Filos" class="logo-svg" style="height: 50px; margin-bottom: 1.5rem;">
+        <p class="footer-description">A Faculdade Filos é referência em ensino superior de qualidade na região de Águas Lindas de Goiás.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Institucional</h4>
+        <ul class="footer-links">
+          <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="../politica-de-cookies.html">Política de Cookies</a></li>
+          <li><a href="../index.html#cursos">Voltar para Cursos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Faculdade Filos. Credenciada pelo MEC.</p>
+    </div>
+  </footer>
+
+  <aside class="floating-sidebar-left" aria-label="Atalhos rápidos">
+    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Instagram Faculdade Filos">
+      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="floating-side-btn floating-side-btn--whatsapp" aria-label="WhatsApp Faculdade Filos">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Facebook Faculdade Filos">
+      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+    </a>
+    <button type="button" class="floating-side-btn" data-floating-search aria-label="Buscar cursos">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    </button>
+    <a href="../index.html#contato" class="floating-side-btn floating-side-btn--circle" data-floating-location aria-label="Localização e contato">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+    </a>
+  </aside>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/5561999061757" target="_blank" class="btn-float btn-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const headers = document.querySelectorAll(".matriz-accordion-header");
+      headers.forEach(header => {
+        header.addEventListener("click", function() {
+          const item = this.parentElement;
+          const content = item.querySelector(".matriz-accordion-content");
+          const isExpanded = this.getAttribute("aria-expanded") === "true";
+          
+          // Toggle estado
+          this.setAttribute("aria-expanded", !isExpanded);
+          item.classList.toggle("active");
+          
+          if (item.classList.contains("active")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } else {
+            content.style.maxHeight = "0";
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="../js/cookies.js"></script>
+  <script src="../js/forms.js"></script>
+  <script src="../js/main.js?v=1.4"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --primary-dark: #041830;      /* Principal dark navy */
+  --primary-medium: #071A33;    /* Secundário dark navy */
+  --primary-light: #081428;     /* Lighter/alternative dark navy */
+  --topbar-bg: #001830;         /* Topbar navy background */
+  
+  --cta-green: #549888;         /* Verde CTA */
+  --cta-green-hover: #4B8E7F;   /* Verde CTA hover */
+  --cta-whatsapp: #25D366;      /* Verde WhatsApp */
+  
+  --bg-light: #F1F1F1;          /* Cinza claro principal */
+  --bg-light-sec: #F4F4F4;      /* Cinza claro secundário */
+  --header-bar-bg: #F2F2F2;     /* Fundo header/menu (referência visual) */
+  --bg-white: #ffffff;          /* Pure white background */
+  
+  --testimonial-card-bg: rgba(56, 72, 88, 0.82); /* Testimonial card bg */
+  --gray-blue: #384858;         /* Cinza-azulado sólido */
+  --star-yellow: #ECE050;       /* Amarelo estrelas */
+  
+  --text-dark: #020813;         /* Texto escuro principal (mais preto) */
+  --text-muted: #1e293b;        /* Texto secundário (mais escuro e legível) */
+  --text-light: #ffffff; /* Texto claro secundário (mais opaco) */
+  --text-white: #ffffff;        /* Pure white text */
+  
+  /* Fonts */
+  --font-title: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  /* Typography Scale (Clamp) */
+  --h1-size: clamp(3rem, 6vw, 5.2rem);
+  --h2-size: clamp(2.4rem, 5vw, 4.2rem);
+  --h3-size: clamp(2rem, 4vw, 3rem);
+  --h4-size: clamp(1.75rem, 3vw, 2.4rem);
+  --h5-size: clamp(1.45rem, 2.2vw, 1.8rem);
+  --h6-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  
+  /* Layout & Containers */
+  --container: min(84vw, 1280px);
+  --container-wide: min(90vw, 1520px);
+  --container-wide-half: min(45vw, 760px);
+  --page-gutter: clamp(24px, 3vw, 64px);
+  --section-padding: clamp(36px, 4vw, 64px);
+  --gap-sm: clamp(0.5rem, 1vw, 0.75rem);
+  --gap-md: clamp(0.75rem, 1.5vw, 1.125rem);
+  --gap-lg: clamp(1.125rem, 2vw, 1.75rem);
+  --gap-xl: clamp(1.75rem, 3vw, 2.75rem);
+
+  /* Legacy Max Widths (Keep for backward compatibility during transition) */
+  --max-width: var(--container);
+  --max-width-wide: var(--container-wide);
+  
+  /* Header */
+  --header-height: 148px;
+  --header-max-width: var(--container-wide);
+  --header-padding-x: var(--page-gutter);
+  --header-gutter-side: clamp(0.875rem, 1.75vw, 1.375rem);
+  --header-nav-gap: clamp(2.25rem, 3.5vw, 4rem);
+  
+  /* Border Radius */
+  --radius-sm: clamp(8px, 1vw, 12px);
+  --radius-md: clamp(16px, 2vw, 24px);
+  --radius-lg: clamp(24px, 3vw, 40px);
+  --radius-card-large: clamp(32px, 4vw, 56px);    /* Cards de cursos */
+  --radius-section-faq: clamp(40px, 5vw, 80px);   /* Painel FAQ */
+  --radius-full: 999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}

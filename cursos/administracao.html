@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administração | Faculdade Filos</title>
+  <meta name="description" content="Curso de Administração na Faculdade Filos em Águas Lindas de Goiás. Prepare-se para liderar e gerenciar organizações com excelência e visão empreendedora.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css?v=5.0">
+  <link rel="stylesheet" href="../css/global.css?v=5.0">
+  <link rel="stylesheet" href="../css/components.css?v=5.36">
+  <link rel="stylesheet" href="../css/pages.css?v=1.2">
+  <link rel="stylesheet" href="../css/responsive.css?v=5.20">
+  <style>
+    :root {
+      --container: min(94vw, 1720px);
+      --container-wide: min(96vw, 1840px);
+      --page-gutter: clamp(16px, 2.5vw, 40px);
+    }
+
+    /* Estilos Customizados Premium para o Curso de Administração */
+    .course-hero-new {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--text-white);
+      padding: clamp(3.4rem, 5.7vw, 6rem) 0 clamp(4.8rem, 7.5vw, 7.8rem) 0;
+      z-index: 10;
+    }
+
+    .hero-bg-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero-new-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(7, 22, 44, 0.8) 0%, rgba(2, 6, 13, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-phi-logo-bg {
+      position: absolute;
+      right: -10vw;
+      top: -5rem;
+      font-family: var(--font-title), sans-serif;
+      font-size: clamp(20rem, 45vw, 55rem);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.015);
+      line-height: 0.8;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+      z-index: 2;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .hero-new-container {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 0.86fr);
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+      max-width: min(88vw, 1540px);
+      width: min(100% - (var(--page-gutter) * 2), 1540px);
+      margin-inline: auto;
+    }
+
+    .hero-new-left {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .hero-social-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    .social-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--bg-white);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: all var(--transition-fast);
+      border: none;
+      cursor: pointer;
+    }
+
+    .social-circle:hover {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      transform: scale(1.1);
+    }
+
+    .hero-new-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: clamp(1rem, 1.5vw, 1.35rem);
+      max-width: 640px;
+    }
+
+    .hero-new-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 1.55vw, 1.45rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.95);
+      text-transform: uppercase;
+    }
+
+    .hero-new-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.75rem, 4.6vw, 4.35rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--text-white);
+    }
+
+    .hero-new-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 1.55vw, 1.45rem);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-hero-enroll {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      border-radius: 50px;
+      padding: 0.85rem 2.1rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(84, 152, 136, 0.3);
+    }
+
+    .btn-hero-enroll:hover {
+      background-color: var(--cta-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(84, 152, 136, 0.4);
+    }
+
+    /* Wrapper do Card de inscrição flutuante */
+    .inscription-card-wrapper {
+      position: relative;
+      width: 100%;
+      z-index: 10;
+      margin-bottom: -6.25rem;
+    }
+
+    /* Card de inscrição flutuante */
+    .inscription-card {
+      background-color: #e5e7e9;
+      border-radius: 34px;
+      padding: clamp(2rem, 2.75vw, 3rem) clamp(2.25rem, 3.1vw, 3.4rem);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      overflow: visible;
+      border: none;
+      max-width: 640px;
+      width: 100%;
+      min-width: 420px;
+      z-index: 2;
+    }
+
+    .inscription-card-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.7rem, 2.35vw, 2.7rem);
+      font-weight: 800;
+      color: #0d1e34;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.15rem;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+
+    .inscription-card-divider {
+      width: 100%;
+      height: 1px;
+      background-color: #0d1e34;
+      opacity: 0.4;
+      margin-bottom: 0.35rem;
+    }
+
+    .inscription-card-switches {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(0.75rem, 1.3vw, 1.35rem);
+    }
+
+    /* Switches de Toggle */
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .toggle-switch input {
+      display: none;
+    }
+
+    .toggle-switch label {
+      width: clamp(28px, 2vw, 34px);
+      height: clamp(14px, 1vw, 17px);
+      background-color: #6a7482; /* Off state color */
+      border-radius: 999px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch label::after {
+      content: '';
+      width: calc(clamp(14px, 1vw, 17px) - 4px);
+      height: calc(clamp(14px, 1vw, 17px) - 4px);
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+
+    .toggle-switch input:checked + label {
+      background-color: #0d1e34; /* Dark color */
+    }
+
+    .toggle-switch input:checked + label::after {
+      transform: translateX(calc(clamp(28px, 2vw, 34px) - clamp(14px, 1vw, 17px)));
+    }
+
+    .toggle-switch span {
+      font-family: var(--font-body);
+      font-size: clamp(0.78rem, 0.9vw, 0.95rem);
+      font-weight: 500;
+      color: #0d1e34;
+      white-space: nowrap;
+    }
+
+    /* Blocos cinzas */
+    .inscription-card-meta-block,
+    .inscription-card-discount-block {
+      background-color: #8c98a5;
+      border-radius: 18px;
+      padding: 1.1rem 1.45rem;
+      color: var(--text-white);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    .inscription-card-meta-block p {
+      margin: 0;
+      font-family: var(--font-title);
+      font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+    }
+
+    .inscription-card-meta-block p strong {
+      font-weight: 700;
+    }
+
+    .inscription-card-discount-block {
+      padding: 1.1rem 1.45rem;
+    }
+
+    .inscription-card-discount-block p {
+      margin: 0;
+      font-family: var(--font-title);
+      font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+    }
+
+    .inscription-card-discount-block p strong {
+      font-weight: 700;
+    }
+
+    /* Preço */
+    .inscription-card-price {
+      font-family: var(--font-title);
+      font-size: clamp(3.3rem, 4.85vw, 5.35rem);
+      font-weight: 800;
+      color: #0d1e34;
+      text-align: center;
+      line-height: 1;
+      margin: 0.65rem 0 0.55rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* Botão do Card */
+    .btn-card-enroll-now {
+      background-color: #21844b;
+      color: var(--text-white);
+      border-radius: 50px;
+      padding: 1rem 1.65rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: clamp(1.1rem, 1.5vw, 1.55rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(33, 132, 75, 0.3);
+      width: 100%;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-card-enroll-now:hover {
+      background-color: #166534;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(21, 128, 61, 0.4);
+    }
+
+    /* Faixa escura tridimensional na base do card */
+    .inscription-card-footer-accent {
+      position: absolute;
+      bottom: -24px;
+      left: 7%;
+      width: 86%;
+      height: 88px;
+      background-color: #0a1728; /* Mais escuro */
+      border-radius: 0 0 36px 36px; /* Apenas cantos inferiores arredondados */
+      z-index: 1;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Seção Por Que Cursar */
+    .section-why-admin {
+      position: relative;
+      z-index: 5;
+      background-color: #f2f4f6;
+      padding: clamp(6rem, 8vw, 8rem) 0 clamp(3.5rem, 5vw, 5rem) 0;
+    }
+
+    .why-admin-container {
+      width: min(100% - (var(--page-gutter) * 2), var(--container));
+      max-width: var(--container);
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.45rem;
+    }
+
+    .why-admin-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.1rem, 3.25vw, 2.9rem);
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .why-admin-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 1180px;
+      width: 100%;
+    }
+
+    .why-admin-text-wrapper p {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.08vw, 1.18rem);
+      line-height: 1.65;
+      color: var(--text-muted);
+      text-align: left;
+      max-width: 100%;
+    }
+
+    .why-admin-highlight {
+      font-family: var(--font-body);
+      font-size: clamp(1.18rem, 1.35vw, 1.45rem);
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.5;
+      margin: 1rem 0;
+      max-width: 1180px;
+      width: 100%;
+    }
+
+    .btn-why-admin-enroll {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      border-radius: 50px;
+      padding: 0.85rem 2.2rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.15rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(84, 152, 136, 0.3);
+    }
+
+    .btn-why-admin-enroll:hover {
+      background-color: var(--cta-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(84, 152, 136, 0.4);
+    }
+
+    /* Seção Diferenciais Acadêmicos */
+    .section-diferenciais-admin {
+      background: linear-gradient(to bottom, #f2f4f6 390px, #ffffff 390px);
+      padding: clamp(3rem, 4.8vw, 4.75rem) 0;
+    }
+
+    @media (min-width: 901px) {
+      .section-diferenciais-admin {
+        background: linear-gradient(to bottom, #f2f4f6 55%, #ffffff 55%);
+      }
+    }
+
+    .diferenciais-footer-note {
+      margin-top: clamp(4rem, 6vw, 6rem);
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+      padding: 0 1rem;
+    }
+
+    .diferenciais-footer-note p {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.85vw, 1.7rem);
+      line-height: 1.6;
+      color: var(--primary-dark);
+      margin: 0;
+      text-align: center;
+    }
+
+    .diferenciais-footer-note p strong {
+      font-weight: 700;
+    }
+
+    /* Ajuste para deslocar a aba curvada de transição para a direita */
+    .section-diferenciais-admin::after {
+      left: auto !important;
+      right: 3% !important;
+      transform: none !important;
+    }
+
+    /* Impede a quebra ou hifenação no meio de palavras */
+    .why-admin-text-wrapper p,
+    .why-admin-highlight,
+    .diferenciais-footer-note p,
+    .diferencial-card-desc,
+    .diferencial-card-title {
+      word-break: keep-all;
+      hyphens: none;
+    }
+
+    .diferenciais-header {
+      margin-bottom: 3rem;
+    }
+
+    .diferenciais-main-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.1rem, 3.4vw, 3rem);
+      font-weight: 300;
+      color: var(--primary-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .diferenciais-main-title strong {
+      font-weight: 800;
+    }
+
+    .diferenciais-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .diferenciais-grid-new {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .diferencial-card-new {
+      background-color: #07162c; /* Azul escuro/preto correspondente ao print */
+      border-radius: 34px;
+      padding: 2.35rem 1.7rem 2.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative; /* Possibilita posicionar o botão absolutamente na base */
+      min-height: 330px;
+      transition: all var(--transition-normal);
+      box-shadow: 0 10px 30px rgba(7, 22, 44, 0.15);
+    }
+
+    .diferencial-card-new:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(7, 22, 44, 0.35);
+    }
+
+    .diferencial-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .diferencial-card-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.45rem, 2.05vw, 2rem);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.15;
+    }
+
+    .diferencial-card-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+      line-height: 1.45;
+      color: #ffffff; /* Branco puro para maior contraste */
+      font-weight: 500;
+      margin-top: 2rem;
+    }
+
+    .btn-diferencial-enroll {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      border-radius: 50px;
+      padding: 0.72rem 1.7rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(7, 22, 44, 0.2);
+      z-index: 2;
+    }
+
+    .btn-diferencial-enroll:hover {
+      background-color: var(--cta-green-hover);
+      transform: translateX(-50%) translateY(-2px); /* Mantém o alinhamento horizontal ao flutuar */
+      box-shadow: 0 6px 15px rgba(84, 152, 136, 0.4);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1024px) {
+      .hero-new-container {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+      }
+      .diferenciais-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-new-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .hero-new-left {
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+      }
+      .hero-social-sidebar {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+      }
+      .hero-new-content {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+      }
+      .why-admin-container {
+        align-items: center;
+        margin-inline: auto;
+      }
+      .why-admin-text-wrapper p {
+        text-align: center;
+      }
+      .why-admin-highlight {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .diferenciais-grid-new {
+        grid-template-columns: 1fr;
+      }
+      .diferencial-card-new {
+        min-height: auto;
+        gap: 2.5rem;
+      }
+      .course-hero-new {
+        padding-bottom: 4rem;
+      }
+      .inscription-card-wrapper {
+        margin-bottom: -5rem;
+      }
+      .inscription-card {
+        min-width: unset;
+        padding: 1.5rem 1.35rem;
+        gap: 0.95rem;
+        border-radius: 30px;
+      }
+      .inscription-card-title {
+        font-size: 1.5rem;
+      }
+      .inscription-card-price {
+        font-size: 3rem;
+      }
+      .btn-card-enroll-now {
+        padding: 0.85rem 1rem;
+        font-size: 1rem;
+      }
+      .inscription-card-switches {
+        gap: 0.7rem;
+      }
+    }
+
+    /* --- ESTILOS SEÇÃO MATRIZ CURRICULAR --- */
+    .section-matriz-admin {
+      position: relative;
+      background-color: #07162c; /* Azul escuro premium */
+      padding: clamp(4rem, 7vw, 7rem) 0 clamp(4rem, 7vw, 7rem) 0;
+      /* Permite a sobreposição vertical da estudante na base e impede scroll horizontal */
+      overflow: visible;
+      overflow-x: clip;
+      z-index: 7;
+    }
+
+    .matriz-watermark {
+      position: absolute;
+      left: 42%; /* Ajustado para o vão central maior */
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transform-origin: center;
+      font-family: var(--font-title);
+      font-size: clamp(14rem, 24vw, 30rem);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.15); /* Mais visível */
+      pointer-events: none;
+      z-index: 1;
+      user-select: none;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .matriz-container {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr; /* Mais espaço para os acordeões, menos para a estudante */
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: center;
+      max-width: var(--container-wide);
+      width: min(100% - 2 * var(--page-gutter), var(--container-wide));
+    }
+
+    .matriz-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+    }
+
+    .matriz-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .matriz-icon-phi {
+      font-family: var(--font-title), serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--text-white);
+      line-height: 1;
+    }
+
+    .matriz-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.35rem, 3.8vw, 3.4rem);
+      font-weight: 300;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .matriz-title strong {
+      font-weight: 800;
+    }
+
+    .matriz-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.35rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      font-weight: 700; /* Mais encorpado */
+      letter-spacing: 0.5px;
+    }
+
+    .matriz-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      width: 100%;
+    }
+
+    .matriz-accordion-item {
+      background-color: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all var(--transition-normal);
+      overflow: hidden;
+    }
+
+    .matriz-accordion-item:hover {
+      background-color: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .matriz-accordion-header {
+      width: 100%;
+      padding: 1.25rem 1.7rem;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-white);
+      font-family: var(--font-title);
+      font-size: 1.45rem;
+      font-weight: 700;
+      text-align: left;
+      transition: all var(--transition-fast);
+      letter-spacing: 0.05em;
+    }
+
+    .accordion-icon {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .matriz-accordion-item.active {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .matriz-accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+      color: var(--text-white);
+    }
+
+    .matriz-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+      padding: 0 1.5rem;
+    }
+
+    .matriz-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #ffffff; /* Branco puro para alto contraste */
+      font-family: var(--font-body);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .matriz-table th {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85); /* Tom mais claro para melhor legibilidade */
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.25); /* Linha divisória mais evidente */
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    .matriz-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Linha mais nítida */
+      text-align: left;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .matriz-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matriz-table .text-center {
+      text-align: center;
+      width: 80px;
+    }
+
+    .matriz-download {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--font-body);
+      font-size: 1.85rem; /* Download proporcional ao 32px */
+    }
+
+    .matriz-download p strong {
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .btn-download-matriz {
+      width: 60px; /* Aumentado */
+      height: 60px; /* Aumentado */
+      border-radius: 50%;
+      background-color: var(--text-white);
+      color: #07162c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.8rem; /* Aumentado */
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-download-matriz:hover {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      transform: scale(1.1);
+      box-shadow: 0 6px 18px rgba(84, 152, 136, 0.4);
+    }
+
+    .matriz-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .matriz-student-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      /* Faz a imagem sobrepor o fundo azul da seção descendo para a base em telas grandes e desloca mais para a direita */
+      transform: translate(9rem, 90px);
+      margin-bottom: -90px;
+    }
+
+    .matriz-student-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+      /* Adiciona sombra projetada que respeita a transparência recortada da imagem */
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+    }
+
+    .matriz-student-image-wrapper:hover .matriz-student-img {
+      transform: scale(1.03);
+    }
+
+    .matriz-footer-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 5rem;
+      position: relative;
+      z-index: 10;
+      margin-bottom: -8rem;
+    }
+
+    .btn-matriz-enroll {
+      background-color: var(--cta-green);
+      color: var(--text-white);
+      border-radius: 50px;
+      padding: 0.9rem 2.4rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 15px rgba(84, 152, 136, 0.4);
+      letter-spacing: 0.05em;
+    }
+
+    .btn-matriz-enroll:hover {
+      background-color: var(--cta-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(84, 152, 136, 0.55);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1024px) {
+      .matriz-student-image-wrapper {
+        transform: none;
+        margin-bottom: 0;
+      }
+      .matriz-footer-cta {
+        margin-top: 4.5rem;
+      }
+      .matriz-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .matriz-watermark {
+        display: none;
+      }
+      .matriz-right {
+        order: 2;
+      }
+      .matriz-left {
+        order: 1;
+      }
+      .matriz-header {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+      .matriz-download {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+                                <header class="site-header" id="site-header">
+    <div class="header-top-wrapper">
+      <div class="header-shell">
+        <div class="header-top header-row">
+          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
+          <div class="header-row__center">
+            <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial da Faculdade Filos">
+              <img src="../assets/images/logo-filos-oficial.png" alt="Faculdade Filos" class="site-logo-img" width="332" height="112">
+            </a>
+          </div>
+          <div class="header-row__side header-row__side--end">
+            <div class="header-login-container">
+              <a href="#" class="header-login" id="login-menu-toggle" aria-expanded="false" aria-haspopup="true">
+                Login / Cadastrar <i class="fa-solid fa-chevron-down dropdown-chevron" style="font-size: 0.7rem; margin-left: 0.4rem; transition: transform 0.2s ease;"></i>
+              </a>
+              <div class="login-dropdown-menu" id="login-dropdown" aria-label="Opções de Login">
+                <a href="https://faculdadefilos.jacad.com.br/academico/aluno-v2/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Aluno</a>
+                <a href="https://faculdadefilos.jacad.com.br/academico/professor/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Professor</a>
+                <a href="https://ava-faculdadefilos.bashsolutions.com.br/login/index.php" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">AVA</a>
+                <a href="https://faculdadefilos.jacad.com.br/academico/diploma-digital/" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal do Egresso</a>
+              </div>
+            </div>
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav-wrapper">
+      <div class="header-shell">
+        <div class="header-nav header-row">
+          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
+          <div class="header-row__center">
+            <nav id="nav-menu" class="nav-menu" aria-label="Menu principal">
+              <a href="../index.html#inicio" class="nav-link" data-nav="home">Home</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#cursos" class="nav-link" data-nav="cursos">Cursos</a>
+                <div class="dropdown-menu-cursos">
+                  <div class="dropdown-menu-cursos-content">
+                    <!-- Coluna 1: GRADUAÇÃO -->
+                    <div class="dropdown-column dropdown-column--dark">
+                      <h4 class="dropdown-column-title">GRADUAÇÃO</h4>
+                      <ul class="dropdown-list">
+                        <li><a href="direito.html" class="dropdown-item">Direito</a></li>
+                        <li><a href="administracao.html" class="dropdown-item">Administração</a></li>
+                        <li><a href="pedagogia.html" class="dropdown-item">Pedagogia</a></li>
+                        <li><a href="radiologia.html" class="dropdown-item">Radiologia</a></li>
+                      </ul>
+                    </div>
+                    <!-- Coluna 2: PÓS-GRADUAÇÃO -->
+                    <div class="dropdown-column dropdown-column--light">
+                      <h4 class="dropdown-column-title">PÓS - GRADUAÇÃO</h4>
+                      <ul class="dropdown-list">
+                        <li><a href="direito-penal.html" class="dropdown-item">Direito Penal</a></li>
+                        <li><a href="direito-imobiliario.html" class="dropdown-item">Direito Imobiliário</a></li>
+                        <li><a href="gestao-de-operacoes.html" class="dropdown-item">Gestão de Operações 4.0</a></li>
+                        <li><a href="inteligencia-artificial.html" class="dropdown-item">Inteligência Artificial Aplicada aos Negócios</a></li>
+                        <li><a href="docencia-ensino-superior.html" class="dropdown-item">Docência no Ensino Superior</a></li>
+                        <li><a href="ressonancia-magnetica.html" class="dropdown-item">Ressonância Magnética</a></li>
+                        <li><a href="neuropsicopedagogia.html" class="dropdown-item">Neuropsicopedagogia</a></li>
+                      </ul>
+                    </div>
+                    <!-- Coluna 3: CURSOS EXTENSIONISTAS -->
+                    <div class="dropdown-column dropdown-column--light dropdown-column-scrollable">
+                      <h4 class="dropdown-column-title">CURSOS EXTENSIONISTAS</h4>
+                      <div class="dropdown-scroll-wrapper">
+                        <ul class="dropdown-list">
+                          <li><a href="controle-qualidade-imagem.html" class="dropdown-item">Controle de Qualidade de Imagem e Artefatos Médicos</a></li>
+                          <li><a href="vendas-digitais.html" class="dropdown-item">Vendas Digitais (Redes Sociais e WhatsApp)</a></li>
+                          <li><a href="excelencia-atendimento.html" class="dropdown-item">Excelência no Atendimento e Fidelização</a></li>
+                          <li><a href="tecnicas-vendas.html" class="dropdown-item">Técnicas de Vendas e Negociação</a></li>
+                          <li><a href="dominio-ias.html" class="dropdown-item">Domínio das I.As: Criação de Textos e Imagens</a></li>
+                          <li><a href="automacao-pratica.html" class="dropdown-item">Automação Prática sem Programação</a></li>
+                          <li><a href="nocoes-direito-penal.html" class="dropdown-item">Noções de Direito Penal e Segurança Cidadã</a></li>
+                          <li><a href="lei-maria-da-penha.html" class="dropdown-item">Lei Maria da Penha e Proteção à Família</a></li>
+                          <li><a href="introducao-regularizacao-imoveis.html" class="dropdown-item">Introdução à Regularização de Imóveis</a></li>
+                          <li><a href="reurb-na-pratica.html" class="dropdown-item">REURB na Prática (Legalização)</a></li>
+                          <li><a href="biosseguranca-ressonancia.html" class="dropdown-item">Biossegurança em Ressonância</a></li>
+                          <li><a href="anatomia-seccional.html" class="dropdown-item">Anatomia Seccional (Leitura Básica)</a></li>
+                          <li><a href="praticas-inclusao.html" class="dropdown-item">Práticas de Inclusão e Direitos na Educação</a></li>
+                          <li><a href="ferramentas-digitais.html" class="dropdown-item">Ferramentas Digitais e Gamificação</a></li>
+                          <li><a href="oratoria-comunicacao.html" class="dropdown-item">Oratória e Comunicação Assertiva</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="../index.html#inicio" class="nav-link" data-nav="vestibular">Vestibular</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#quem-somos" class="nav-link" data-nav="institucional">Institucional</a>
+                <div class="dropdown-menu-institucional">
+                  <ul class="dropdown-list-vertical">
+                    <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Revista</a></li>
+                    <li><a href="../ouvidoria.html" class="dropdown-item-vertical">Ouvidoria</a></li>
+                    <li><a href="../biblioteca.html" class="dropdown-item-vertical">Biblioteca</a></li>
+                    <li><a href="../cpa.html" class="dropdown-item-vertical">CPA</a></li>
+                  </ul>
+                </div>
+              </div>
+              <a href="../index.html#quem-somos" class="nav-link" data-nav="sobre">Sobre</a>
+              <a href="#" class="nav-link" data-nav="blog">Blog</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#contato" class="nav-link" data-nav="contato">Contato</a>
+                <div class="dropdown-menu-contato">
+                  <ul class="dropdown-list-vertical">
+                    <li><a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Whatsapp</a></li>
+                    <li><a href="tel:6136188111" class="dropdown-item-vertical">Telefone</a></li>
+                    <li><a href="../index.html#contato" class="dropdown-item-vertical">Formulário</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="header-row__side header-row__side--end">
+            <button type="button" class="header-favorites-btn" aria-label="Favoritos">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- COURSE HERO --- -->
+  <section class="course-hero-new" style="background-image: url('../assets/images/bg-classroom-blur.jpg');">
+    <div class="hero-bg-wrapper">
+    <div class="hero-new-overlay"></div>
+    <div class="hero-phi-logo-bg">FILOS</div>
+  </div>
+    
+    <div class="container hero-new-container">
+      
+      <!-- Lado esquerdo: Conteúdo -->
+      <div class="hero-new-left">
+        <!-- Conteúdo do Hero -->
+        <div class="hero-new-content">
+          <span class="hero-new-subtitle">CURSO SUPERIOR</span>
+          <h1 class="hero-new-title">ADMINISTRAÇÃO</h1>
+          <p class="hero-new-desc">Invista em uma graduação reconhecida pelo MEC e prepare-se para atuar no mercado com formação prática e visão estratégica.</p>
+          <a href="https://wa.me/5561999061757" class="btn-hero-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+      </div>
+      
+      <!-- Lado direito: Card de Inscrição -->
+      <div class="hero-new-right">
+        <div class="inscription-card-wrapper">
+          <div class="inscription-card" data-price-card data-price-default="535,00">
+            <h2 class="inscription-card-title" style="white-space: nowrap; word-break: keep-all;">ADMINISTRAÇÃO</h2>
+            <div class="inscription-card-divider"></div>
+            
+            <div class="inscription-card-switches">
+              <div class="toggle-switch">
+                <input type="checkbox" id="switch-transferencia" checked data-price-toggle data-price="535,00">
+                <label for="switch-transferencia"></label>
+                <span>Transferência Acadêmica</span>
+              </div>
+              <div class="toggle-switch">
+                <input type="checkbox" id="switch-alunos" data-price-toggle data-price="297,30">
+                <label for="switch-alunos"></label>
+                <span>Alunos e Ex Alunos</span>
+              </div>
+            </div>
+            
+            <!-- Bloco 1: Metadados do curso -->
+            <div class="inscription-card-meta-block">
+              <p>Duração de 4 anos | <strong>8 semestres</strong></p>
+              <p>Reconhecido pelo Mec | <strong>Bacharelado</strong></p>
+              <p><strong>Período Noturno</strong> | Presencial</p>
+            </div>
+            
+            <!-- Bloco 2: Desconto -->
+            <div class="inscription-card-discount-block">
+              <p>Início imediato • <strong>Desconto de pontualidade</strong></p>
+            </div>
+            
+            <!-- Preço -->
+            <div class="inscription-card-price" data-price-output>
+              535,00
+            </div>
+            
+            <!-- Botão -->
+            <a href="https://wa.me/5561999061757" class="btn-card-enroll-now">
+              <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE AGORA
+            </a>
+          </div>
+          
+          <!-- Base decorativa tridimensional -->
+          <div class="inscription-card-footer-accent"></div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- --- POR QUE CURSAR --- -->
+  <section class="section section-why-admin">
+    <div class="container why-admin-container">
+      <h2 class="why-admin-title">Por que cursar Administração?</h2>
+      <div class="why-admin-text-wrapper">
+        <p>O curso de Administração da Faculdade Filos em Águas Lindas de Goiás foi desenvolvido para formar profissionais preparados para atuar de forma estratégica em empresas públicas, privadas e no próprio negócio, desenvolvendo competências essenciais em gestão empresarial, liderança, finanças, marketing, logística, empreendedorismo, inovação e tomada de decisões. Ao longo da graduação, o aluno constrói uma visão analítica e estratégica, aprendendo a gerenciar processos, equipes, recursos financeiros e oportunidades de crescimento organizacional em um mercado cada vez mais competitivo.</p>
+        <p>Com uma formação moderna e conectada às demandas atuais, a graduação em Administração proporciona conhecimento técnico e desenvolvimento comportamental para atuação em áreas como recursos humanos, gestão financeira, consultoria, administração pública, logística, marketing, planejamento estratégico e gestão de negócios. Além da base teórica sólida, o aluno vivencia uma formação aplicada por meio de atividades acadêmicas práticas, projetos integradores, estágio supervisionado, visitas técnicas e desenvolvimento de projetos reais, aproximando teoria e prática e ampliando sua preparação para o mercado de trabalho.</p>
+        <p>A matriz curricular também acompanha as transformações do cenário empresarial atual, incluindo disciplinas voltadas para gestão ágil de projetos, startups, inteligência artificial, transformação digital, big data, inovação e administração estratégica, preparando profissionais mais atualizados, competitivos e alinhados às exigências do mercado contemporâneo.</p>
+      </div>
+      <p class="why-admin-highlight">Construa sua carreira com uma graduação reconhecida pelo MEC e prepare-se para liderar negócios, equipes e oportunidades.</p>
+      <a href="https://wa.me/5561999061757" class="btn-why-admin-enroll">
+        <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+      </a>
+    </div>
+  </section>
+
+  <!-- --- DIFERENCIAIS ACADÊMICOS --- -->
+  <section class="section section-diferenciais-admin section-with-bottom-tab" style="--module-bg: #ffffff; z-index: 8;">
+    <div class="container">
+      <div class="diferenciais-header text-center">
+        <h2 class="diferenciais-main-title">DIFERENCIAIS <strong>ACADÊMICOS</strong></h2>
+        <p class="diferenciais-subtitle">Do curso de administração</p>
+      </div>
+      
+      <div class="diferenciais-grid-new">
+        <!-- Card 1 -->
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Formação prática</h3>
+            <p class="diferencial-card-desc">Aprendizado aplicado à realidade empresarial.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Corpo docente qualificado</h3>
+            <p class="diferencial-card-desc">Professores com experiência acadêmica e mercado.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Grade atualizada</h3>
+            <p class="diferencial-card-desc">Inclui inovação, IA, startups e transformação digital.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Preparação profissional</h3>
+            <p class="diferencial-card-desc">Foco em empregabilidade e crescimento de carreira.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+      </div>
+      
+      <div class="diferenciais-footer-note">
+        <p><strong>Graduação em Administração reconhecida pelo MEC em Águas Lindas de Goiás.</strong> Aulas noturnas, formação prática e vestibular aberto. <span style="white-space: nowrap;">Inscreva-se.</span></p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- --- MATRIZ CURRICULAR --- -->
+  <section class="section section-matriz-admin">
+    <!-- Marca d'água de fundo -->
+    <div class="matriz-watermark" aria-hidden="true">FILOS</div>
+
+    <div class="container matriz-container">
+      <!-- Lado Esquerdo: Conteúdo e Acordeões -->
+      <div class="matriz-left">
+        <div class="matriz-header">
+          <div class="matriz-icon-phi">Φ</div>
+          <h2 class="matriz-title">MATRIZ <strong>CURRICULAR</strong></h2>
+          <p class="matriz-subtitle">Do curso de administração</p>
+        </div>
+
+        <div class="matriz-accordion">
+          <!-- 1º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>1º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Responsabilidade Social e Meio Ambiente</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Desenvolvimento Pessoal e Profissional</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Leitura e Produção de Texto</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estatística Geral</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Informática Básica</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 2º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>2º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Matemática Aplicada</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Contabilidade Geral</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Ética, Filosofia e Ciências Humanas</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Teoria Contemporânea da Administração</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Metodologia do Trabalho Científico</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 3º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>3º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Empreendedorismo, Criatividade, Motivação</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Psicologia e Comportamento Organizacional</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Matemática Comercial e Financeira</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estrutura e Análise das Demandas Financeiras</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Direito Público e Privado</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 4º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>4º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Inteligência Artificial e Ruptura Digital</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Gestão de Pessoas e Subsistemas I</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Direito, Legislação Tributária e Trabalhista</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Administração Financeira e Orçamentária I</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estatística Aplicada à Administração</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 5º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>5º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Gestão de Pessoas e Subsistemas II</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                  <tr>
+                    <td>Administração Financeira e Orçamentária II</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Design Thinking Inovação nos Modelos de Negócios</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Gestão de Suprimento e Logística</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Análise Gerencial de Custos</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 6º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>6º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Gestão Ágil de Projetos e Startups</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Estágio Supervisionado I</td>
+                    <td class="text-center">150</td>
+                  </tr>
+                  <tr>
+                    <td>Administração da Produção</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Economia e Mercados</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Princípios de Marketing e e-commerce</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 7º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>7º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Estágio Supervisionado II</td>
+                    <td class="text-center">150</td>
+                  </tr>
+                  <tr>
+                    <td>Trabalho de Conclusão de Curso I</td>
+                    <td class="text-center">100</td>
+                  </tr>
+                  <tr>
+                    <td>Negociação e Mediação de Conflitos</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Big Data e Transformação Digital nos Negócios</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Jogos de Empresa</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 8º Semestre -->
+          <div class="matriz-accordion-item">
+            <button class="matriz-accordion-header" aria-expanded="false">
+              <span>8º SEMESTRE</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="matriz-accordion-content">
+              <table class="matriz-table">
+                <thead>
+                  <tr>
+                    <th>DISCIPLINA</th>
+                    <th class="text-center">H/A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Sistemas de Informações Gerenciais</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Trabalho de Conclusão de Curso II</td>
+                    <td class="text-center">100</td>
+                  </tr>
+                  <tr>
+                    <td>Administração de Serviços</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Tópicos Avançados em Administração</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Administração Estratégica</td>
+                    <td class="text-center">60</td>
+                  </tr>
+                  <tr>
+                    <td>Libras</td>
+                    <td class="text-center">80</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lado Direito: Imagem da Estudante -->
+      <div class="matriz-right">
+        <div class="matriz-student-image-wrapper">
+          <img src="../assets/images/student-pink-isolated.png" alt="Estudante de Administração - Faculdade Filos" class="matriz-student-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão de Inscrição Flutuante Centralizado na Linha de Divisão -->
+    <div class="matriz-footer-cta">
+      <a href="https://wa.me/5561999061757" class="btn-matriz-enroll">
+        <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+      </a>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <img src="../assets/images/logo-faculdade-filos-white.svg" alt="Logo Faculdade Filos" class="logo-svg" style="height: 50px; margin-bottom: 1.5rem;">
+        <p class="footer-description">A Faculdade Filos é referência em ensino superior de qualidade na região de Águas Lindas de Goiás.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Institucional</h4>
+        <ul class="footer-links">
+          <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="../politica-de-cookies.html">Política de Cookies</a></li>
+          <li><a href="../index.html#cursos">Voltar para Cursos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Faculdade Filos. Credenciada pelo MEC.</p>
+    </div>
+  </footer>
+
+  <aside class="floating-sidebar-left" aria-label="Atalhos rápidos">
+    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Instagram Faculdade Filos">
+      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="floating-side-btn floating-side-btn--whatsapp" aria-label="WhatsApp Faculdade Filos">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Facebook Faculdade Filos">
+      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+    </a>
+    <button type="button" class="floating-side-btn" data-floating-search aria-label="Buscar cursos">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    </button>
+    <a href="../index.html#contato" class="floating-side-btn floating-side-btn--circle" data-floating-location aria-label="Localização e contato">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+    </a>
+  </aside>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="btn-float btn-whatsapp" aria-label="WhatsApp Faculdade Filos"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const headers = document.querySelectorAll(".matriz-accordion-header");
+      headers.forEach(header => {
+        header.addEventListener("click", function() {
+          const item = this.parentElement;
+          const content = item.querySelector(".matriz-accordion-content");
+          const isExpanded = this.getAttribute("aria-expanded") === "true";
+          
+          // Toggle estado
+          this.setAttribute("aria-expanded", !isExpanded);
+          item.classList.toggle("active");
+          
+          if (item.classList.contains("active")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } else {
+            content.style.maxHeight = "0";
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="../js/cookies.js"></script>
+  <script src="../js/forms.js"></script>
+  <script src="../js/main.js?v=1.4"></script>
+</body>
+</html>

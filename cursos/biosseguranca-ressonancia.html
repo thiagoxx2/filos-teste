@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biossegurança em Ressonância | Faculdade Filos</title>
+  <meta name="description" content="Foco total em segurança e biossegurança física e operacional para operadores e pacientes em ambientes de Ressonância Magnética.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css?v=5.0">
+  <link rel="stylesheet" href="../css/global.css?v=5.0">
+  <link rel="stylesheet" href="../css/components.css?v=5.36">
+  <link rel="stylesheet" href="../css/pages.css?v=1.2">
+  <link rel="stylesheet" href="../css/responsive.css?v=5.20">
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top-wrapper">
+      <div class="header-shell">
+        <div class="header-top header-row">
+          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
+          <div class="header-row__center">
+            <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial da Faculdade Filos">
+              <img src="../assets/images/logo-filos-oficial.png" alt="Faculdade Filos" class="site-logo-img" width="332" height="112">
+            </a>
+          </div>
+          <div class="header-row__side header-row__side--end">
+            <div class="header-login-container">
+              <a href="#" class="header-login" id="login-menu-toggle" aria-expanded="false" aria-haspopup="true">
+                Login / Cadastrar <i class="fa-solid fa-chevron-down dropdown-chevron" style="font-size: 0.7rem; margin-left: 0.4rem; transition: transform 0.2s ease;"></i>
+              </a>
+              <div class="login-dropdown-menu" id="login-dropdown" aria-label="Opções de Login">
+                <a href="https://faculdadefilos.jacad.com.br/academico/aluno-v2/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Aluno</a>
+                <a href="https://faculdadefilos.jacad.com.br/academico/professor/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Professor</a>
+                <a href="https://ava-faculdadefilos.bashsolutions.com.br/login/index.php" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">AVA</a>
+                <a href="https://faculdadefilos.jacad.com.br/academico/diploma-digital/" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal do Egresso</a>
+              </div>
+            </div>
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav-wrapper">
+      <div class="header-shell">
+        <div class="header-nav header-row">
+          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
+          <div class="header-row__center">
+            <nav id="nav-menu" class="nav-menu" aria-label="Menu principal">
+              <a href="../index.html#inicio" class="nav-link" data-nav="home">Home</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#cursos" class="nav-link" data-nav="cursos">Cursos</a>
+                <div class="dropdown-menu-cursos">
+                  <div class="dropdown-menu-cursos-content">
+                    <!-- Coluna 1: GRADUAÇÃO -->
+                    <div class="dropdown-column dropdown-column--dark">
+                      <h4 class="dropdown-column-title">GRADUAÇÃO</h4>
+                      <ul class="dropdown-list">
+                        <li><a href="direito.html" class="dropdown-item">Direito</a></li>
+                        <li><a href="administracao.html" class="dropdown-item">Administração</a></li>
+                        <li><a href="pedagogia.html" class="dropdown-item">Pedagogia</a></li>
+                        <li><a href="radiologia.html" class="dropdown-item">Radiologia</a></li>
+                      </ul>
+                    </div>
+                    <!-- Coluna 2: PÓS-GRADUAÇÃO -->
+                    <div class="dropdown-column dropdown-column--light">
+                      <h4 class="dropdown-column-title">PÓS - GRADUAÇÃO</h4>
+                      <ul class="dropdown-list">
+                        <li><a href="direito-penal.html" class="dropdown-item">Direito Penal</a></li>
+                        <li><a href="direito-imobiliario.html" class="dropdown-item">Direito Imobiliário</a></li>
+                        <li><a href="gestao-de-operacoes.html" class="dropdown-item">Gestão de Operações 4.0</a></li>
+                        <li><a href="inteligencia-artificial.html" class="dropdown-item">Inteligência Artificial Aplicada aos Negócios</a></li>
+                        <li><a href="docencia-ensino-superior.html" class="dropdown-item">Docência no Ensino Superior</a></li>
+                        <li><a href="ressonancia-magnetica.html" class="dropdown-item">Ressonância Magnética</a></li>
+                        <li><a href="neuropsicopedagogia.html" class="dropdown-item">Neuropsicopedagogia</a></li>
+                      </ul>
+                    </div>
+                    <!-- Coluna 3: CURSOS EXTENSIONISTAS -->
+                    <div class="dropdown-column dropdown-column--light dropdown-column-scrollable">
+                      <h4 class="dropdown-column-title">CURSOS EXTENSIONISTAS</h4>
+                      <div class="dropdown-scroll-wrapper">
+                        <ul class="dropdown-list">
+                          <li><a href="controle-qualidade-imagem.html" class="dropdown-item">Controle de Qualidade de Imagem e Artefatos Médicos</a></li>
+                          <li><a href="vendas-digitais.html" class="dropdown-item">Vendas Digitais (Redes Sociais e WhatsApp)</a></li>
+                          <li><a href="excelencia-atendimento.html" class="dropdown-item">Excelência no Atendimento e Fidelização</a></li>
+                          <li><a href="tecnicas-vendas.html" class="dropdown-item">Técnicas de Vendas e Negociação</a></li>
+                          <li><a href="dominio-ias.html" class="dropdown-item">Domínio das I.As: Criação de Textos e Imagens</a></li>
+                          <li><a href="automacao-pratica.html" class="dropdown-item">Automação Prática sem Programação</a></li>
+                          <li><a href="nocoes-direito-penal.html" class="dropdown-item">Noções de Direito Penal e Segurança Cidadã</a></li>
+                          <li><a href="lei-maria-da-penha.html" class="dropdown-item">Lei Maria da Penha e Proteção à Família</a></li>
+                          <li><a href="introducao-regularizacao-imoveis.html" class="dropdown-item">Introdução à Regularização de Imóveis</a></li>
+                          <li><a href="reurb-na-pratica.html" class="dropdown-item">REURB na Prática (Legalização)</a></li>
+                          <li><a href="biosseguranca-ressonancia.html" class="dropdown-item">Biossegurança em Ressonância</a></li>
+                          <li><a href="anatomia-seccional.html" class="dropdown-item">Anatomia Seccional (Leitura Básica)</a></li>
+                          <li><a href="praticas-inclusao.html" class="dropdown-item">Práticas de Inclusão e Direitos na Educação</a></li>
+                          <li><a href="ferramentas-digitais.html" class="dropdown-item">Ferramentas Digitais e Gamificação</a></li>
+                          <li><a href="oratoria-comunicacao.html" class="dropdown-item">Oratória e Comunicação Assertiva</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="../index.html#inicio" class="nav-link" data-nav="vestibular">Vestibular</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#quem-somos" class="nav-link" data-nav="institucional">Institucional</a>
+                <div class="dropdown-menu-institucional">
+                  <ul class="dropdown-list-vertical">
+                    <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Revista</a></li>
+                    <li><a href="../ouvidoria.html" class="dropdown-item-vertical">Ouvidoria</a></li>
+                    <li><a href="../biblioteca.html" class="dropdown-item-vertical">Biblioteca</a></li>
+                    <li><a href="../cpa.html" class="dropdown-item-vertical">CPA</a></li>
+                  </ul>
+                </div>
+              </div>
+              <a href="../index.html#quem-somos" class="nav-link" data-nav="sobre">Sobre</a>
+              <a href="#" class="nav-link" data-nav="blog">Blog</a>
+              <div class="nav-item-dropdown">
+                <a href="../index.html#contato" class="nav-link" data-nav="contato">Contato</a>
+                <div class="dropdown-menu-contato">
+                  <ul class="dropdown-list-vertical">
+                    <li><a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Whatsapp</a></li>
+                    <li><a href="tel:6136188111" class="dropdown-item-vertical">Telefone</a></li>
+                    <li><a href="../index.html#contato" class="dropdown-item-vertical">Formulário</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="header-row__side header-row__side--end">
+            <button type="button" class="header-favorites-btn" aria-label="Favoritos">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- COURSE HERO --- -->
+  <section class="course-hero-new" style="background-image: url('../assets/images/bg-classroom-blur.jpg');">
+    <div class="hero-bg-wrapper">
+      <div class="hero-new-overlay"></div>
+      <div class="hero-phi-logo-bg">FILOS</div>
+    </div>
+
+    <div class="container hero-new-container">
+      <div class="hero-new-left">
+        <div class="hero-new-content">
+          <span class="hero-new-subtitle">CURSO EXTENSIONISTA</span>
+          <h1 class="hero-new-title">BIOSSEGURANÇA EM RESSONÂNCIA</h1>
+          <p class="hero-new-desc">Foco total em segurança e biossegurança física e operacional para operadores e pacientes em ambientes de Ressonância Magnética.</p>
+          <a href="https://wa.me/5561999061757" class="btn-hero-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-new-right">
+        <div class="inscription-card-wrapper">
+          <div class="inscription-card" data-price-card data-price-default="139,00">
+            <h2 class="inscription-card-title">BIOSSEGURANÇA EM RESSONÂNCIA</h2>
+            <div class="inscription-card-divider"></div>
+
+            <div class="inscription-card-switches">
+              <div class="toggle-switch">
+                <input type="checkbox" id="hero-transferencia-biosseguranca-ressonancia" checked data-price-toggle data-price="139,00">
+                <label for="hero-transferencia-biosseguranca-ressonancia"></label>
+                <span>Transferência Acadêmica</span>
+              </div>
+              <div class="toggle-switch">
+                <input type="checkbox" id="hero-alunos-biosseguranca-ressonancia" data-price-toggle data-price="139,00">
+                <label for="hero-alunos-biosseguranca-ressonancia"></label>
+                <span>Alunos e Ex Alunos</span>
+              </div>
+            </div>
+
+            <div class="inscription-card-meta-block">
+              <p>Duração de 40 horas</p>
+              <p>Certificação de Extensão | <strong>Curso livre</strong></p>
+              <p><strong>Período Matutino / Noturno</strong> | Presencial</p>
+            </div>
+
+            <div class="inscription-card-discount-block">
+              <p>Início imediato • <strong>Desconto de pontualidade</strong></p>
+            </div>
+
+            <div class="inscription-card-price" data-price-output>
+              139,00
+            </div>
+
+            <a href="https://wa.me/5561999061757" class="btn-card-enroll-now">
+              <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE AGORA
+            </a>
+          </div>
+          <div class="inscription-card-footer-accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- POR QUE CURSAR --- -->
+  <section class="section section-why-admin">
+    <div class="container why-admin-container">
+      <h2 class="why-admin-title">Por que cursar Biossegurança em Ressonância?</h2>
+      <div class="why-admin-text-wrapper">
+        <p>Devido aos altos campos magnéticos presentes nos aparelhos de RM, a biossegurança é um tema crítico de saúde operacional. Este curso estuda de forma detalhada o mapeamento de riscos na sala de exames, o comportamento físico de objetos metálicos e eletrônicos sob efeito magnético, o protocolo de triagem do paciente (implantes e marcapassos compatíveis) e a prevenção de incidentes térmicos por RF.</p>
+        <p>Essencial para a atualização profissional de Tecnólogos em Radiologia, Técnicos, Biomédicos, Enfermeiros de diagnóstico por imagem e Médicos Radiologistas.</p>
+        <p>A formação contempla temas como Campos Magnéticos e Riscos de Atração, Zonas de Segurança da Sala de RM, Dispositivos Médicos e Implantes Compatíveis e Prevenção de Queimaduras por RF, conectando teoria e prática de forma objetiva.</p>
+      </div>
+      <p class="why-admin-highlight">Desenvolva novas habilidades com um curso extensionista prático, objetivo e conectado ao mercado.</p>
+      <a href="https://wa.me/5561999061757" class="btn-why-admin-enroll">
+        <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+      </a>
+    </div>
+  </section>
+
+  <!-- --- DIFERENCIAIS ACADÊMICOS --- -->
+  <section class="section section-diferenciais-admin section-with-bottom-tab" style="--module-bg: #ffffff; z-index: 8;">
+    <div class="container">
+      <div class="diferenciais-header text-center">
+        <h2 class="diferenciais-main-title">DIFERENCIAIS <strong>ACADÊMICOS</strong></h2>
+        <p class="diferenciais-subtitle">Do curso de Biossegurança em Ressonância</p>
+      </div>
+
+      <div class="diferenciais-grid-new">
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Aplicação prática</h3>
+            <p class="diferencial-card-desc">Conteúdo direto para aplicar na rotina profissional.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Zonas de Segurança da Sala de RM</h3>
+            <p class="diferencial-card-desc">Aulas focadas em habilidades úteis para o mercado.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Certificação Filos</h3>
+            <p class="diferencial-card-desc">Formação complementar com certificação de extensão.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+        <div class="diferencial-card-new">
+          <div class="diferencial-card-content">
+            <h3 class="diferencial-card-title">Evolução rápida</h3>
+            <p class="diferencial-card-desc">Desenvolva novas competências em menos tempo.</p>
+          </div>
+          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
+            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+          </a>
+        </div>
+      </div>
+
+      <div class="diferenciais-footer-note">
+        <p><strong>Biossegurança em Ressonância na Faculdade Filos.</strong> Formação com atendimento próximo, prática e direcionamento para sua evolução profissional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <img src="../assets/images/logo-faculdade-filos-white.svg" alt="Logo Faculdade Filos" class="logo-svg" style="height: 50px; margin-bottom: 1.5rem;">
+        <p class="footer-description">A Faculdade Filos é referência em ensino superior de qualidade na região de Águas Lindas de Goiás.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Institucional</h4>
+        <ul class="footer-links">
+          <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="../politica-de-cookies.html">Política de Cookies</a></li>
+          <li><a href="../index.html#cursos">Voltar para Cursos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Faculdade Filos. Credenciada pelo MEC.</p>
+    </div>
+  </footer>
+
+  <aside class="floating-sidebar-left" aria-label="Atalhos rápidos">
+    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Instagram Faculdade Filos">
+      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="floating-side-btn floating-side-btn--whatsapp" aria-label="WhatsApp Faculdade Filos">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Facebook Faculdade Filos">
+      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+    </a>
+    <button type="button" class="floating-side-btn" data-floating-search aria-label="Buscar cursos">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    </button>
+    <a href="../index.html#contato" class="floating-side-btn floating-side-btn--circle" data-floating-location aria-label="Localização e contato">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+    </a>
+  </aside>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/5561999061757" target="_blank" class="btn-float btn-whatsapp" aria-label="WhatsApp Faculdade Filos"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+  </div>
+
+  <script src="../js/cookies.js"></script>
+  <script src="../js/forms.js"></script>
+  <script src="../js/main.js?v=1.4"></script>
+</body>
+</html>
