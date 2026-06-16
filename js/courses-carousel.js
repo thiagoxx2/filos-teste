@@ -289,6 +289,7 @@
 
   function createCourseCard(course) {
     const card = document.createElement('div');
+    const showPrice = course.filter === 'bacharelado';
     card.className = 'course-card-item';
     card.setAttribute('data-filter', course.filter);
     card.setAttribute('data-course', course.course);
@@ -303,7 +304,7 @@
         '<p>' + course.description + '</p>' +
         '<div class="course-card-item-footer">' +
           '<a href="' + course.href + '" class="course-card-item-saiba">SAIBA MAIS &rarr;</a>' +
-          '<div class="course-card-item-price">' + course.price + '</div>' +
+          (showPrice ? '<div class="course-card-item-price">' + course.price + '</div>' : '') +
         '</div>' +
       '</div>' +
       '<a href="' + createWhatsAppHref(course.course) + '" target="_blank" rel="noopener" class="course-card-item-matricula">' +

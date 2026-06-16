@@ -115,13 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
       indicatorsContainer.style.display = 'flex';
 
       const totalPages = Math.max(1, Math.ceil(totalCards / getTestimonialsPerPage()));
-      const totalDots = 3;
-      for (let i = 0; i < totalDots; i++) {
+      for (let i = 0; i < totalPages; i++) {
         const dot = document.createElement('button');
         dot.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
         dot.setAttribute('aria-label', 'Página de depoimentos ' + (i + 1));
         dot.addEventListener('click', () => {
-          goToTestimonialsPage(Math.min(i, totalPages - 1));
+          goToTestimonialsPage(i);
           restartTestimonialsAutoplay();
         });
         indicatorsContainer.appendChild(dot);
@@ -141,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (indicatorsContainer) {
         Array.from(indicatorsContainer.children).forEach((dot, i) => {
-          dot.classList.toggle('active', i === Math.min(testimonialsCurrentPage, 2));
+          dot.classList.toggle('active', i === testimonialsCurrentPage);
         });
       }
     }
@@ -416,5 +415,122 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- ALUNOS DESTAQUES CAROUSEL ---
+  const destaquesSlides = document.querySelectorAll('.destaques-slide');
+  const destaquesDots = document.querySelectorAll('.destaques-pagination .destaques-dot');
+  let destaquesInterval = null;
+  let currentDestaquesIndex = 0;
+  const DESTAQUES_TIMEOUT = 5000; // 5 segundos autoplay
+
+  function showDestaque(index) {
+    if (destaquesSlides.length === 0) return;
+
+    destaquesSlides.forEach(slide => slide.classList.remove('active'));
+    destaquesDots.forEach(dot => dot.classList.remove('active'));
+
+    currentDestaquesIndex = (index + destaquesSlides.length) % destaquesSlides.length;
+    destaquesSlides[currentDestaquesIndex].classList.add('active');
+    
+    if (destaquesDots[currentDestaquesIndex]) {
+      destaquesDots[currentDestaquesIndex].classList.add('active');
+    }
+  }
+
+  function nextDestaque() {
+    showDestaque(currentDestaquesIndex + 1);
+  }
+
+  function startDestaquesAutoplay() {
+    stopDestaquesAutoplay();
+    destaquesInterval = setInterval(nextDestaque, DESTAQUES_TIMEOUT);
+  }
+
+  function stopDestaquesAutoplay() {
+    if (destaquesInterval) {
+      clearInterval(destaquesInterval);
+      destaquesInterval = null;
+    }
+  }
+
+  destaquesDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopDestaquesAutoplay();
+      showDestaque(index);
+      startDestaquesAutoplay();
+    });
+  });
+
+  if (destaquesSlides.length > 0) {
+    showDestaque(0);
+    startDestaquesAutoplay();
+
+    // Pausar autoplay ao passar o mouse por cima
+    const destaquesContainer = document.querySelector('.destaques-container');
+    if (destaquesContainer) {
+      destaquesContainer.addEventListener('mouseenter', stopDestaquesAutoplay);
+      destaquesContainer.addEventListener('mouseleave', startDestaquesAutoplay);
+    }
+  }
+
+  // --- ACORDEÃO SUAVE DE LOCALIZAÇÃO (FAQ) ---
+  document.querySelectorAll('.new-location-faq-item').forEach(details => {
+    const summary = details.querySelector('summary');
+    
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      if (details.hasAttribute('open')) {
+        // Altura inicial (aberto)
+        const startHeight = details.offsetHeight;
+        // Altura final (somente summary)
+        const endHeight = summary.offsetHeight;
+        
+        details.style.height = `${startHeight}px`;
+        details.style.overflow = 'hidden';
+        
+        // Forçar renderização
+        details.offsetHeight;
+        
+        const animation = details.animate({
+          height: [`${startHeight}px`, `${endHeight}px`]
+        }, {
+          duration: 320,
+          easing: 'cubic-bezier(0.25, 1, 0.50, 1)'
+        });
+        
+        animation.onfinish = () => {
+          details.removeAttribute('open');
+          details.style.height = '';
+          details.style.overflow = '';
+        };
+      } else {
+        // Abre temporariamente sem animar para calcular o scrollHeight real
+        details.setAttribute('open', '');
+        const endHeight = details.scrollHeight;
+        details.removeAttribute('open');
+        
+        const startHeight = summary.offsetHeight;
+        
+        details.setAttribute('open', '');
+        details.style.height = `${startHeight}px`;
+        details.style.overflow = 'hidden';
+        
+        // Forçar renderização
+        details.offsetHeight;
+        
+        const animation = details.animate({
+          height: [`${startHeight}px`, `${endHeight}px`]
+        }, {
+          duration: 320,
+          easing: 'cubic-bezier(0.25, 1, 0.50, 1)'
+        });
+        
+        animation.onfinish = () => {
+          details.style.height = '';
+          details.style.overflow = '';
+        };
+      }
+    });
+  });
 
 });

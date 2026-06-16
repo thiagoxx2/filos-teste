@@ -26,8 +26,17 @@
   /* Fórmula unificada em global.css: width: min(100% - 2*gutter, var(--container)) */
 }
 
+.course-card-item[data-filter]:not([data-filter="bacharelado"]) .course-card-item-price {
+  display: none !important;
+}
+
+.course-card-item[data-filter]:not([data-filter="bacharelado"]) .course-card-item-footer {
+  justify-content: flex-start !important;
+}
+
 /* Proteção global robusta contra overflow horizontal */
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
   margin: 0;
@@ -39,7 +48,9 @@ body {
   padding-top: 174px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -53,11 +64,13 @@ body {
 
 /* --- SITE HEADER MOBILE --- */
 .header-nav {
-  display: none !important; /* Esconde a linha do menu e botão coração no mobile */
+  display: none !important;
+  /* Esconde a linha do menu e botão coração no mobile */
 }
 
 .menu-toggle {
-  display: flex !important; /* Mostra o botão hambúrguer */
+  display: flex !important;
+  /* Mostra o botão hambúrguer */
 }
 
 .nav-menu {
@@ -82,7 +95,8 @@ body {
 
 .nav-link {
   font-size: 1.25rem;
-  color: var(--text-white) !important; /* Garante visibilidade no fundo escuro do mobile */
+  color: var(--text-white) !important;
+  /* Garante visibilidade no fundo escuro do mobile */
   width: 100%;
   max-width: 280px;
   text-align: center;
@@ -120,6 +134,7 @@ body {
 .logo-svg {
   height: clamp(42px, 9vw, 52px);
   width: auto;
+
   max-width: min(158px, 34vw);
 }
 
@@ -136,7 +151,8 @@ body {
 
 .hero-carousel-container::before,
 .hero-carousel-container::after {
-  display: none !important; /* Oculta blocos laterais flutuantes no mobile */
+  display: none !important;
+  /* Oculta blocos laterais flutuantes no mobile */
 }
 
 .hero-carousel--new {
@@ -145,7 +161,8 @@ body {
 }
 
 .carousel-track-container {
-  height: 540px !important; /* Altura fixa robusta para mobile */
+  height: 540px !important;
+  /* Altura fixa robusta para mobile */
 }
 
 .carousel-slide--new {
@@ -153,7 +170,8 @@ body {
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem 1.5rem 6.5rem 1.5rem; /* Espaço para o botão e dots */
+  padding: 2.5rem 1.5rem 6.5rem 1.5rem;
+  /* Espaço para o botão e dots */
   gap: 1rem;
   text-align: center;
 }
@@ -192,7 +210,8 @@ body {
 }
 
 .slide-phi-logo {
-  display: none !important; /* Oculta decoração de logo phi no mobile */
+  display: none !important;
+  /* Oculta decoração de logo phi no mobile */
 }
 
 /* Botão Matricule-se e dots flutuantes no mobile (Centralizados, sem overlap) */
@@ -234,11 +253,11 @@ body {
 
 /* Cards menores, mais compactos e proporcionais */
 .course-card-item {
-  border-radius: 42px;
-  padding: 1.55rem 1.4rem 4.25rem;
+  border-radius: 38px;
+  padding: 1.55rem 1.6rem 4rem;
   width: 100%;
-  max-width: min(340px, calc(100vw - 2rem));
-  min-height: 430px;
+  max-width: min(360px, calc(100vw - 2rem));
+  min-height: 420px;
   margin-inline: auto;
   box-shadow: var(--shadow-md);
 }
@@ -246,7 +265,7 @@ body {
 .course-card-item-badge {
   font-size: 0.9rem;
   padding: 0.3rem 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.45rem;
 }
 
 .course-card-item-body {
@@ -254,7 +273,7 @@ body {
 }
 
 .course-card-item-body h3 {
-  font-size: 1.55rem;
+  font-size: 1.62rem;
   line-height: 1.15;
 }
 
@@ -280,7 +299,7 @@ body {
 }
 
 .course-card-item-price {
-  font-size: 2.05rem;
+  font-size: 2.2rem;
 }
 
 .course-card-item-saiba {
@@ -288,10 +307,10 @@ body {
 }
 
 .course-card-item-matricula {
-  padding: 0.8rem 1.4rem;
-  font-size: 0.92rem;
-  width: min(78%, 250px);
-  min-height: 50px;
+  padding: 0.82rem 1.45rem;
+  font-size: 0.95rem;
+  width: min(78%, 280px);
+  min-height: 52px;
 }
 
 /* --- DEPOIMENTOS MOBILE (CARROSSEL INDIVIDUAL) --- */
@@ -300,7 +319,8 @@ body {
 }
 
 .testimonials-track.testimonials-marquee {
-  animation: none !important; /* Desativa a animação de rolagem contínua */
+  animation: none !important;
+  /* Desativa a animação de rolagem contínua */
   display: flex;
   gap: 0;
 }
@@ -344,15 +364,16 @@ body {
 .testimonials-indicators {
   display: flex !important;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 3.5rem;
+  margin-bottom: 0;
   gap: 0.5rem;
 }
 
 /* --- OUTRAS SEÇÕES MOBILE --- */
 /* FAQ */
 .faq-panel {
-  padding: 2rem 1.25rem;
-  border-radius: 32px;
+  padding: 2.5rem 1.25rem 3rem;
+  border-radius: 36px;
   width: 100%;
   left: auto;
   transform: none;
@@ -382,7 +403,7 @@ body {
 
 .destaques-section {
   min-height: auto;
-  padding: 4.5rem 0 3.5rem 0;
+  padding: 4.5rem 0 9.5rem 0;
 }
 
 .destaques-subtitle {
@@ -451,10 +472,6 @@ body {
   text-align: center;
 }
 
-.address-icon-link {
-  position: static;
-}
-
 .new-location-address p {
   text-align: center;
 }
@@ -470,11 +487,22 @@ body {
   text-align: center;
 }
 
+.new-footer-col {
+  display: block;
+  height: auto;
+}
+
 .new-footer-location {
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.new-footer-location p {
+  text-align: left;
 }
 
 .new-footer-title {
@@ -483,6 +511,7 @@ body {
 
 .new-footer-socials {
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .footer-legal-links {
@@ -565,7 +594,8 @@ body {
 
 /* Ícones Flutuantes Mobile (WhatsApp e Voltar ao topo) */
 .floating-sidebar-left {
-  display: none !important; /* Oculta botões flutuantes secundários no mobile */
+  display: none !important;
+  /* Oculta botões flutuantes secundários no mobile */
 }
 
 .floating-buttons {
@@ -582,9 +612,9 @@ body {
 
 .btn-float-whatsapp,
 .btn-whatsapp {
-  width: 44px;
-  height: 44px;
-  font-size: 1.15rem;
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
 }
 
 /* ==========================================================================
@@ -594,17 +624,17 @@ body {
   :root {
     --page-gutter: 24px;
   }
-  
+
   .carousel-slide--new {
     padding-bottom: 6rem;
   }
-  
+
   .course-card-item {
-    padding: 1.75rem 1.65rem 4.45rem;
-    max-width: min(350px, calc(100vw - 2rem));
-    min-height: 455px;
+    padding: 1.8rem 1.85rem 4.35rem;
+    max-width: min(380px, calc(100vw - 2rem));
+    min-height: 445px;
   }
-  
+
   .course-card-item-body h3 {
     font-size: 1.75rem;
   }
@@ -614,7 +644,7 @@ body {
     flex: 0 0 calc(100vw - 2 * var(--page-gutter) - 2rem);
     padding: 2rem 1.5rem;
   }
-  
+
   .new-location-map-container {
     height: 300px;
   }
@@ -627,7 +657,7 @@ body {
   :root {
     --page-gutter: clamp(24px, 4vw, 40px);
     --section-padding: clamp(4.5rem, 6vh, 6rem);
-    
+
     /* Fontes maiores e proporcionais */
     --h1-size: clamp(2.2rem, 4.5vw, 3.2rem);
     --h2-size: clamp(1.8rem, 3.5vw, 2.5rem);
@@ -687,7 +717,8 @@ body {
     transform: none;
     gap: var(--header-nav-gap);
     z-index: auto;
-    align-items: center !important; /* Centralizado verticalmente */
+    align-items: center !important;
+    /* Centralizado verticalmente */
   }
 
   .nav-link {
@@ -773,9 +804,10 @@ body {
 
   /* --- SEÇÃO DE CURSOS TABLET (2 COLUNAS) --- */
   .courses-page {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 380px)) !important;
+    justify-content: center;
     row-gap: 4.8rem;
-    column-gap: 2rem;
+    column-gap: 1.8rem;
     min-height: auto;
   }
 
@@ -814,11 +846,14 @@ body {
 
   .testimonials-indicators {
     display: flex !important;
+    margin-top: 3.5rem;
+    margin-bottom: 0;
   }
 
   /* --- FAQ TABLET --- */
   .faq-panel {
-    padding: 3.5rem 3rem;
+    padding: 4rem 3.5rem 4.5rem;
+    border-radius: 64px;
   }
 
   .faq-panel-header {
@@ -884,12 +919,6 @@ body {
   .new-location-address p {
     text-align: center;
   }
-
-  .address-icon-link {
-    position: absolute;
-    left: clamp(1.25rem, 3vw, 3rem);
-  }
-
   /* --- FOOTER TABLET --- */
   .new-footer-grid {
     grid-template-columns: 1.2fr 1fr 1fr !important;
@@ -897,17 +926,7 @@ body {
     text-align: left;
   }
 
-  .new-footer-location {
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  .new-footer-title,
-  .new-footer-socials {
-    justify-content: flex-start;
-  }
-
-  .new-footer-socials {
+  .new-footer-title {
     justify-content: flex-start;
   }
 
@@ -923,7 +942,7 @@ body {
 
   .destaques-section {
     min-height: clamp(620px, 56vw, 820px);
-    padding: clamp(5rem, 8vw, 7rem) 0 5rem !important;
+    padding: clamp(5rem, 8vw, 7rem) 0 11rem !important;
   }
 
   /* --- FLOATING CONTROLS --- */
@@ -972,15 +991,16 @@ body {
 
   .btn-float-whatsapp,
   .btn-whatsapp {
-    width: clamp(42px, 3.2vw, 52px) !important;
-    height: clamp(42px, 3.2vw, 52px) !important;
-    font-size: clamp(1.1rem, 1.3vw, 1.45rem) !important;
+    width: clamp(46px, 3.45vw, 56px) !important;
+    height: clamp(46px, 3.45vw, 56px) !important;
+    font-size: clamp(1.18rem, 1.4vw, 1.58rem) !important;
   }
 
   .floating-side-btn {
-    width: clamp(34px, 2.55vw, 42px) !important;
-    height: clamp(34px, 2.55vw, 42px) !important;
-    font-size: clamp(0.85rem, 1vw, 1.08rem) !important;
+    width: clamp(42px, 3.32vw, 58px) !important;
+    height: clamp(42px, 3.32vw, 58px) !important;
+    border-radius: clamp(10px, 0.8vw, 14px) !important;
+    font-size: clamp(1.08rem, 1.6vw, 1.8rem) !important;
   }
 }
 
@@ -991,15 +1011,21 @@ body {
   :root {
     --page-gutter: clamp(32px, 4vw, 56px);
     --section-padding: clamp(2.75rem, 4.5vh, 4.5rem);
-    
+
     /* Fontes do Desktop */
     --h1-size: clamp(2.4rem, 4.2vw, 3.9rem);
     --h2-size: clamp(1.75rem, 3vw, 2.55rem);
     --h3-size: clamp(1.5rem, 2.6vw, 2.2rem);
   }
 
-  html, body {
+  html,
+  body {
     font-size: 1rem;
+  }
+
+  .address-line {
+    display: block;
+    white-space: nowrap;
   }
 
   /* --- SITE HEADER DESKTOP --- */
@@ -1068,8 +1094,9 @@ body {
 
   /* --- HERO CAROUSEL DESKTOP --- */
   .hero-carousel-container {
-    padding-left: max(var(--page-gutter), calc(50vw - var(--container-wide-half) - 3.5rem));
-    padding-right: max(var(--page-gutter), calc(50vw - var(--container-wide-half) - 3.5rem));
+    --hero-padding-calculated: max(var(--page-gutter), calc(50vw - var(--container-wide-half) - 3.5rem));
+    padding-left: var(--hero-padding-calculated) !important;
+    padding-right: var(--hero-padding-calculated) !important;
   }
 
   .hero-carousel-container::before,
@@ -1078,13 +1105,17 @@ body {
   }
 
   .hero-carousel-container::before {
-    left: 0;
-    width: var(--hero-side-strip-width);
+    left: 0 !important;
+    width: calc(var(--hero-padding-calculated) - var(--hero-side-gap)) !important;
+    background-color: #0d1b2a !important;
+    z-index: 5 !important;
   }
 
   .hero-carousel-container::after {
-    right: 0;
-    width: var(--hero-side-strip-width);
+    right: 0 !important;
+    width: calc(var(--hero-padding-calculated) - var(--hero-side-gap)) !important;
+    background-color: #0d1b2a !important;
+    z-index: 5 !important;
   }
 
   .carousel-track-container {
@@ -1094,14 +1125,16 @@ body {
   .carousel-slide--new {
     padding: clamp(2.25rem, 3vw, 3.5rem) clamp(2.75rem, 4vw, 4.5rem) !important;
     gap: clamp(1.5rem, 3vw, 3rem);
-    max-width: var(--container);
-    margin-inline: auto;
+    max-width: var(--container-wide) !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-inline: auto !important;
     width: 100%;
   }
 
   .slide-student-image {
     position: absolute !important;
-    right: -23% !important;
+    right: -14% !important;
     bottom: -1px !important;
     height: 100% !important;
     display: flex !important;
@@ -1147,26 +1180,27 @@ body {
 
   /* --- SEÇÃO DE CURSOS DESKTOP (3 COLUNAS) --- */
   .courses-page {
-    grid-template-columns: repeat(3, minmax(0, 360px)) !important;
-    column-gap: clamp(1.25rem, 1.8vw, 2.25rem);
-    row-gap: clamp(4.6rem, 5.1vw, 5.8rem);
+    grid-template-columns: repeat(3, minmax(0, clamp(340px, 20vw, 382px))) !important;
+    column-gap: clamp(1.6rem, 2.2vw, 2.8rem);
+    row-gap: clamp(4.6rem, 5vw, 5.8rem);
     justify-content: center;
   }
 
   .course-card-item {
-    max-width: 360px;
-    min-height: clamp(420px, 28vw, 490px);
-    padding: clamp(1.35rem, 1.6vw, 1.8rem) clamp(1.85rem, 2vw, 2.45rem) clamp(3.85rem, 3.25vw, 4.45rem);
+    max-width: clamp(340px, 20vw, 382px);
+    aspect-ratio: 0.82 / 1;
+    min-height: auto;
+    padding: clamp(1.55rem, 1.65vw, 1.95rem) clamp(2rem, 2.2vw, 2.55rem) clamp(4.1rem, 3.2vw, 4.55rem);
     justify-self: center;
-    border-radius: clamp(46px, 3.7vw, 66px);
+    border-radius: clamp(42px, 3vw, 58px);
   }
 
   .course-card-item-body h3 {
-    font-size: clamp(1.5rem, 1.62vw, 1.95rem) !important;
+    font-size: clamp(1.7rem, 1.95vw, 2.22rem) !important;
   }
 
   .course-card-item-price {
-    font-size: clamp(2rem, 2.25vw, 2.65rem) !important;
+    font-size: clamp(2.35rem, 2.75vw, 3.25rem) !important;
   }
 
   .course-card-item-saiba {
@@ -1174,15 +1208,16 @@ body {
   }
 
   .course-card-item-matricula {
-    padding: 0.78rem 1.45rem !important;
-    font-size: clamp(0.9rem, 1.02vw, 1.1rem) !important;
-    width: min(72%, 252px);
-    min-height: 50px;
+    padding: 0.86rem 1.65rem !important;
+    font-size: clamp(0.95rem, 1.05vw, 1.12rem) !important;
+    width: min(76%, 300px);
+    min-height: 54px;
   }
 
   /* FAQ */
   .faq-panel {
-    padding: clamp(2.75rem, 3.5vw, 4rem) clamp(2.5rem, 4vw, 4rem) !important;
+    border-radius: clamp(58px, 6vw, 110px) !important;
+    padding: clamp(4.25rem, 5vw, 6rem) clamp(3rem, 5vw, 5.75rem) clamp(4.75rem, 5.5vw, 6.5rem) !important;
   }
 
   /* Localização */
@@ -1193,6 +1228,10 @@ body {
 
   .new-location-map-container {
     height: clamp(240px, 21vw, 320px) !important;
+  }
+
+  .new-location-address {
+    margin: clamp(4.5rem, 7vw, 7.5rem) auto clamp(1.5rem, 3vw, 3rem);
   }
 
   /* Footer */
@@ -1214,7 +1253,8 @@ body {
     --page-gutter: clamp(40px, 5vw, 80px);
   }
 
-  html, body {
+  html,
+  body {
     font-size: 1rem;
   }
 
@@ -1534,10 +1574,39 @@ body {
 
 }
 
+/* Banner principal: composição alinhada ao layout de referência */
+@media (min-width: 1024px) {
+  .carousel-slide--new {
+    padding-left: clamp(6.2rem, 9.6vw, 11rem) !important;
+    padding-right: clamp(3.8rem, 5.4vw, 6rem) !important;
+  }
+
+  .slide-content-new {
+    max-width: 560px !important;
+    transform: translate(1.95rem, 0.15rem) !important;
+  }
+
+  .slide-content-new h2 {
+    font-size: clamp(2.15rem, 2.65vw, 3.2rem) !important;
+    line-height: 1.17 !important;
+  }
+
+  .slide-student-image {
+    right: 8.8% !important;
+    transform: translateX(15px) !important;
+  }
+
+  .slide-student-image img {
+    height: calc(76% + 40px) !important;
+    transform: translateY(-68px) !important;
+  }
+}
+
 /* ==========================================================================
    8. SMALL SCREEN POLISH
    ========================================================================== */
 @media (max-width: 767px) {
+
   html,
   body {
     max-width: 100%;
@@ -1609,141 +1678,121 @@ body {
   }
 
   .nav-menu .nav-link[data-nav="cursos"]::after {
-    content: "›";
+    content: "+";
     display: inline-block;
-    font-size: 1.35em;
+    font-size: 1.15em;
     line-height: 1;
     transform: translateY(-1px);
+    transition: transform 0.2s ease;
   }
 
-  .nav-menu.is-drilling {
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 0;
-  }
-
-  .nav-menu.is-drilling > :not(.mobile-course-panel) {
-    display: none !important;
+  .nav-menu .nav-link[data-nav="cursos"].is-mobile-courses-open::after {
+    transform: translateY(-1px) rotate(45deg);
   }
 
   .mobile-course-panel {
     display: none;
-    width: min(100%, 390px);
-    margin: 0 auto;
-    padding: clamp(1.4rem, 6vw, 2rem) var(--page-gutter) 2rem;
+    width: min(100%, 360px);
+    max-height: min(44vh, 420px);
+    margin: 0.55rem auto 0;
+    padding: 0;
     color: var(--text-white);
+    overflow-y: auto;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+    scrollbar-width: thin;
   }
 
   .mobile-course-panel.is-active {
-    display: block;
-  }
-
-  .mobile-course-view {
-    display: none;
-    min-height: calc(100svh - 8rem);
-  }
-
-  .mobile-course-view.is-active {
     display: flex;
     flex-direction: column;
+    gap: 0.55rem;
   }
 
-  .mobile-course-back,
+  .mobile-course-category {
+    width: 100%;
+  }
+
   .mobile-course-option,
   .mobile-course-link {
     appearance: none;
-    border: 0;
     font-family: var(--font-title);
     color: inherit;
   }
 
-  .mobile-course-back {
-    align-self: flex-start;
-    margin-bottom: clamp(1.4rem, 5vh, 2.4rem);
-    padding: 0;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.74);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-
-  .mobile-course-back::before {
-    content: "‹ ";
-    font-size: 1.1em;
-  }
-
-  .mobile-course-kicker {
-    margin: 0 0 0.45rem;
-    color: var(--cta-green);
-    font-family: var(--font-title);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  .mobile-course-title {
-    margin: 0 0 clamp(1.4rem, 5vh, 2.25rem);
-    color: var(--text-white);
-    font-family: var(--font-title);
-    font-size: clamp(1.25rem, 6vw, 1.8rem);
-    font-weight: 800;
-    line-height: 1.12;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  .mobile-course-options,
-  .mobile-course-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .mobile-course-option {
     width: 100%;
-  }
-
-  .mobile-course-option,
-  .mobile-course-link {
-    width: 100%;
-    min-height: 52px;
-    padding: 0.9rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    min-height: 44px;
+    padding: 0.7rem 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.055);
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.035em;
-    line-height: 1.25;
-    text-align: left;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .mobile-course-option {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    font-size: clamp(0.86rem, 3.4vw, 0.98rem);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 1.25;
+    text-align: left;
     text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .mobile-course-option[aria-expanded="true"] {
+    background: rgba(112, 160, 145, 0.22);
+    border-color: rgba(112, 160, 145, 0.62);
+  }
+
+  .mobile-course-option span:last-child {
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-course-option[aria-expanded="true"] span:last-child {
+    transform: rotate(45deg);
+  }
+
+  .mobile-course-list {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    margin: 0.4rem 0 0.2rem;
+    padding: 0.3rem 0 0.35rem 0.7rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .mobile-course-list.is-active {
+    display: flex;
+  }
+
+  .mobile-course-list[hidden] {
+    display: none !important;
   }
 
   .mobile-course-link {
     display: flex;
     align-items: center;
-    color: rgba(255, 255, 255, 0.92);
+    min-height: 36px;
+    padding: 0.45rem 0.7rem;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.9);
     font-family: var(--font-body);
+    font-size: 0.92rem;
     font-weight: 600;
-    letter-spacing: 0;
+    line-height: 1.25;
+    text-decoration: none;
+  }
+
+  .mobile-course-link:hover,
+  .mobile-course-link:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
   }
 
   .mobile-course-option:focus-visible,
-  .mobile-course-link:focus-visible,
-  .mobile-course-back:focus-visible {
+  .mobile-course-link:focus-visible {
     outline: 2px solid var(--cta-green);
-    outline-offset: 4px;
+    outline-offset: 3px;
   }
 
   .dropdown-menu-cursos,
@@ -1869,12 +1918,12 @@ body {
 
   .course-card-item,
   .course-card-small {
-    width: min(100%, 300px) !important;
+    width: min(100%, 320px) !important;
     max-width: calc(100vw - 2rem) !important;
   }
 
   .course-card-item {
-    min-height: 390px !important;
+    min-height: 405px !important;
     padding: 1.65rem 1.35rem 3.05rem !important;
   }
 
@@ -1916,7 +1965,7 @@ body {
 
   .faq-panel {
     border-radius: 24px !important;
-    padding: 1.5rem var(--page-gutter) !important;
+    padding: 1.5rem var(--page-gutter) 1.5rem !important;
   }
 
   .mini-gallery-grid,
@@ -1931,7 +1980,7 @@ body {
   }
 
   .course-hero-new {
-    padding: 2.75rem 0 4rem !important;
+    padding: 1.5rem 0 2.2rem !important;
     overflow: hidden;
   }
 
@@ -2037,7 +2086,7 @@ body {
   }
 
   .section-why-admin {
-    padding: clamp(4.5rem, 15vw, 5.5rem) 0 3rem !important;
+    padding: clamp(2.8rem, 10vw, 3.8rem) 0 3rem !important;
   }
 
   .why-admin-container,
@@ -2102,6 +2151,7 @@ body {
 }
 
 @media (max-width: 380px) {
+
   .site-logo-img,
   .logo-svg {
     height: 40px !important;
@@ -2115,6 +2165,7 @@ body {
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
+
   html,
   body {
     max-width: 100%;
@@ -2146,7 +2197,7 @@ body {
   }
 
   .courses-page {
-    grid-template-columns: repeat(2, minmax(0, 350px)) !important;
+    grid-template-columns: repeat(2, minmax(0, 370px)) !important;
     justify-content: center;
     gap: 3.6rem 1.5rem !important;
   }
@@ -2154,11 +2205,11 @@ body {
   .course-card-item,
   .course-card-small {
     width: 100% !important;
-    max-width: 350px !important;
+    max-width: 370px !important;
   }
 
   .course-hero-new {
-    padding: 4rem 0 5rem !important;
+    padding: 2.2rem 0 3rem !important;
   }
 
   .hero-new-container {
@@ -2174,7 +2225,7 @@ body {
   }
 
   .inscription-card-wrapper {
-    width: min(100%, 560px) !important;
+    width: min(100%, 480px) !important;
     margin-inline: auto !important;
   }
 
@@ -2184,7 +2235,7 @@ body {
   }
 
   .section-why-admin {
-    padding-top: 7rem !important;
+    padding-top: 12.5rem !important;
   }
 
   .why-admin-container,

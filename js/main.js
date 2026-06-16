@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // --- MOBILE COURSE MENU: categories first, courses second ---
+  // --- MOBILE COURSE MENU: accordion below Cursos ---
   function initMobileCourseMenu(navMenu, menuToggle) {
     const coursesLink = navMenu.querySelector('[data-nav="cursos"]');
     const coursesDropdown = navMenu.querySelector('.dropdown-menu-cursos');
@@ -381,7 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mobileQuery = window.matchMedia('(max-width: 767px)');
     const columns = Array.from(coursesDropdown.querySelectorAll('.dropdown-column'));
-    if (!columns.length) return;
+    const coursesItem = coursesLink.closest('.nav-item, .nav-item-dropdown') || coursesLink.parentElement;
+    if (!columns.length || !coursesItem) return;
 
     const normalizeId = (text) => text
       .toLowerCase()
@@ -399,44 +400,27 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.className = 'mobile-course-panel';
     panel.setAttribute('aria-hidden', 'true');
 
-    const categoriesView = document.createElement('div');
-    categoriesView.className = 'mobile-course-view mobile-course-view--categories is-active';
-    categoriesView.dataset.mobileCourseView = 'categorias';
-    categoriesView.innerHTML = `
-      <button type="button" class="mobile-course-back" data-mobile-course-back="root">Voltar ao menu</button>
-      <p class="mobile-course-kicker">Cursos</p>
-      <h3 class="mobile-course-title">Escolha uma modalidade</h3>
-    `;
-
-    const optionsList = document.createElement('div');
-    optionsList.className = 'mobile-course-options';
-
-    columns.forEach((column) => {
+    columns.forEach((column, index) => {
       const title = getTitle(column);
-      const viewId = normalizeId(title);
+      const viewId = normalizeId(title) || `modalidade-${index}`;
       const items = Array.from(column.querySelectorAll('.dropdown-item'));
       if (!items.length) return;
+
+      const category = document.createElement('div');
+      category.className = 'mobile-course-category';
 
       const optionButton = document.createElement('button');
       optionButton.type = 'button';
       optionButton.className = 'mobile-course-option';
-      optionButton.dataset.mobileCourseTarget = viewId;
-      optionButton.innerHTML = `<span>${title}</span><span aria-hidden="true">›</span>`;
-      optionsList.appendChild(optionButton);
-
-      const courseView = document.createElement('div');
-      courseView.className = 'mobile-course-view';
-      courseView.dataset.mobileCourseView = viewId;
-
-      const safeTitle = title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      courseView.innerHTML = `
-        <button type="button" class="mobile-course-back" data-mobile-course-back="categorias">Voltar às modalidades</button>
-        <p class="mobile-course-kicker">Cursos</p>
-        <h3 class="mobile-course-title">${safeTitle}</h3>
-      `;
+      optionButton.dataset.mobileCourseToggle = viewId;
+      optionButton.setAttribute('aria-expanded', 'false');
+      optionButton.setAttribute('aria-controls', `${viewId}-list`);
+      optionButton.innerHTML = `<span>${title}</span><span aria-hidden="true">+</span>`;
 
       const courseList = document.createElement('div');
       courseList.className = 'mobile-course-list';
+      courseList.id = `${viewId}-list`;
+      courseList.hidden = true;
 
       items.forEach((item) => {
         const link = document.createElement('a');
@@ -446,36 +430,39 @@ document.addEventListener('DOMContentLoaded', () => {
         courseList.appendChild(link);
       });
 
-      courseView.appendChild(courseList);
-      panel.appendChild(courseView);
+      category.append(optionButton, courseList);
+      panel.appendChild(category);
     });
 
-    categoriesView.appendChild(optionsList);
-    panel.prepend(categoriesView);
-    navMenu.appendChild(panel);
+    coursesItem.appendChild(panel);
 
-    const showView = (viewId) => {
-      panel.querySelectorAll('.mobile-course-view').forEach((view) => {
-        view.classList.toggle('is-active', view.dataset.mobileCourseView === viewId);
+    const resetCategories = () => {
+      panel.querySelectorAll('[data-mobile-course-toggle]').forEach((button) => {
+        button.setAttribute('aria-expanded', 'false');
       });
-      panel.scrollTop = 0;
+      panel.querySelectorAll('.mobile-course-list').forEach((list) => {
+        list.hidden = true;
+        list.classList.remove('is-active');
+      });
     };
 
     const openPanel = () => {
-      navMenu.classList.add('is-drilling');
       panel.classList.add('is-active');
       panel.setAttribute('aria-hidden', 'false');
-      showView('categorias');
+      coursesLink.classList.add('is-mobile-courses-open');
+      coursesLink.setAttribute('aria-expanded', 'true');
     };
 
     const closePanel = () => {
-      navMenu.classList.remove('is-drilling');
       panel.classList.remove('is-active');
       panel.setAttribute('aria-hidden', 'true');
-      showView('categorias');
+      coursesLink.classList.remove('is-mobile-courses-open');
+      coursesLink.setAttribute('aria-expanded', 'false');
+      resetCategories();
     };
 
     coursesLink.setAttribute('aria-haspopup', 'true');
+    coursesLink.setAttribute('aria-expanded', 'false');
 
     coursesLink.addEventListener('click', (e) => {
       if (!mobileQuery.matches) return;
@@ -483,22 +470,20 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopImmediatePropagation();
       sessionStorage.setItem(NAV_STORAGE_KEY, 'cursos');
       setActiveNav('cursos');
-      openPanel();
+      if (panel.classList.contains('is-active')) closePanel();
+      else openPanel();
     });
 
     panel.addEventListener('click', (e) => {
-      const targetButton = e.target.closest('[data-mobile-course-target]');
-      if (targetButton) {
-        showView(targetButton.dataset.mobileCourseTarget);
-        return;
-      }
-
-      const backButton = e.target.closest('[data-mobile-course-back]');
-      if (backButton) {
-        if (backButton.dataset.mobileCourseBack === 'root') {
-          closePanel();
-        } else {
-          showView(backButton.dataset.mobileCourseBack);
+      const toggleButton = e.target.closest('[data-mobile-course-toggle]');
+      if (toggleButton) {
+        const list = document.getElementById(toggleButton.getAttribute('aria-controls'));
+        const shouldOpen = toggleButton.getAttribute('aria-expanded') !== 'true';
+        resetCategories();
+        if (shouldOpen && list) {
+          toggleButton.setAttribute('aria-expanded', 'true');
+          list.hidden = false;
+          list.classList.add('is-active');
         }
         return;
       }
@@ -506,9 +491,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const courseLink = e.target.closest('.mobile-course-link');
       if (courseLink) {
         menuToggle.classList.remove('active');
-        navMenu.classList.remove('active', 'is-drilling');
-        panel.classList.remove('is-active');
-        panel.setAttribute('aria-hidden', 'true');
+        navMenu.classList.remove('active');
+        closePanel();
         menuToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }

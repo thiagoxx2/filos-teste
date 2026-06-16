@@ -18,7 +18,7 @@
 /* Institucional Section (Sobre a Faculdade Filos na Home) */
 .institucional-section {
   background-color: var(--bg-white);
-  padding-top: 6rem;
+  padding-top: clamp(7.5rem, 9.5vw, 10.5rem);
   padding-bottom: clamp(1.5rem, 3.5vw, 3rem);
 }
 
@@ -29,7 +29,7 @@
 
 .institucional-new-title {
   font-family: var(--font-title);
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   color: var(--primary-dark);
   margin-bottom: 2.5rem;
   letter-spacing: -0.02em;
@@ -45,14 +45,15 @@
 }
 
 .institucional-new-card {
-  background-color: #ebebeb;
-  /* Cinza com mais contraste */
+  background-color: #F4F4F4;
+  /* Cinza suave conforme solicitado */
   border-radius: clamp(32px, 5vw, 64px);
   padding: clamp(2.5rem, 6vw, 5rem) clamp(2rem, 5vw, 4.5rem);
   color: #334155;
   /* Cor mais escura para melhor leitura */
   position: relative;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  max-width: calc(100% - 80px);
   margin: 0 auto;
 }
 
@@ -77,31 +78,30 @@
 
 .btn-whatsapp-floating {
   position: absolute;
-  bottom: -1.75rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: -1.85rem;
+  right: clamp(2rem, 5vw, 4.5rem);
   background-color: var(--cta-green);
   color: #ffffff;
-  padding: clamp(0.9rem, 1.2vw, 1.1rem) clamp(2rem, 3vw, 3rem);
-  border-radius: 999px;
+  padding: clamp(0.8rem, 1vw, 1rem) clamp(2.5rem, 5vw, 4.5rem);
+  border-radius: clamp(20px, 2.2vw, 28px);
   font-family: var(--font-title);
-  font-weight: 700;
-  font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 1.6vw, 1.5rem);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  box-shadow: 0 8px 25px rgba(84, 152, 136, 0.4);
+  gap: clamp(0.75rem, 1.2vw, 1.2rem);
+  box-shadow: none;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-whatsapp-floating i {
-  font-size: 1.25rem;
+  font-size: clamp(1.5rem, 1.8vw, 1.8rem);
 }
 
 .btn-whatsapp-floating:hover {
   background-color: var(--cta-green-hover);
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateY(-2px);
 }
 
 
@@ -1377,7 +1377,8 @@
   background-position: center;
   background-repeat: no-repeat;
   color: var(--text-white);
-  padding: clamp(3.4rem, 5.7vw, 6rem) 0 clamp(4.8rem, 7.5vw, 7.8rem) 0;
+  padding: 3rem 0 calc(clamp(5.5rem, 6.5vw, 7.5rem) + 45px) 0;
+  /* Reduzido para dar um visual mais compacto e menor na base, depois reajustado +45px a pedido do usuario */
   z-index: 10;
 }
 
@@ -1417,6 +1418,33 @@
   white-space: nowrap;
 }
 
+.hero-phi-right-logo {
+  position: absolute;
+  right: clamp(15px, 2.5vw, 40px);
+  top: 50%;
+  transform: translateY(calc(-50% - 160px)); /* Subida em 160px a pedido do usuario (mais 20px) */
+  font-family: 'Playfair Display', Georgia, serif; /* Fonte com serifa caligráfica para a logo */
+  font-size: clamp(4rem, 5.5vw, 8.5rem); /* Tamanho reduzido a pedido do usuario */
+  font-weight: 400;
+  color: #ffffff; /* Branco puro e totalmente opaco */
+  z-index: 2;
+  pointer-events: none;
+  display: block;
+  line-height: 1;
+}
+
+@media (max-width: 1100px) {
+  .hero-phi-right-logo {
+    opacity: 0.15; /* Suaviza em telas menores onde o card se aproxima mais da borda */
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-phi-right-logo {
+    display: none; /* Oculta no mobile para evitar sobreposições */
+  }
+}
+
 .hero-new-container {
   position: relative;
   z-index: 3;
@@ -1433,6 +1461,7 @@
   display: flex;
   gap: 2rem;
   align-items: flex-start;
+  margin-left: 20px; /* Desloca o bloco 20px para a direita no desktop (recuado 30px) */
 }
 
 .hero-social-sidebar {
@@ -1468,33 +1497,35 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(1rem, 1.5vw, 1.35rem);
+  gap: clamp(0.45rem, 0.8vw, 0.65rem);
   max-width: 640px;
+  margin-left: 90px; /* Desloca o bloco de texto/botão 90px para a direita no desktop (recuado -30px) */
 }
 
 .hero-new-subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.55vw, 1.45rem);
-  font-weight: 700;
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-weight: 500;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
   text-transform: uppercase;
 }
 
 .hero-new-title {
   font-family: var(--font-title);
-  font-size: clamp(2.75rem, 4.6vw, 4.35rem);
+  font-size: clamp(2.25rem, 3.5vw, 3.1rem);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--text-white);
 }
 
 .hero-new-desc {
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.55vw, 1.45rem);
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(0.85rem, 1.0vw, 1.0rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
@@ -1524,36 +1555,38 @@
 .inscription-card-wrapper {
   position: relative;
   width: 100%;
+  max-width: 340px;
+  /* Reduzido proporcionalmente à altura para evitar achatamento */
+  margin-inline: auto;
   z-index: 10;
-  margin-bottom: -6.25rem;
+  margin-bottom: -10.5rem; /* Ajustado para acompanhar a menor altura total */
+  margin-top: 30px; /* Abaixa o card em 30px para afastar do topo do banner */
 }
 
 /* Card de inscrição flutuante */
 .inscription-card {
-  background-color: #e5e7e9;
-  border-radius: 34px;
-  padding: clamp(2rem, 2.75vw, 3rem) clamp(2.25rem, 3.1vw, 3.4rem);
+  background-color: #eceef0;
+  border-radius: clamp(24px, 2.4vw, 34px);
+  padding: clamp(0.75rem, 1.2vw, 1.25rem) clamp(1.0rem, 1.7vw, 1.8rem);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: clamp(0.35rem, 0.6vw, 0.7rem);
   position: relative;
   overflow: visible;
   border: none;
-  max-width: 640px;
   width: 100%;
-  min-width: 420px;
   z-index: 2;
 }
 
 .inscription-card-title {
   font-family: var(--font-title);
-  font-size: clamp(1.7rem, 2.35vw, 2.7rem);
+  font-size: clamp(1.35rem, 1.8vw, 1.95rem);
   font-weight: 800;
   color: #0d1e34;
   text-align: center;
   padding: 0;
-  margin-bottom: 0.15rem;
+  margin-bottom: clamp(0.05rem, 0.2vw, 0.35rem);
   word-break: keep-all;
   white-space: nowrap;
 }
@@ -1563,7 +1596,7 @@
   height: 1px;
   background-color: #0d1e34;
   opacity: 0.4;
-  margin-bottom: 0.35rem;
+  margin-bottom: clamp(0.15rem, 0.4vw, 0.5rem);
 }
 
 .inscription-card-switches {
@@ -1572,7 +1605,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.75rem, 1.3vw, 1.35rem);
+  gap: clamp(0.6rem, 1.0vw, 1.1rem);
 }
 
 /* Switches de Toggle */
@@ -1587,8 +1620,8 @@
 }
 
 .toggle-switch label {
-  width: clamp(28px, 2vw, 34px);
-  height: clamp(14px, 1vw, 17px);
+  width: clamp(24px, 1.6vw, 28px);
+  height: clamp(12px, 0.8vw, 14px);
   background-color: #6a7482;
   /* Off state color */
   border-radius: 999px;
@@ -1600,8 +1633,8 @@
 
 .toggle-switch label::after {
   content: '';
-  width: calc(clamp(14px, 1vw, 17px) - 4px);
-  height: calc(clamp(14px, 1vw, 17px) - 4px);
+  width: calc(clamp(12px, 0.8vw, 14px) - 4px);
+  height: calc(clamp(12px, 0.8vw, 14px) - 4px);
   background-color: white;
   border-radius: 50%;
   position: absolute;
@@ -1616,12 +1649,12 @@
 }
 
 .toggle-switch input:checked+label::after {
-  transform: translateX(calc(clamp(28px, 2vw, 34px) - clamp(14px, 1vw, 17px)));
+  transform: translateX(calc(clamp(24px, 1.6vw, 28px) - clamp(12px, 0.8vw, 14px)));
 }
 
 .toggle-switch span {
   font-family: var(--font-body);
-  font-size: clamp(0.78rem, 0.9vw, 0.95rem);
+  font-size: clamp(0.68rem, 0.8vw, 0.82rem);
   font-weight: 500;
   color: #0d1e34;
   white-space: nowrap;
@@ -1630,23 +1663,23 @@
 /* Blocos cinzas */
 .inscription-card-meta-block,
 .inscription-card-discount-block {
-  background-color: #8c98a5;
-  border-radius: 18px;
-  padding: 1.1rem 1.45rem;
+  background-color: #738090;
+  border-radius: clamp(10px, 1.0vw, 16px);
+  padding: clamp(0.4rem, 0.7vw, 0.75rem) clamp(0.8rem, 1.3vw, 1.6rem);
   color: var(--text-white);
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: clamp(0.18rem, 0.35vw, 0.45rem);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .inscription-card-meta-block p {
   margin: 0;
   font-family: var(--font-title);
-  font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+  font-size: clamp(0.72rem, 0.9vw, 0.9rem);
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.45;
   letter-spacing: -0.015em;
 }
 
@@ -1655,15 +1688,16 @@
 }
 
 .inscription-card-discount-block {
-  padding: 1.1rem 1.45rem;
+  padding: clamp(0.4rem, 0.7vw, 0.75rem) clamp(0.8rem, 1.3vw, 1.6rem);
 }
 
 .inscription-card-discount-block p {
   margin: 0;
   font-family: var(--font-title);
-  font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+  font-size: clamp(0.72rem, 0.9vw, 0.9rem);
   font-weight: 500;
   letter-spacing: -0.015em;
+  line-height: 1.45;
 }
 
 .inscription-card-discount-block p strong {
@@ -1673,12 +1707,12 @@
 /* Preço */
 .inscription-card-price {
   font-family: var(--font-title);
-  font-size: clamp(3.3rem, 4.85vw, 5.35rem);
+  font-size: clamp(2.1rem, 3.2vw, 3.6rem);
   font-weight: 800;
   color: #0d1e34;
   text-align: center;
   line-height: 1;
-  margin: 0.65rem 0 0.55rem;
+  margin: clamp(0.1rem, 0.25vw, 0.3rem) 0;
   letter-spacing: -0.02em;
 }
 
@@ -1686,11 +1720,11 @@
 .btn-card-enroll-now {
   background-color: #21844b;
   color: var(--text-white);
-  border-radius: 50px;
-  padding: 1rem 1.65rem;
+  border-radius: clamp(18px, 2.0vw, 36px);
+  padding: clamp(0.5rem, 0.8vw, 1.0rem) clamp(0.9rem, 1.5vw, 1.8rem);
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: clamp(1.1rem, 1.5vw, 1.55rem);
+  font-size: clamp(0.95rem, 1.2vw, 1.3rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1711,13 +1745,13 @@
 /* Faixa escura tridimensional na base do card */
 .inscription-card-footer-accent {
   position: absolute;
-  bottom: -24px;
+  bottom: clamp(-28px, -2.0vw, -18px);
   left: 7%;
   width: 86%;
-  height: 88px;
+  height: clamp(60px, 5.0vw, 85px);
   background-color: #0a1728;
   /* Mais escuro */
-  border-radius: 0 0 36px 36px;
+  border-radius: 0 0 clamp(24px, 2.4vw, 34px) clamp(24px, 2.4vw, 34px);
   /* Apenas cantos inferiores arredondados */
   z-index: 1;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
@@ -1727,8 +1761,11 @@
 .section-why-admin {
   position: relative;
   z-index: 5;
-  background-color: #f2f4f6;
-  padding: clamp(6rem, 8vw, 8rem) 0 clamp(3.5rem, 5vw, 5rem) 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../assets/images/bg-classroom-blur.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: clamp(6rem, 8vw, 8.6rem) 0 11.1rem 0;
 }
 
 .why-admin-container {
@@ -1746,6 +1783,7 @@
   font-size: clamp(2.1rem, 3.25vw, 2.9rem);
   font-weight: 800;
   color: var(--primary-dark);
+  margin-bottom: 2.1rem; /* Aumentado em mais 10px (de 1.5rem para 2.1rem) a pedido do usuario */
 }
 
 .why-admin-text-wrapper {
@@ -1780,7 +1818,7 @@
   background-color: var(--cta-green);
   color: var(--text-white);
   border-radius: 50px;
-  padding: 0.85rem 2.2rem;
+  padding: 0.25rem 2.2rem;
   font-family: var(--font-title);
   font-weight: 700;
   font-size: 1.15rem;
@@ -1792,6 +1830,10 @@
   box-shadow: 0 4px 14px rgba(84, 152, 136, 0.3);
 }
 
+.btn-why-admin-enroll i {
+  font-size: 1.35rem; /* Aumentado em ~3px (0.2rem) para destacar o logo do WhatsApp */
+}
+
 .btn-why-admin-enroll:hover {
   background-color: var(--cta-green-hover);
   transform: translateY(-2px);
@@ -1800,13 +1842,14 @@
 
 /* Seção Diferenciais Acadêmicos */
 .section-diferenciais-admin {
-  background: linear-gradient(to bottom, #f2f4f6 390px, #ffffff 390px);
-  padding: clamp(3rem, 4.8vw, 4.75rem) 0;
+  background: linear-gradient(to bottom, transparent 6rem, #ffffff 6rem);
+  padding: 0 0 clamp(3rem, 4.8vw, 4.75rem) 0;
+  margin-top: -6rem;
 }
 
 @media (min-width: 901px) {
   .section-diferenciais-admin {
-    background: linear-gradient(to bottom, #f2f4f6 55%, #ffffff 55%);
+    background: linear-gradient(to bottom, transparent 6rem, #ffffff 6rem);
   }
 }
 
@@ -1818,7 +1861,7 @@
 
 .diferenciais-footer-note p {
   font-family: var(--font-body);
-  font-size: clamp(1.5rem, 1.85vw, 1.7rem);
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
   line-height: 1.6;
   color: var(--primary-dark);
   margin: 0;
@@ -1874,20 +1917,21 @@
 
 .diferenciais-grid-new {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 260px));
   gap: 1.5rem;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .diferencial-card-new {
   background-color: #07162c;
-  /* Azul escuro/preto correspondente ao print */
-  border-radius: 34px;
-  padding: 2.35rem 1.7rem 2.75rem;
+  border-radius: 44px;
+  padding: 2.4rem 1.7rem 2.75rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  /* Possibilita posicionar o botão absolutamente na base */
-  min-height: 330px;
+  min-height: 310px;
   transition: all var(--transition-normal);
   box-shadow: 0 10px 30px rgba(7, 22, 44, 0.15);
 }
@@ -1973,6 +2017,7 @@
   .hero-new-left {
     flex-direction: column-reverse;
     gap: 2.5rem;
+    margin-left: 0; /* Desativa o deslocamento horizontal no mobile */
   }
 
   .hero-social-sidebar {
@@ -1985,6 +2030,7 @@
     align-items: center;
     text-align: center;
     max-width: 100%;
+    margin-left: 0; /* Resetado para centralizar no mobile */
   }
 
   .why-admin-container {
