@@ -364,8 +364,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('nav-menu');
 
   if (menuToggle && navMenu) {
-    const closeMobileCourseMenu = initMobileCourseMenu(navMenu, menuToggle);
+    const isMobileHeader = () => window.matchMedia('(max-width: 1023px)').matches;
+
     ensureMobileLoginLink(navMenu);
+
+    const closeMobileCourseMenu = initMobileCourseMenu(navMenu, menuToggle);
     const closeMobileInstitutionalMenu = initMobileLinkPanel(navMenu, menuToggle, {
       triggerSelector: '[data-nav="institucional"]',
       sourceSelector: '.dropdown-menu-institucional',
@@ -393,31 +396,76 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    menuToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', navMenu.classList.contains('active') ? 'true' : 'false');
-      
-      // Stop background scrolling when mobile menu is open
+    const closeMobileMenu = () => {
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      closeMobilePanels();
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    const openMobileMenu = () => {
+      closeMobilePanels();
+
+      navMenu
+        .querySelectorAll('.mobile-course-panel.is-active, .mobile-submenu-panel.is-active')
+        .forEach((panel) => {
+          panel.classList.remove('is-active');
+          panel.setAttribute('aria-hidden', 'true');
+        });
+
+      navMenu
+        .querySelectorAll('.is-mobile-courses-open, .is-mobile-submenu-open')
+        .forEach((link) => {
+          link.classList.remove('is-mobile-courses-open', 'is-mobile-submenu-open');
+          link.setAttribute('aria-expanded', 'false');
+        });
+
+      menuToggle.classList.add('active');
+      navMenu.classList.add('active');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+
+    menuToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
       if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
+        closeMobileMenu();
       } else {
-        closeMobilePanels();
-        document.body.style.overflow = '';
+        openMobileMenu();
       }
     });
 
-    // Close menu when clicking links
-    const navLinks = navMenu.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        closeMobilePanels();
-        menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+    navMenu.addEventListener('click', (event) => {
+      const clickedLink = event.target.closest('a');
+
+      if (!clickedLink) return;
+
+      const isDropdownTrigger =
+        clickedLink.matches('[data-nav="cursos"]') ||
+        clickedLink.matches('[data-nav="institucional"]') ||
+        clickedLink.matches('[data-nav="contato"]') ||
+        clickedLink.matches('.mobile-login-link');
+
+      if (isMobileHeader() && isDropdownTrigger) {
+        return;
+      }
+
+      closeMobileMenu();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (!isMobileHeader()) {
+        closeMobileMenu();
+      }
     });
   }
 
@@ -432,6 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loginLink.className = 'nav-link mobile-login-link';
     loginLink.href = '#';
     loginLink.textContent = 'Login / Cadastrar';
+
     loginItem.appendChild(loginLink);
     navMenu.appendChild(loginItem);
   }
@@ -439,11 +488,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function initMobileLinkPanel(navMenu, menuToggle, config) {
     const trigger = navMenu.querySelector(config.triggerSelector);
     const source = document.querySelector(config.sourceSelector) || navMenu.querySelector(config.sourceSelector);
-    if (!trigger || !source) return;
+
+    if (!trigger || !source) return null;
 
     const mobileQuery = window.matchMedia('(max-width: 1023px)');
     const triggerItem = trigger.closest('.nav-item, .nav-item-dropdown') || trigger.parentElement;
-    if (!triggerItem || triggerItem.querySelector('.mobile-submenu-panel')) return;
+
+    if (!triggerItem || triggerItem.querySelector('.mobile-submenu-panel')) return null;
 
     const panel = document.createElement('div');
     panel.className = 'mobile-submenu-panel';
@@ -451,6 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Array.from(source.querySelectorAll(config.itemSelector)).forEach((item) => {
       const link = document.createElement('a');
+
       link.className = 'mobile-submenu-link';
       link.href = item.getAttribute('href') || '#';
       link.textContent = item.textContent.trim();
@@ -482,17 +534,21 @@ document.addEventListener('DOMContentLoaded', () => {
       trigger.setAttribute('aria-expanded', 'true');
     };
 
-    trigger.addEventListener('click', (e) => {
-      if (!mobileQuery.matches) return;
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      const shouldOpen = !panel.classList.contains('is-active');
-      closePanel();
-      if (shouldOpen) openPanel();
+    trigger.addEventListener('click', (event) => {
+      if (!mobileQuery.matches || !navMenu.classList.contains('active')) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (panel.classList.contains('is-active')) {
+        closePanel();
+      } else {
+        openPanel();
+      }
     });
 
-    panel.addEventListener('click', (e) => {
-      const link = e.target.closest('.mobile-submenu-link');
+    panel.addEventListener('click', (event) => {
+      const link = event.target.closest('.mobile-submenu-link');
       if (!link) return;
 
       menuToggle.classList.remove('active');
@@ -502,8 +558,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     });
 
-    navMenu.addEventListener('mobile-submenu-open', (e) => {
-      if (e.detail !== panel) closePanel();
+    navMenu.addEventListener('mobile-submenu-open', (event) => {
+      if (event.detail !== panel) closePanel();
     });
 
     window.addEventListener('resize', () => {
@@ -517,19 +573,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function initMobileCourseMenu(navMenu, menuToggle) {
     const coursesLink = navMenu.querySelector('[data-nav="cursos"]');
     const coursesDropdown = navMenu.querySelector('.dropdown-menu-cursos');
-    if (!coursesLink || !coursesDropdown || navMenu.querySelector('.mobile-course-panel')) return;
+
+    if (!coursesLink || !coursesDropdown || navMenu.querySelector('.mobile-course-panel')) return null;
 
     const mobileQuery = window.matchMedia('(max-width: 1023px)');
     const columns = Array.from(coursesDropdown.querySelectorAll('.dropdown-column'));
     const coursesItem = coursesLink.closest('.nav-item, .nav-item-dropdown') || coursesLink.parentElement;
-    if (!columns.length || !coursesItem) return;
+
+    if (!columns.length || !coursesItem) return null;
 
     const panel = document.createElement('div');
     panel.className = 'mobile-course-panel';
     panel.setAttribute('aria-hidden', 'true');
 
     const courseList = document.createElement('div');
-    courseList.className = 'mobile-course-list is-active';
+    courseList.className = 'mobile-course-list';
 
     const items = columns
       .flatMap((column) => Array.from(column.querySelectorAll('.dropdown-item')))
@@ -537,20 +595,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     items.forEach((item) => {
       const link = document.createElement('a');
+
       link.className = 'mobile-course-link';
       link.href = item.getAttribute('href') || '#';
       link.textContent = item.textContent.trim();
+
       courseList.appendChild(link);
     });
 
     const seeAll = document.createElement('a');
     seeAll.className = 'mobile-course-link mobile-course-link--all';
     seeAll.href = 'index.html#cursos';
-    seeAll.textContent = 'Ver todos';
+    seeAll.textContent = 'Todos os cursos';
+
     courseList.appendChild(seeAll);
     panel.appendChild(courseList);
-
     coursesItem.appendChild(panel);
+
+    coursesLink.setAttribute('aria-haspopup', 'true');
+    coursesLink.setAttribute('aria-expanded', 'false');
+
+    const closePanel = () => {
+      panel.classList.remove('is-active');
+      panel.setAttribute('aria-hidden', 'true');
+      coursesLink.classList.remove('is-mobile-courses-open');
+      coursesLink.setAttribute('aria-expanded', 'false');
+    };
 
     const openPanel = () => {
       navMenu.dispatchEvent(new CustomEvent('mobile-submenu-open', { detail: panel }));
@@ -560,43 +630,39 @@ document.addEventListener('DOMContentLoaded', () => {
       coursesLink.setAttribute('aria-expanded', 'true');
     };
 
-    const closePanel = () => {
-      panel.classList.remove('is-active');
-      panel.setAttribute('aria-hidden', 'true');
-      coursesLink.classList.remove('is-mobile-courses-open');
-      coursesLink.setAttribute('aria-expanded', 'false');
-    };
+    coursesLink.addEventListener('click', (event) => {
+      if (!mobileQuery.matches || !navMenu.classList.contains('active')) return;
 
-    coursesLink.setAttribute('aria-haspopup', 'true');
-    coursesLink.setAttribute('aria-expanded', 'false');
+      event.preventDefault();
+      event.stopPropagation();
 
-    coursesLink.addEventListener('click', (e) => {
-      if (!mobileQuery.matches) return;
-      e.preventDefault();
-      e.stopImmediatePropagation();
       sessionStorage.setItem(NAV_STORAGE_KEY, 'cursos');
       setActiveNav('cursos');
-      if (panel.classList.contains('is-active')) closePanel();
-      else openPanel();
+
+      if (panel.classList.contains('is-active')) {
+        closePanel();
+      } else {
+        openPanel();
+      }
     });
 
-    panel.addEventListener('click', (e) => {
-      const courseLink = e.target.closest('.mobile-course-link');
-      if (courseLink) {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        closePanel();
-        menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
+    panel.addEventListener('click', (event) => {
+      const courseLink = event.target.closest('.mobile-course-link');
+      if (!courseLink) return;
+
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      closePanel();
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+
+    navMenu.addEventListener('mobile-submenu-open', (event) => {
+      if (event.detail !== panel) closePanel();
     });
 
     window.addEventListener('resize', () => {
       if (!mobileQuery.matches) closePanel();
-    });
-
-    navMenu.addEventListener('mobile-submenu-open', (e) => {
-      if (e.detail !== panel) closePanel();
     });
 
     return closePanel;
@@ -610,10 +676,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadMap = () => {
       // Get source from data-src or load standard Google Maps embed for Faculdade Filos address
       const mapSrc = mapIframe.getAttribute('data-src') || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.404285885233!2d-48.2483864!3d-15.7825227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935bc9f187a55097%3A0xe54e6fe4ef0f968!2sAv.%20Tiradentes%20-%20Jardim%20P%C3%A9rola%2C%20%C3%81guas%20Lindas%20de%20Goi%C3%A1s%20-%20GO%2C%2072911-262!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr";
-      
+
       mapIframe.src = mapSrc;
       mapIframe.classList.add('loaded');
-      
+
       // Fade out placeholder
       mapPlaceholder.style.opacity = '0';
       setTimeout(() => {
@@ -648,11 +714,11 @@ document.addEventListener('DOMContentLoaded', () => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
-      
+
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        
+
         // Offset for sticky header
         const headerOffset = document.getElementById('site-header')?.offsetHeight || 148;
         const elementPosition = target.getBoundingClientRect().top;
@@ -673,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Obter todos os cards de graduação (bacharelado) na página
     const graduationCards = Array.from(document.querySelectorAll('.course-card-item[data-filter="bacharelado"]'));
-    
+
     // Se não houver cards (ex: em páginas secundárias se não tiverem os cards na DOM), 
     // ou se quisermos manter fallback estático caso nada seja encontrado.
     if (graduationCards.length === 0) {
@@ -681,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (contents.length > 0) {
         const baseContent = contents[0].innerHTML;
         const repeatedHTML = Array(5).fill(baseContent).join('');
-        
+
         marqueeTrack.innerHTML = `
           <div class="marquee-content">${repeatedHTML}</div>
           <div class="marquee-content" aria-hidden="true">${repeatedHTML}</div>
