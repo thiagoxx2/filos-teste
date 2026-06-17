@@ -38,13 +38,53 @@ button,
 
 @media (min-width: 1024px) {
 
-  .header-login-container,
+  .header-login-container {
+    display: inline-block !important;
+  }
+
   .login-dropdown-menu {
-    display: none !important;
+    display: flex !important;
+  }
+
+  .header-top .header-row__side--end {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    padding-right: clamp(2.5rem, 5vw, 5.5rem) !important;
+  }
+
+  .header-login {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.35rem !important;
+    color: #111827 !important;
+    font-family: var(--font-title) !important;
+    font-size: clamp(0.72rem, 0.78vw, 0.88rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.055em !important;
+    line-height: 1 !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    opacity: 0.92 !important;
+  }
+
+  .header-login:hover {
+    color: var(--cta-green) !important;
+    opacity: 1 !important;
+  }
+
+  .header-login .dropdown-chevron {
+    font-size: 0.58rem !important;
+    margin-left: 0.25rem !important;
   }
 
   .header-nav {
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    min-height: 52px !important;
+    padding: 0 !important;
   }
 
   .menu-toggle {
@@ -76,6 +116,8 @@ button,
   .nav-menu>.nav-link,
   .nav-menu>.nav-item-dropdown {
     display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     width: auto !important;
     max-width: none !important;
     flex: 0 0 auto !important;
@@ -84,7 +126,7 @@ button,
   .nav-menu>.nav-link,
   .nav-menu>.nav-item-dropdown>.nav-link {
     min-height: auto !important;
-    padding: 0.42rem 0.55rem !important;
+    padding: 0.31rem 0.55rem !important;
     border: 0 !important;
     background: transparent !important;
     color: var(--gray-blue) !important;
@@ -92,7 +134,7 @@ button,
     font-size: clamp(0.82rem, 1.05vw, 1rem) !important;
     font-weight: 500 !important;
     letter-spacing: 0.04em !important;
-    line-height: 1.2 !important;
+    line-height: 1 !important;
     text-transform: uppercase !important;
     white-space: nowrap !important;
     position: relative !important;
@@ -114,7 +156,7 @@ button,
     content: "" !important;
     position: absolute !important;
     left: 50% !important;
-    bottom: calc(-0.55rem - 1px) !important;
+    bottom: -1px !important;
     transform: translateX(-50%) !important;
     width: calc(100% + 18px) !important;
     height: 8px !important;
@@ -134,8 +176,8 @@ button,
     justify-content: center !important;
     width: auto !important;
     max-width: none !important;
-    padding-bottom: 14px !important;
-    margin-bottom: -14px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .dropdown-menu-cursos,

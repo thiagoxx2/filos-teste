@@ -99,7 +99,7 @@
 }
 
 .header-top {
-  padding: 1.05rem 0 1.05rem;
+  padding: calc(1.05rem + 5px) 0 calc(1.05rem - 5px);
 }
 
 .logo-link {
@@ -112,9 +112,9 @@
 /* Trocar o src quando a logo final (imagem) estiver disponível */
 .site-logo-img {
   display: block;
-  height: 62px;
+  height: 92px;
   width: auto;
-  max-width: min(320px, 56vw);
+  max-width: min(390px, 56vw);
   object-fit: contain;
 }
 
@@ -219,19 +219,22 @@
 }
 
 .header-nav {
-  padding: 0.55rem 0;
+  padding: 0;
 }
 
 .nav-menu {
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* Centralizado verticalmente */
+  align-items: stretch;
+  /* Garante altura total nos links filhos para colar a aba e centralizar verticalmente */
   flex-wrap: nowrap;
   gap: var(--header-nav-gap);
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-title);
   font-weight: 500;
   /* Peso médio para links inativos para realçar o ativo */
@@ -240,8 +243,8 @@
   /* Cor cinza-azulado para links inativos */
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  line-height: 1.2;
-  padding: 0.42rem 0.95rem;
+  line-height: 1;
+  padding: 0.31rem 0.95rem;
   background: transparent;
   border: none;
   white-space: nowrap;
@@ -269,7 +272,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: calc(-0.55rem - 1px);
+    bottom: -1px;
     /* Alinha exatamente com a borda inferior da barra cinza */
     width: calc(100% + 18px);
     height: 8px;
@@ -299,8 +302,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.4rem;
+  height: 1.4rem;
   padding: 0;
   border: none;
   background: transparent;
@@ -663,7 +666,8 @@
   display: block;
   width: 90px;
   height: auto;
-  opacity: 0.12; /* Sutil como marca d'água no desktop */
+  opacity: 0.12;
+  /* Sutil como marca d'água no desktop */
 }
 
 /* Carousel Indicators - New */
@@ -1303,13 +1307,11 @@
 #faq {
   padding-top: clamp(1.75rem, 3vw, 3rem);
   background:
-    linear-gradient(
-      to bottom,
+    linear-gradient(to bottom,
       rgba(4, 24, 48, 0.9) 0%,
       rgba(4, 24, 48, 0.9) calc(clamp(1.75rem, 3vw, 3rem) + clamp(4.25rem, 5vw, 6rem)),
       var(--bg-white) calc(clamp(1.75rem, 3vw, 3rem) + clamp(4.25rem, 5vw, 6rem)),
-      var(--bg-white) 100%
-    ),
+      var(--bg-white) 100%),
     url('../assets/images/banner-home-classroom.png') center top / cover no-repeat;
 }
 
@@ -2941,6 +2943,7 @@ input:disabled+.cookies-slider {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -3689,9 +3692,9 @@ input:disabled+.cookies-slider {
 /* Exibir e estilizar no desktop (>= 1024px) */
 @media (min-width: 1024px) {
   .nav-item-dropdown {
-    /* Mantém uma área invisível abaixo para que o mouse não perca o hover ao transicionar pro dropdown */
-    padding-bottom: 14px;
-    margin-bottom: -14px;
+    /* Padding removido para não quebrar a centralização da barra cinza */
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .nav-item-dropdown:hover .dropdown-menu-cursos {
@@ -3722,8 +3725,14 @@ input:disabled+.cookies-slider {
   }
 
   .dropdown-menu-cursos::before {
-    content: none;
-    display: none;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
   }
 
   .dropdown-menu-cursos-content {
@@ -3924,8 +3933,14 @@ input:disabled+.cookies-slider {
 
   .dropdown-menu-institucional::before,
   .dropdown-menu-contato::before {
-    content: none;
-    display: none;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
   }
 
   .dropdown-list-vertical {
