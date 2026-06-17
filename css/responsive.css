@@ -1940,3 +1940,165 @@ body>section:first-of-type {
     font-size: clamp(1rem, 2.9vw, 1.22rem) !important;
   }
 }
+
+/* =========================================================
+   Desktop - Correção segura do hero
+   Não altera mobile/tablet
+   ========================================================= */
+
+@media (min-width: 1024px) {
+  #inicio .hero-carousel--new {
+    --hero-banner-height: clamp(560px, 42vw, 760px);
+    --hero-slide-padding-y: clamp(3rem, 4.5vw, 5.5rem);
+    --hero-slide-padding-x: clamp(4rem, 6vw, 7rem);
+    --hero-content-width: clamp(440px, 42vw, 680px);
+    --hero-student-width: clamp(420px, 34vw, 620px);
+    --hero-content-offset-y: clamp(-28px, -2vw, -12px);
+  }
+
+  #inicio .hero-carousel--new .carousel-track-container {
+    height: var(--hero-banner-height) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  #inicio .hero-carousel--new .carousel-slide--new {
+    grid-template-columns: minmax(0, var(--hero-content-width)) minmax(320px, var(--hero-student-width)) !important;
+    column-gap: clamp(2rem, 4vw, 5rem) !important;
+    padding: var(--hero-slide-padding-y) var(--hero-slide-padding-x) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-content-new {
+    max-width: var(--hero-content-width) !important;
+    transform: translateY(var(--hero-content-offset-y)) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-content-new h2 {
+    font-size: clamp(2.8rem, 3.35vw, 4.15rem) !important;
+    line-height: 1.07 !important;
+    letter-spacing: -0.045em !important;
+    max-width: 100% !important;
+  }
+
+  #inicio .hero-carousel--new .slide-content-new p {
+    font-size: clamp(1rem, 1.25vw, 1.28rem) !important;
+    line-height: 1.4 !important;
+    max-width: min(620px, 100%) !important;
+  }
+
+  #inicio .hero-carousel--new .btn-matricule-slide {
+    margin-top: clamp(1.1rem, 1.4vw, 1.5rem) !important;
+    padding: 0.78rem 1.85rem !important;
+    font-size: clamp(0.82rem, 0.85vw, 0.95rem) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-student-image {
+    width: var(--hero-student-width) !important;
+    max-width: var(--hero-student-width) !important;
+    align-self: end !important;
+    justify-self: center !important;
+    transform: translateY(clamp(10px, 1.2vw, 24px)) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-student-image img {
+    width: 100% !important;
+    max-height: calc(var(--hero-banner-height) - 90px) !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+}
+
+/* Notebook menor */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #inicio .hero-carousel--new {
+    --hero-banner-height: clamp(540px, 48vw, 640px);
+    --hero-slide-padding-x: clamp(3rem, 4vw, 4.5rem);
+    --hero-content-width: clamp(390px, 42vw, 500px);
+    --hero-student-width: clamp(360px, 32vw, 440px);
+  }
+
+  #inicio .hero-carousel--new .slide-content-new h2 {
+    font-size: clamp(2.25rem, 3.2vw, 3rem) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-content-new p {
+    font-size: clamp(0.95rem, 1.2vw, 1.08rem) !important;
+  }
+}
+
+/* Desktop comum */
+@media (min-width: 1280px) and (max-width: 1599px) {
+  #inicio .hero-carousel--new {
+    --hero-banner-height: clamp(600px, 42vw, 720px);
+    --hero-content-width: clamp(480px, 42vw, 640px);
+    --hero-student-width: clamp(430px, 33vw, 560px);
+  }
+}
+
+/* Desktop grande */
+@media (min-width: 1600px) {
+  #inicio .hero-carousel--new {
+    --hero-banner-height: clamp(680px, 39vw, 800px);
+    --hero-content-width: clamp(560px, 38vw, 720px);
+    --hero-student-width: clamp(520px, 30vw, 660px);
+  }
+
+  #inicio .hero-carousel--new .slide-content-new h2 {
+    font-size: clamp(3.4rem, 3.2vw, 4.6rem) !important;
+  }
+}
+
+/* Banner desktop - Símbolo Phi lateral direita */
+@media (min-width: 1024px) {
+  #inicio .hero-carousel--new .slide-phi-logo {
+    top: clamp(32px, 2.5vw, 48px) !important;
+    right: clamp(42px, 3.8vw, 76px) !important;
+    z-index: 8 !important;
+  }
+
+  #inicio .hero-carousel--new .slide-phi-logo img {
+    width: clamp(62px, 3.8vw, 92px) !important;
+    height: auto !important;
+    transform: none !important;
+    transform-origin: top right !important;
+    opacity: 1 !important;
+    filter: brightness(0) invert(1) !important;
+  }
+}
+
+/* Banner desktop - imagem da estudante */
+@media (min-width: 1024px) {
+  #inicio .hero-carousel--new {
+    --hero-student-width: clamp(600px, 45vw, 900px) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-student-image {
+    width: var(--hero-student-width) !important;
+    max-width: var(--hero-student-width) !important;
+    align-self: end !important;
+    justify-self: center !important;
+    transform: translateY(-55px) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-student-image img {
+    width: 100% !important;
+    max-height: calc(var(--hero-banner-height) + 10px) !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+}
+
+/* Banner desktop - Permitir que o texto avance 30px para a direita */
+@media (min-width: 1024px) {
+  #inicio .hero-carousel--new .slide-content-new {
+    max-width: calc(var(--hero-content-width) + 30px) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-content-new h2 {
+    max-width: calc(var(--hero-content-width) + 30px) !important;
+  }
+
+  #inicio .hero-carousel--new .slide-content-new p {
+    max-width: min(650px, calc(var(--hero-content-width) + 30px)) !important;
+  }
+}
