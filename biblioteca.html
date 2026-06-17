@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="css/variables.css?v=5.0">
   <link rel="stylesheet" href="css/global.css?v=5.0">
   <link rel="stylesheet" href="css/components.css?v=5.36">
-  <link rel="stylesheet" href="css/pages.css?v=1.1">
-  <link rel="stylesheet" href="css/responsive.css?v=5.20">
+  <link rel="stylesheet" href="css/pages.css?v=5.20">
+  <link rel="stylesheet" href="css/responsive.css?v=6.23">
 </head>
 <body>
   <!-- --- TOP MARQUEE --- -->
@@ -193,7 +193,7 @@
 
   <!-- --- BIBLIOTECA CONTENT --- -->
   <section class="biblioteca-section">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <div class="container">
       
       <!-- 1. Serviços Disponíveis -->
       <div class="biblioteca-title-block">
@@ -342,23 +342,80 @@
   </section>
 
   <!-- --- FOOTER --- -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <img src="assets/images/logo-faculdade-filos-oficial-white.png" alt="Logo Faculdade Filos" class="logo-svg" style="height: 50px; margin-bottom: 1.5rem;">
-        <p class="footer-description">A Faculdade Filos é referência em ensino superior de qualidade na região de Águas Lindas de Goiás.</p>
+    <footer class="new-footer">
+    <div class="container new-footer-grid">
+      <!-- Col 1 -->
+      <div class="new-footer-col new-footer-col-1">
+        <div class="new-footer-col-top">
+          <a href="index.html" aria-label="Ir para a home">
+            <img src="assets/images/logo-faculdade-filos-oficial-white.png" alt="Logo Faculdade Filos" class="new-footer-logo">
+          </a>
+          <p class="new-footer-desc">
+            A <strong>Faculdade Filos, reconhecida pelo MEC</strong>, oferece <strong>graduação, pós-graduação</strong> e
+            cursos extensionistas com ensino de qualidade <strong>em Águas Lindas de Goiás</strong>. Com aulas noturnas e
+            experiências práticas, prepara alunos para o mercado de trabalho.
+          </p>
+        </div>
+        <div class="new-footer-location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>
+            <span style="white-space: nowrap;">Avenida Tiradentes, Quadra 71, Lote 28/31,</span><br>
+            <span style="white-space: nowrap;">Jardim Pérola - Barragem II, Águas Lindas de GO</span><br>
+            <span style="white-space: nowrap;">CEP 72911-262</span>
+          </p>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4 class="footer-title">Institucional</h4>
-        <ul class="footer-links">
-          <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="politica-de-cookies.html">Política de Cookies</a></li>
-          <li><a href="index.html#cursos">Voltar para Cursos</a></li>
-        </ul>
+
+      <!-- Col 2 -->
+      <div class="new-footer-col new-footer-col-2">
+        <div class="new-footer-section">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CURSOS</h4>
+          <ul class="new-footer-links">
+            <li><a href="#">Direito</a></li>
+            <li><a href="#">Pedagogia</a></li>
+            <li><a href="#">Radiologia</a></li>
+            <li><a href="#">Administração</a></li>
+          </ul>
+        </div>
+
+        <div class="new-footer-section new-footer-margin-top">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CONTATO</h4>
+          <ul class="new-footer-links new-footer-contact">
+            <li><strong>WHATSAPP:</strong> 6199906-1757</li>
+            <li><strong>TELEFONE:</strong> 3618-8111</li>
+            <li>contato@faculdadefilos.com.br</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="new-footer-col new-footer-col-3">
+        <div class="new-footer-section">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> INSTITUCIONAL</h4>
+          <ul class="new-footer-links">
+            <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank"
+                rel="noopener noreferrer">Revista</a></li>
+            <li><a href="ouvidoria.html">Ouvidoria</a></li>
+            <li><a href="cpa.html">CPA</a></li>
+            <li><a href="biblioteca.html">Biblioteca</a></li>
+            <li class="footer-link-divider"><a href="#" style="font-weight: 700; color: #ffffff;">Colégio</a></li>
+            <li><a href="#">Portal do Aluno</a></li>
+            <li><a href="#">Portal do professor</a></li>
+          </ul>
+        </div>
+
+        <div class="new-footer-socials">
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <p class="footer-copyright">&copy; 2026 Faculdade Filos. Credenciada pelo MEC.</p>
+
+    <!-- Bottom Bar -->
+    <div class="new-footer-bottom">
+      <div class="container">
+        <p>Desenvolvido pela <a href="https://www.daraagencia.com/" target="_blank" rel="noopener noreferrer" class="footer-dara-link">agência Dara</a> | 2026</p>
+      </div>
     </div>
   </footer>
 
@@ -386,6 +443,6 @@
 
   <script src="js/cookies.js"></script>
   <script src="js/forms.js"></script>
-  <script src="js/main.js?v=1.4"></script>
+  <script src="js/main.js?v=1.8"></script>
 </body>
 </html>

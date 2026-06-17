@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData(ouvidoriaForm);
 
-        fetch('send_ouvidoria.php', {
+        fetch(ouvidoriaForm.getAttribute('action') || 'send_ouvidoria.php', {
           method: 'POST',
           body: formData
         })

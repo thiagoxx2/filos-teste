@@ -657,11 +657,13 @@
   top: 1.5rem;
   right: 1.5rem;
   z-index: 5;
-  font-size: 8.5rem;
-  color: #ffffff;
-  font-family: 'Times New Roman', Georgia, serif;
-  font-weight: 400;
-  line-height: 1;
+}
+
+.slide-phi-logo img {
+  display: block;
+  width: 90px;
+  height: auto;
+  opacity: 0.12; /* Sutil como marca d'água no desktop */
 }
 
 /* Carousel Indicators - New */
@@ -1527,6 +1529,7 @@
   color: var(--text-muted);
   font-size: clamp(0.92rem, 1vw, 1.05rem);
   line-height: 1.55;
+  text-align: justify;
   margin: 0;
   padding-top: 0.75rem;
   padding-bottom: 1.25rem;
@@ -2750,6 +2753,17 @@ input:disabled+.cookies-slider {
   color: var(--primary-dark);
 }
 
+.indicacao-simples-destaque {
+  font-family: var(--font-title);
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  color: var(--primary-dark);
+  font-weight: 800;
+  line-height: 1.4;
+  margin-top: 1.6rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
 /* --- DESTAQUES SECTION --- */
 .destaques-section {
   min-height: clamp(620px, 56vw, 820px);
@@ -3220,6 +3234,7 @@ input:disabled+.cookies-slider {
 
 .new-footer .container {
   width: min(100% - 2 * var(--page-gutter), 1560px);
+  transform: translateX(40px);
 }
 
 .new-footer-grid {
@@ -3420,6 +3435,10 @@ input:disabled+.cookies-slider {
   /* Tom ainda mais escuro para destaque */
   padding: clamp(1.2rem, 1.8vw, 1.8rem) 0;
   text-align: center;
+}
+
+.new-footer-bottom .container {
+  transform: none;
 }
 
 .new-footer-bottom p {

@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css?v=5.0">
   <link rel="stylesheet" href="../css/global.css?v=5.0">
-  <link rel="stylesheet" href="../css/components.css?v=5.36">
-  <link rel="stylesheet" href="../css/pages.css?v=1.2">
-  <link rel="stylesheet" href="../css/responsive.css?v=5.20">
+  <link rel="stylesheet" href="../css/components.css?v=5.40">
+  <link rel="stylesheet" href="../css/pages.css?v=5.17">
+  <link rel="stylesheet" href="../css/responsive.css?v=6.23">
 </head>
 <body>
   <!-- --- TOP MARQUEE --- -->
@@ -192,10 +192,12 @@
   </header>
 
   <!-- --- COURSE HERO --- -->
-  <section class="course-hero-new" style="background-image: url('../assets/images/bg-classroom-blur.jpg');">
+  <section class="course-hero-new" style="background-image: url('../assets/images/banner-home-classroom.png');">
     <div class="hero-bg-wrapper">
       <div class="hero-new-overlay"></div>
       <div class="hero-phi-logo-bg">FILOS</div>
+      <!-- Logo do Phi à direita -->
+      <div class="hero-phi-right-logo" aria-hidden="true">Φ</div>
     </div>
 
     <div class="container hero-new-container">
@@ -215,21 +217,7 @@
           <div class="inscription-card" data-price-card data-price-default="609,65">
             <h2 class="inscription-card-title">RADIOLOGIA</h2>
             <div class="inscription-card-divider"></div>
-
-            <div class="inscription-card-switches">
-              <div class="toggle-switch">
-                <input type="checkbox" id="hero-transferencia-radiologia" checked data-price-toggle data-price="609,65">
-                <label for="hero-transferencia-radiologia"></label>
-                <span>Transferência Acadêmica</span>
-              </div>
-              <div class="toggle-switch">
-                <input type="checkbox" id="hero-alunos-radiologia" data-price-toggle data-price="338,67">
-                <label for="hero-alunos-radiologia"></label>
-                <span>Alunos e Ex Alunos</span>
-              </div>
-            </div>
-
-            <div class="inscription-card-meta-block">
+<div class="inscription-card-meta-block">
               <p>Duração de 3 anos | <strong>6 semestres</strong></p>
               <p>Reconhecido pelo Mec | <strong>Tecnólogo</strong></p>
               <p><strong>Período Matutino</strong> | Presencial</p>
@@ -267,16 +255,19 @@
         <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
       </a>
     </div>
+
+    <!-- Cabeçalho dos diferenciais compartilhado no mesmo background translúcido -->
+    <div class="container" style="margin-top: 4.5rem; margin-bottom: 0;">
+      <div class="diferenciais-header text-center" style="margin-bottom: 0;">
+              <h2 class="diferenciais-main-title">DIFERENCIAIS <strong>ACADÊMICOS</strong></h2>
+              <p class="diferenciais-subtitle">Do curso de Radiologia</p>
+            </div>
+    </div>
   </section>
 
   <!-- --- DIFERENCIAIS ACADÊMICOS --- -->
   <section class="section section-diferenciais-admin section-with-bottom-tab" style="--module-bg: #ffffff; z-index: 8;">
     <div class="container">
-      <div class="diferenciais-header text-center">
-        <h2 class="diferenciais-main-title">DIFERENCIAIS <strong>ACADÊMICOS</strong></h2>
-        <p class="diferenciais-subtitle">Do curso de Radiologia</p>
-      </div>
-
       <div class="diferenciais-grid-new">
         <div class="diferencial-card-new">
           <div class="diferencial-card-content">
@@ -322,24 +313,182 @@
     </div>
   </section>
 
-  <!-- --- FOOTER --- -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <img src="../assets/images/logo-faculdade-filos-oficial-white.png" alt="Logo Faculdade Filos" class="logo-svg" style="height: 50px; margin-bottom: 1.5rem;">
-        <p class="footer-description">A Faculdade Filos é referência em ensino superior de qualidade na região de Águas Lindas de Goiás.</p>
+
+
+  <section class="section section-related-courses" data-related-courses data-current-course="radiologia">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">CURSOS <strong>SUPERIORES</strong></h2>
+        <p class="section-subtitle">Conheça também os cursos mais <strong>buscados</strong></p>
       </div>
-      <div class="footer-col">
-        <h4 class="footer-title">Institucional</h4>
-        <ul class="footer-links">
-          <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="../politica-de-cookies.html">Política de Cookies</a></li>
-          <li><a href="../index.html#cursos">Voltar para Cursos</a></li>
-        </ul>
+
+      <div class="related-courses-carousel-wrapper">
+        <div class="related-courses-carousel">
+          <div class="related-courses-pages" data-related-courses-pages></div>
+        </div>
+        <div class="courses-pagination-dots related-courses-dots" data-related-courses-dots></div>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <p class="footer-copyright">&copy; 2026 Faculdade Filos. Credenciada pelo MEC.</p>
+  </section>
+
+
+
+  <!-- --- LOCATION MAP / CONTATO SECTION --- -->
+  <section id="contato" class="section new-location-section section-dark" style="z-index: 4; position: relative;">
+    <div class="container-wide">
+
+      <!-- Logo Symbol Floating Right -->
+      <div class="location-floating-logo">
+        <img src="../assets/images/logo-filos-oficial.png" alt="Logo Faculdade Filos" class="location-floating-logo-img">
+      </div>
+
+      <!-- Section Header -->
+      <div class="new-location-header">
+        <span class="new-location-subtitle">LOCALIZAÇÃO</span>
+        <h2 class="new-location-title">Onde nos <strong>Encontrar</strong></h2>
+      </div>
+
+      <!-- Main Layout -->
+      <div class="new-location-grid">
+
+        <!-- Left side: Mini FAQ -->
+        <div class="new-location-faq">
+          <div class="new-location-faq-header">
+            <div class="new-location-faq-line"></div>
+            <h3><strong>Perguntas</strong> frequentes</h3>
+          </div>
+
+          <div class="new-location-faq-list">
+            <details class="new-location-faq-item">
+              <summary>Qual o endereço completo da Faculdade Filos? <i class="fa-solid fa-plus"></i></summary>
+              <div class="new-location-faq-answer">
+                Nosso campus está localizado na Avenida Tiradentes, Quadra 71, Lote 28/31, Jardim Pérola - da Barragem
+                II, Águas Lindas de Goiás - GO, 72911-262.
+              </div>
+            </details>
+            <details class="new-location-faq-item">
+              <summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
+              <div class="new-location-faq-answer">
+                Sim! Estamos abertos de segunda a sexta, das 8h às 22h. Nossa equipe terá um enorme prazer em apresentar
+                nossa infraestrutura.
+              </div>
+            </details>
+            <details class="new-location-faq-item">
+              <summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
+              <div class="new-location-faq-answer">
+                Sim! Nossa secretaria funciona normalmente para lhe atender presencialmente no campus.
+              </div>
+            </details>
+          </div>
+
+          <a href="#" class="btn btn-whatsapp-location">
+            <i class="fa-brands fa-whatsapp"></i> Fale com a nossa equipe
+          </a>
+        </div>
+
+        <!-- Right side: Map -->
+        <div class="new-location-map-container">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s"
+            target="_blank" class="map-link-overlay" aria-label="Traçar rota no Google Maps"
+            title="Clique para abrir a rota no GPS"></a>
+          <iframe id="map-iframe" class="new-location-map"
+            src="https://maps.google.com/maps?q=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s&t=&z=16&ie=UTF8&iwloc=near&output=embed"
+            title="Localização Faculdade Filos no Google Maps" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div class="new-location-address">
+        <p>
+          <span class="address-line"><a href="https://www.google.com/maps/dir/?api=1&destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s"
+            target="_blank" class="address-icon-link" aria-label="Traçar rota no Google Maps"
+            title="Clique para abrir a rota no GPS">
+            <i class="fa-solid fa-location-dot"></i>
+          </a>Endereço: Avenida Tiradentes, Quadra 71, Lote 28/31, Jardim Pérola - Barragem II, Águas Lindas de Goiás - GO,</span>
+          <span class="address-line">CEP 72911-262. Além do fácil acesso, a instituição disponibiliza atendimento presencial para dúvidas</span>
+          <span class="address-line">sobre cursos, vestibular, matrícula, financeiro e vida acadêmica, proporcionando suporte completo</span>
+          <span class="address-line">desde o primeiro contato.</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+    <footer class="new-footer">
+    <div class="container new-footer-grid">
+      <!-- Col 1 -->
+      <div class="new-footer-col new-footer-col-1">
+        <div class="new-footer-col-top">
+          <a href="../index.html" aria-label="Ir para a home">
+            <img src="../assets/images/logo-faculdade-filos-oficial-white.png" alt="Logo Faculdade Filos" class="new-footer-logo">
+          </a>
+          <p class="new-footer-desc">
+            A <strong>Faculdade Filos, reconhecida pelo MEC</strong>, oferece <strong>graduação, pós-graduação</strong> e
+            cursos extensionistas com ensino de qualidade <strong>em Águas Lindas de Goiás</strong>. Com aulas noturnas e
+            experiências práticas, prepara alunos para o mercado de trabalho.
+          </p>
+        </div>
+        <div class="new-footer-location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>
+            <span style="white-space: nowrap;">Avenida Tiradentes, Quadra 71, Lote 28/31,</span><br>
+            <span style="white-space: nowrap;">Jardim Pérola - Barragem II, Águas Lindas de GO</span><br>
+            <span style="white-space: nowrap;">CEP 72911-262</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="new-footer-col new-footer-col-2">
+        <div class="new-footer-section">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CURSOS</h4>
+          <ul class="new-footer-links">
+            <li><a href="#">Direito</a></li>
+            <li><a href="#">Pedagogia</a></li>
+            <li><a href="#">Radiologia</a></li>
+            <li><a href="#">Administração</a></li>
+          </ul>
+        </div>
+
+        <div class="new-footer-section new-footer-margin-top">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CONTATO</h4>
+          <ul class="new-footer-links new-footer-contact">
+            <li><strong>WHATSAPP:</strong> 6199906-1757</li>
+            <li><strong>TELEFONE:</strong> 3618-8111</li>
+            <li>contato@faculdadefilos.com.br</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="new-footer-col new-footer-col-3">
+        <div class="new-footer-section">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> INSTITUCIONAL</h4>
+          <ul class="new-footer-links">
+            <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank"
+                rel="noopener noreferrer">Revista</a></li>
+            <li><a href="../ouvidoria.html">Ouvidoria</a></li>
+            <li><a href="../cpa.html">CPA</a></li>
+            <li><a href="../biblioteca.html">Biblioteca</a></li>
+            <li class="footer-link-divider"><a href="#" style="font-weight: 700; color: #ffffff;">Colégio</a></li>
+            <li><a href="#">Portal do Aluno</a></li>
+            <li><a href="#">Portal do professor</a></li>
+          </ul>
+        </div>
+
+        <div class="new-footer-socials">
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="new-footer-bottom">
+      <div class="container">
+        <p>Desenvolvido pela <a href="https://www.daraagencia.com/" target="_blank" rel="noopener noreferrer" class="footer-dara-link">agência Dara</a> | 2026</p>
+      </div>
     </div>
   </footer>
 
@@ -367,6 +516,8 @@
 
   <script src="../js/cookies.js"></script>
   <script src="../js/forms.js"></script>
-  <script src="../js/main.js?v=1.4"></script>
+  <script src="../js/carousel.js?v=1.4"></script>
+  <script src="../js/main.js?v=1.8"></script>
+  <script src="../js/courses-carousel.js?v=1.7"></script>
 </body>
 </html>

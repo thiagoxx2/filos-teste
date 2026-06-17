@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css?v=5.0">
   <link rel="stylesheet" href="../css/global.css?v=5.0">
-  <link rel="stylesheet" href="../css/components.css?v=5.36">
-  <link rel="stylesheet" href="../css/pages.css?v=4.4">
-  <link rel="stylesheet" href="../css/responsive.css?v=5.20">
+  <link rel="stylesheet" href="../css/components.css?v=5.40">
+  <link rel="stylesheet" href="../css/pages.css?v=5.17">
+  <link rel="stylesheet" href="../css/responsive.css?v=6.23">
   <style>
     :root {
       --container: min(94vw, 1720px);
@@ -24,63 +24,7 @@
       --page-gutter: clamp(16px, 2.5vw, 40px);
     }
 
-    .course-hero-new {
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: var(--text-white);
-      padding: 3rem 0 calc(clamp(5.5rem, 6.5vw, 7.5rem) + 45px) 0;
-      z-index: 10;
-    }
 
-    .hero-bg-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .hero-new-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(7, 22, 44, 0.8) 0%, rgba(2, 6, 13, 0.8) 100%);
-      z-index: 1;
-    }
-
-    .hero-phi-logo-bg {
-      position: absolute;
-      right: -10vw;
-      top: -5rem;
-      font-family: var(--font-title), sans-serif;
-      font-size: clamp(20rem, 45vw, 55rem);
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.015);
-      line-height: 0.8;
-      letter-spacing: -0.05em;
-      pointer-events: none;
-      z-index: 2;
-      user-select: none;
-      white-space: nowrap;
-    }
-
-    .hero-new-container {
-      position: relative;
-      z-index: 3;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(420px, 0.86fr);
-      gap: clamp(2.5rem, 5vw, 5rem);
-      align-items: center;
-      max-width: min(88vw, 1540px);
-      width: min(100% - (var(--page-gutter) * 2), 1540px);
-      margin-inline: auto;
-    }
 
 
 
@@ -311,34 +255,14 @@
 
     /* Responsividade */
     @media (max-width: 1024px) {
-      .hero-new-container {
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 2rem;
-      }
+
       .diferenciais-grid-new {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 900px) {
-      .hero-new-container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-      .hero-new-left {
-        flex-direction: column-reverse;
-        gap: 2.5rem;
-      }
-      .hero-social-sidebar {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-      }
-      .hero-new-content {
-        align-items: center;
-        text-align: center;
-        max-width: 100%;
-      }
+
       .why-admin-container {
         align-items: center;
         margin-inline: auto;
@@ -359,20 +283,22 @@
         min-height: auto;
         gap: 2.5rem;
       }
-      .course-hero-new {
-        padding-bottom: 2.2rem;
-      }
+
     }
 
     /* --- ESTILOS SEÇÃO MATRIZ CURRICULAR --- */
     .section-matriz-admin {
       position: relative;
       background-color: #07162c; /* Azul escuro premium */
-      padding: clamp(4rem, 7vw, 7rem) 0 clamp(4rem, 7vw, 7rem) 0;
+      padding: clamp(1.5rem, 3vw, 2.5rem) 0 calc(clamp(3rem, 5vw, 5rem) + 30px) 0;
       /* Permite a sobreposição vertical da estudante na base e impede scroll horizontal */
       overflow: visible;
       overflow-x: clip;
       z-index: 7;
+    }
+
+    .section-with-bottom-tab:not(.hero-carousel--new)+.section-matriz-admin {
+      padding-top: clamp(1.5rem, 3vw, 2.5rem) !important;
     }
 
     .matriz-watermark {
@@ -382,9 +308,9 @@
       transform: translate(-50%, -50%) rotate(-90deg);
       transform-origin: center;
       font-family: var(--font-title);
-      font-size: clamp(14rem, 24vw, 30rem);
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.15); /* Mais visível */
+      font-size: clamp(11rem, 19vw, 24rem);
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.09);
       pointer-events: none;
       z-index: 1;
       user-select: none;
@@ -406,7 +332,8 @@
     .matriz-left {
       display: flex;
       flex-direction: column;
-      gap: 1.35rem;
+      gap: 2rem;
+      margin-left: 40px; /* Desloca o bloco 40px para a direita */
     }
 
     .matriz-header {
@@ -420,6 +347,7 @@
       line-height: 1;
       display: flex;
       align-items: center;
+      margin-left: -40px; /* Recua o símbolo 40px para a esquerda */
     }
 
     .matriz-phi-container {
@@ -466,26 +394,27 @@
       display: flex;
       flex-direction: column;
       gap: 0.85rem;
-      width: calc(100% - 100px);
-      align-self: flex-start; /* Evita que o flexbox pai estique de volta a 100% */
+      width: 100%;
+      max-width: 650px; /* Limita a largura para visual moderno do print 2 */
+      align-self: flex-start;
     }
 
     .matriz-accordion-item {
-      background-color: rgba(255, 255, 255, 0.06);
-      border-radius: 16px;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 50px; /* Efeito pílula do print 2 */
       border: 1px solid rgba(255, 255, 255, 0.05);
       transition: all var(--transition-normal);
       overflow: hidden;
     }
 
     .matriz-accordion-item:hover {
-      background-color: rgba(255, 255, 255, 0.09);
+      background-color: rgba(255, 255, 255, 0.12);
       border-color: rgba(255, 255, 255, 0.1);
     }
 
     .matriz-accordion-header {
       width: 100%;
-      padding: 0.625rem 1.7rem;
+      padding: 0.85rem 2.2rem; /* Padding compacto do print 2 */
       background: none;
       border: none;
       outline: none;
@@ -495,7 +424,7 @@
       align-items: center;
       color: var(--text-white);
       font-family: var(--font-title);
-      font-size: 1.45rem;
+      font-size: 1.15rem; /* Fonte compacta do print 2 */
       font-weight: 700;
       text-align: left;
       transition: all var(--transition-fast);
@@ -503,15 +432,16 @@
     }
 
     .accordion-icon {
-      font-size: 1.25rem;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem; /* Ícone + menor */
+      color: rgba(255, 255, 255, 0.9);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .matriz-accordion-item.active {
-      background-color: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.12);
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-radius: 24px; /* Reduz radius para acomodar melhor a tabela interna */
     }
 
     .matriz-accordion-item.active .accordion-icon {
@@ -616,7 +546,7 @@
       align-items: flex-end;
       justify-content: center;
       /* Faz a imagem sobrepor o fundo azul da seção descendo para a base em telas grandes, contida na tela */
-      transform: translateY(90px);
+      transform: translate(-50px, 90px);
       margin-bottom: -90px;
     }
 
@@ -691,6 +621,10 @@
       }
       .matriz-left {
         order: 1;
+        margin-left: 0;
+      }
+      .matriz-icon-phi {
+        margin-left: 0;
       }
       .matriz-header {
         align-items: center;
@@ -878,7 +812,7 @@
   </header>
 
   <!-- --- COURSE HERO --- -->
-  <section class="course-hero-new" style="background-image: url('../assets/images/bg-classroom-blur.jpg');">
+  <section class="course-hero-new" style="background-image: url('../assets/images/banner-home-classroom.png');">
     <div class="hero-bg-wrapper">
       <div class="hero-new-overlay"></div>
       <div class="hero-phi-logo-bg">FILOS</div>
@@ -907,21 +841,7 @@
           <div class="inscription-card" data-price-card data-price-default="535,00">
             <h2 class="inscription-card-title" style="white-space: nowrap; word-break: keep-all;">ADMINISTRAÇÃO</h2>
             <div class="inscription-card-divider"></div>
-            
-            <div class="inscription-card-switches">
-              <div class="toggle-switch">
-                <input type="checkbox" id="switch-transferencia" checked data-price-toggle data-price="535,00">
-                <label for="switch-transferencia"></label>
-                <span>Transferência Acadêmica</span>
-              </div>
-              <div class="toggle-switch">
-                <input type="checkbox" id="switch-alunos" data-price-toggle data-price="297,30">
-                <label for="switch-alunos"></label>
-                <span>Alunos e Ex Alunos</span>
-              </div>
-            </div>
-            
-            <!-- Bloco 1: Metadados do curso -->
+<!-- Bloco 1: Metadados do curso -->
             <div class="inscription-card-meta-block">
               <p>Duração de 4 anos | <strong>8 semestres</strong></p>
               <p>Reconhecido pelo Mec | <strong>Bacharelado</strong></p>
@@ -1386,33 +1306,188 @@
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Botão de Inscrição Flutuante Centralizado na Linha de Divisão -->
-    <div class="matriz-footer-cta">
-      <a href="https://wa.me/5561999061757" class="btn-matriz-enroll">
-        <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
-      </a>
+  <div class="matriz-footer-cta matriz-footer-cta--between">
+    <a href="https://wa.me/5561999061757" class="btn-matriz-enroll">
+      <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+    </a>
+  </div>
+
+  <section class="section section-related-courses" data-related-courses data-current-course="administracao">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">CURSOS <strong>SUPERIORES</strong></h2>
+        <p class="section-subtitle">Conheça também os cursos mais <strong>buscados</strong></p>
+      </div>
+
+      <div class="related-courses-carousel-wrapper">
+        <div class="related-courses-carousel">
+          <div class="related-courses-pages" data-related-courses-pages></div>
+        </div>
+        <div class="courses-pagination-dots related-courses-dots" data-related-courses-dots></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- --- LOCATION MAP / CONTATO SECTION --- -->
+  <section id="contato" class="section new-location-section section-dark" style="z-index: 4; position: relative;">
+    <div class="container-wide">
+
+      <!-- Logo Symbol Floating Right -->
+      <div class="location-floating-logo">
+        <img src="../assets/images/logo-filos-oficial.png" alt="Logo Faculdade Filos" class="location-floating-logo-img">
+      </div>
+
+      <!-- Section Header -->
+      <div class="new-location-header">
+        <span class="new-location-subtitle">LOCALIZAÇÃO</span>
+        <h2 class="new-location-title">Onde nos <strong>Encontrar</strong></h2>
+      </div>
+
+      <!-- Main Layout -->
+      <div class="new-location-grid">
+
+        <!-- Left side: Mini FAQ -->
+        <div class="new-location-faq">
+          <div class="new-location-faq-header">
+            <div class="new-location-faq-line"></div>
+            <h3><strong>Perguntas</strong> frequentes</h3>
+          </div>
+
+          <div class="new-location-faq-list">
+            <details class="new-location-faq-item">
+              <summary>Qual o endereço completo da Faculdade Filos? <i class="fa-solid fa-plus"></i></summary>
+              <div class="new-location-faq-answer">
+                Nosso campus está localizado na Avenida Tiradentes, Quadra 71, Lote 28/31, Jardim Pérola - da Barragem
+                II, Águas Lindas de Goiás - GO, 72911-262.
+              </div>
+            </details>
+            <details class="new-location-faq-item">
+              <summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
+              <div class="new-location-faq-answer">
+                Sim! Estamos abertos de segunda a sexta, das 8h às 22h. Nossa equipe terá um enorme prazer em apresentar
+                nossa infraestrutura.
+              </div>
+            </details>
+            <details class="new-location-faq-item">
+              <summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
+              <div class="new-location-faq-answer">
+                Sim! Nossa secretaria funciona normalmente para lhe atender presencialmente no campus.
+              </div>
+            </details>
+          </div>
+
+          <a href="#" class="btn btn-whatsapp-location">
+            <i class="fa-brands fa-whatsapp"></i> Fale com a nossa equipe
+          </a>
+        </div>
+
+        <!-- Right side: Map -->
+        <div class="new-location-map-container">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s"
+            target="_blank" class="map-link-overlay" aria-label="Traçar rota no Google Maps"
+            title="Clique para abrir a rota no GPS"></a>
+          <iframe id="map-iframe" class="new-location-map"
+            src="https://maps.google.com/maps?q=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s&t=&z=16&ie=UTF8&iwloc=near&output=embed"
+            title="Localização Faculdade Filos no Google Maps" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div class="new-location-address">
+        <p>
+          <span class="address-line"><a href="https://www.google.com/maps/dir/?api=1&destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s"
+            target="_blank" class="address-icon-link" aria-label="Traçar rota no Google Maps"
+            title="Clique para abrir a rota no GPS">
+            <i class="fa-solid fa-location-dot"></i>
+          </a>Endereço: Avenida Tiradentes, Quadra 71, Lote 28/31, Jardim Pérola - Barragem II, Águas Lindas de Goiás - GO,</span>
+          <span class="address-line">CEP 72911-262. Além do fácil acesso, a instituição disponibiliza atendimento presencial para dúvidas</span>
+          <span class="address-line">sobre cursos, vestibular, matrícula, financeiro e vida acadêmica, proporcionando suporte completo</span>
+          <span class="address-line">desde o primeiro contato.</span>
+        </p>
+      </div>
+
     </div>
   </section>
 
   <!-- --- FOOTER --- -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <img src="../assets/images/logo-faculdade-filos-oficial-white.png" alt="Logo Faculdade Filos" class="logo-svg" style="height: 50px; margin-bottom: 1.5rem;">
-        <p class="footer-description">A Faculdade Filos é referência em ensino superior de qualidade na região de Águas Lindas de Goiás.</p>
+    <footer class="new-footer">
+    <div class="container new-footer-grid">
+      <!-- Col 1 -->
+      <div class="new-footer-col new-footer-col-1">
+        <div class="new-footer-col-top">
+          <a href="../index.html" aria-label="Ir para a home">
+            <img src="../assets/images/logo-faculdade-filos-oficial-white.png" alt="Logo Faculdade Filos" class="new-footer-logo">
+          </a>
+          <p class="new-footer-desc">
+            A <strong>Faculdade Filos, reconhecida pelo MEC</strong>, oferece <strong>graduação, pós-graduação</strong> e
+            cursos extensionistas com ensino de qualidade <strong>em Águas Lindas de Goiás</strong>. Com aulas noturnas e
+            experiências práticas, prepara alunos para o mercado de trabalho.
+          </p>
+        </div>
+        <div class="new-footer-location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>
+            <span style="white-space: nowrap;">Avenida Tiradentes, Quadra 71, Lote 28/31,</span><br>
+            <span style="white-space: nowrap;">Jardim Pérola - Barragem II, Águas Lindas de GO</span><br>
+            <span style="white-space: nowrap;">CEP 72911-262</span>
+          </p>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4 class="footer-title">Institucional</h4>
-        <ul class="footer-links">
-          <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="../politica-de-cookies.html">Política de Cookies</a></li>
-          <li><a href="../index.html#cursos">Voltar para Cursos</a></li>
-        </ul>
+
+      <!-- Col 2 -->
+      <div class="new-footer-col new-footer-col-2">
+        <div class="new-footer-section">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CURSOS</h4>
+          <ul class="new-footer-links">
+            <li><a href="#">Direito</a></li>
+            <li><a href="#">Pedagogia</a></li>
+            <li><a href="#">Radiologia</a></li>
+            <li><a href="#">Administração</a></li>
+          </ul>
+        </div>
+
+        <div class="new-footer-section new-footer-margin-top">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CONTATO</h4>
+          <ul class="new-footer-links new-footer-contact">
+            <li><strong>WHATSAPP:</strong> 6199906-1757</li>
+            <li><strong>TELEFONE:</strong> 3618-8111</li>
+            <li>contato@faculdadefilos.com.br</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="new-footer-col new-footer-col-3">
+        <div class="new-footer-section">
+          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> INSTITUCIONAL</h4>
+          <ul class="new-footer-links">
+            <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank"
+                rel="noopener noreferrer">Revista</a></li>
+            <li><a href="../ouvidoria.html">Ouvidoria</a></li>
+            <li><a href="../cpa.html">CPA</a></li>
+            <li><a href="../biblioteca.html">Biblioteca</a></li>
+            <li class="footer-link-divider"><a href="#" style="font-weight: 700; color: #ffffff;">Colégio</a></li>
+            <li><a href="#">Portal do Aluno</a></li>
+            <li><a href="#">Portal do professor</a></li>
+          </ul>
+        </div>
+
+        <div class="new-footer-socials">
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <p class="footer-copyright">&copy; 2026 Faculdade Filos. Credenciada pelo MEC.</p>
+
+    <!-- Bottom Bar -->
+    <div class="new-footer-bottom">
+      <div class="container">
+        <p>Desenvolvido pela <a href="https://www.daraagencia.com/" target="_blank" rel="noopener noreferrer" class="footer-dara-link">agência Dara</a> | 2026</p>
+      </div>
     </div>
   </footer>
 
@@ -1463,6 +1538,8 @@
 
   <script src="../js/cookies.js"></script>
   <script src="../js/forms.js"></script>
-  <script src="../js/main.js?v=1.4"></script>
+  <script src="../js/carousel.js?v=1.4"></script>
+  <script src="../js/main.js?v=1.8"></script>
+  <script src="../js/courses-carousel.js?v=1.7"></script>
 </body>
 </html>

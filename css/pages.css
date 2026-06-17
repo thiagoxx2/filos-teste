@@ -638,6 +638,118 @@
   color: #1d4ed8;
 }
 
+/* --- CPA VISUAL FILOS --- */
+.cpa-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(7, 22, 44, 0.92) 0%, rgba(11, 33, 56, 0.88) 58%, rgba(6, 19, 35, 0.94) 100%),
+    url('../assets/images/banner-home-classroom.png');
+  background-size: cover;
+  background-position: center;
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  color: var(--text-white);
+}
+
+.cpa-section > .container {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 2 * var(--page-gutter), 1240px);
+  margin-inline: auto;
+}
+
+.cpa-header {
+  max-width: 940px;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.cpa-title {
+  color: #ffffff;
+  font-size: clamp(2.8rem, 5.5vw, 4.75rem);
+  letter-spacing: 0;
+}
+
+.cpa-subtitle {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cpa-grid {
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.cpa-card,
+.cpa-info-block,
+.cpa-report-card {
+  background: rgba(255, 255, 255, 0.965);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.cpa-card {
+  border-radius: 28px;
+}
+
+.cpa-card::after {
+  background: #eef6f4;
+  opacity: 1;
+}
+
+.cpa-card-icon,
+.cpa-info-icon,
+.cpa-card-badge {
+  background: #eef6f4;
+  color: var(--cta-green);
+  border-color: rgba(84, 152, 136, 0.2);
+}
+
+.cpa-card-title,
+.cpa-info-title,
+.cpa-report-name {
+  color: var(--primary-dark);
+}
+
+.cpa-card-desc,
+.cpa-card-list-item,
+.cpa-info-desc,
+.cpa-report-meta {
+  color: #526173;
+}
+
+.cpa-card-list-item i {
+  color: var(--cta-green);
+}
+
+.cpa-info-block {
+  border-radius: 24px;
+  padding: clamp(1.6rem, 3vw, 2.25rem);
+}
+
+.cpa-divider {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.cpa-reports {
+  margin-top: clamp(3rem, 5vw, 5rem);
+  padding: clamp(2rem, 4vw, 3.25rem);
+  background: rgba(255, 255, 255, 0.965);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.cpa-reports-title {
+  color: var(--primary-dark);
+}
+
+.cpa-report-card {
+  box-shadow: none;
+  border-color: #e2e8f0;
+}
+
+.cpa-report-left i,
+.cpa-report-card:hover .cpa-report-right i {
+  color: var(--cta-green);
+}
+
 /* --- OUVIDORIA (Canal de Atendimento) SECTION --- */
 .ouvidoria-section {
   background-color: #f8fafc;
@@ -1033,6 +1145,150 @@
   flex-shrink: 0;
 }
 
+/* --- OUVIDORIA VISUAL FILOS --- */
+.ouvidoria-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(7, 22, 44, 0.92) 0%, rgba(11, 33, 56, 0.88) 58%, rgba(6, 19, 35, 0.94) 100%),
+    url('../assets/images/banner-home-classroom.png');
+  background-size: cover;
+  background-position: center;
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  color: var(--text-white);
+}
+
+.ouvidoria-section > .container {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 2 * var(--page-gutter), 1240px);
+  margin-inline: auto;
+}
+
+.ouvidoria-header {
+  max-width: 900px;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.ouvidoria-badge-top {
+  background: rgba(84, 152, 136, 0.16);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.ouvidoria-title {
+  color: #ffffff;
+  font-size: clamp(3rem, 6vw, 5.25rem);
+  letter-spacing: 0;
+}
+
+.ouvidoria-subtitle {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.ouvidoria-badge-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.ouvidoria-badge-item i {
+  color: var(--cta-green);
+}
+
+.ouvidoria-grid {
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.ouvidoria-form-card,
+.ouvidoria-info-card {
+  background: rgba(255, 255, 255, 0.965);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.ouvidoria-form-card {
+  border-radius: 28px;
+  padding: clamp(2rem, 4vw, 3.25rem);
+}
+
+.ouvidoria-form-title,
+.ouvidoria-card-title {
+  color: var(--primary-dark);
+}
+
+.ouvidoria-form-subtitle {
+  color: #526173;
+}
+
+.ouvidoria-form-group input,
+.ouvidoria-form-group textarea,
+.ouvidoria-form-row input {
+  border-color: #d8e0e8;
+  border-radius: 16px;
+  background-color: #f8fafc;
+}
+
+.ouvidoria-form-group input:focus,
+.ouvidoria-form-group textarea:focus,
+.ouvidoria-form-row input:focus {
+  border-color: var(--cta-green);
+  box-shadow: 0 0 0 4px rgba(84, 152, 136, 0.16);
+}
+
+.ouvidoria-email-badge {
+  background: #eef6f4;
+  border-color: rgba(84, 152, 136, 0.22);
+  color: var(--primary-dark);
+}
+
+.ouvidoria-email-badge i,
+.ouvidoria-email-badge a {
+  color: var(--cta-green);
+}
+
+.ouvidoria-recaptcha-container {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 1.25rem;
+}
+
+.ouvidoria-btn-submit {
+  min-height: 68px;
+  background-color: var(--cta-green);
+  color: #ffffff;
+  border: 0;
+  border-radius: 18px;
+  font-size: 1.18rem;
+  letter-spacing: 0.08em;
+  box-shadow: 0 12px 24px rgba(84, 152, 136, 0.28);
+}
+
+.ouvidoria-btn-submit:hover {
+  background-color: var(--cta-green-hover);
+  border-color: transparent;
+  box-shadow: 0 16px 32px rgba(84, 152, 136, 0.34);
+}
+
+.ouvidoria-info-card {
+  border-radius: 24px;
+}
+
+.ouvidoria-icon-badge {
+  background: #eef6f4;
+  color: var(--cta-green);
+}
+
+.ouvidoria-list-item {
+  color: #465569;
+}
+
+.ouvidoria-list-item i {
+  color: var(--cta-green);
+}
+
 /* --- BIBLIOTECA SECTION --- */
 .biblioteca-section {
   background-color: #f8fafc;
@@ -1368,6 +1624,145 @@
   color: #07162c;
 }
 
+/* --- BIBLIOTECA VISUAL FILOS --- */
+.biblioteca-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(7, 22, 44, 0.92) 0%, rgba(11, 33, 56, 0.88) 58%, rgba(6, 19, 35, 0.94) 100%),
+    url('../assets/images/banner-home-classroom.png');
+  background-size: cover;
+  background-position: center;
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  color: var(--text-white);
+}
+
+.biblioteca-section > .container {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 2 * var(--page-gutter), 1240px);
+  margin-inline: auto;
+}
+
+.biblioteca-title-block {
+  max-width: 900px;
+}
+
+.biblioteca-main-title {
+  color: #ffffff;
+  font-size: clamp(2.8rem, 5.5vw, 4.75rem);
+  letter-spacing: 0;
+}
+
+.biblioteca-docs-section .biblioteca-main-title {
+  color: var(--primary-dark);
+}
+
+.biblioteca-main-subtitle {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.biblioteca-docs-section .biblioteca-main-subtitle {
+  color: #526173;
+}
+
+.biblioteca-service-card,
+.biblioteca-schedule-card,
+.biblioteca-doc-card {
+  background: rgba(255, 255, 255, 0.965);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.biblioteca-service-card {
+  border-radius: 24px;
+}
+
+.biblioteca-service-icon-wrapper,
+.biblioteca-schedule-icon {
+  background: #eef6f4;
+  color: var(--cta-green);
+}
+
+.biblioteca-service-title,
+.biblioteca-digital-title,
+.biblioteca-schedule-title,
+.biblioteca-doc-name {
+  color: var(--primary-dark);
+}
+
+.biblioteca-service-desc,
+.biblioteca-digital-desc,
+.biblioteca-schedule-subtitle,
+.biblioteca-doc-desc,
+.biblioteca-schedule-info p {
+  color: #526173;
+}
+
+.biblioteca-digital-container {
+  background: rgba(255, 255, 255, 0.965);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  padding: clamp(2rem, 4vw, 3.25rem);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.biblioteca-digital-badge {
+  background: #eef6f4;
+  color: var(--cta-green);
+}
+
+.biblioteca-digital-item {
+  color: #465569;
+}
+
+.biblioteca-digital-item i {
+  color: var(--cta-green);
+}
+
+.biblioteca-digital-btn {
+  border-radius: 18px;
+  background-color: var(--cta-green);
+  border-color: var(--cta-green);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(84, 152, 136, 0.28);
+}
+
+.biblioteca-digital-btn:hover {
+  background-color: var(--cta-green-hover);
+  border-color: var(--cta-green-hover);
+}
+
+.biblioteca-schedule-time {
+  background: #eef6f4;
+  color: var(--cta-green);
+}
+
+.biblioteca-schedule-info {
+  background: #f8fafc;
+}
+
+.biblioteca-schedule-info i {
+  color: var(--cta-green);
+}
+
+.biblioteca-docs-section {
+  margin-top: clamp(3rem, 5vw, 5rem);
+  padding: clamp(2rem, 4vw, 3.25rem);
+  background: rgba(255, 255, 255, 0.965);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.biblioteca-doc-card {
+  box-shadow: none;
+  border-color: #e2e8f0;
+}
+
+.biblioteca-doc-icon {
+  color: var(--cta-green);
+}
+
 
 /* --- SHARED COURSE DETAIL TEMPLATE --- */
 /* Estilos Customizados Premium para o Curso de Administração */
@@ -1377,8 +1772,8 @@
   background-position: center;
   background-repeat: no-repeat;
   color: var(--text-white);
-  padding: 3rem 0 calc(clamp(5.5rem, 6.5vw, 7.5rem) + 45px) 0;
-  /* Reduzido para dar um visual mais compacto e menor na base, depois reajustado +45px a pedido do usuario */
+  padding: 4rem 0 calc(clamp(8rem, 9.5vw, 11.5rem) + 45px) 0;
+  /* Altura aumentada para acomodar o card completo */
   z-index: 10;
 }
 
@@ -1398,7 +1793,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(7, 22, 44, 0.8) 0%, rgba(2, 6, 13, 0.8) 100%);
+  background: rgba(7, 22, 44, 0.92);
   z-index: 1;
 }
 
@@ -1409,7 +1804,8 @@
   font-family: var(--font-title), sans-serif;
   font-size: clamp(20rem, 45vw, 55rem);
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.015);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
   line-height: 0.8;
   letter-spacing: -0.05em;
   pointer-events: none;
@@ -1420,11 +1816,11 @@
 
 .hero-phi-right-logo {
   position: absolute;
-  right: clamp(15px, 2.5vw, 40px);
+  right: calc(clamp(15px, 2.5vw, 40px) + 20px);
   top: 50%;
-  transform: translateY(calc(-50% - 160px)); /* Subida em 160px a pedido do usuario (mais 20px) */
+  transform: translateY(calc(-50% - 210px)); /* Subida em 210px a pedido do usuario (mais 30px) */
   font-family: 'Playfair Display', Georgia, serif; /* Fonte com serifa caligráfica para a logo */
-  font-size: clamp(4rem, 5.5vw, 8.5rem); /* Tamanho reduzido a pedido do usuario */
+  font-size: clamp(4.4rem, 5.9vw, 8.9rem); /* Reduzido em 10px (~0.6rem) a pedido do usuario */
   font-weight: 400;
   color: #ffffff; /* Branco puro e totalmente opaco */
   z-index: 2;
@@ -1555,24 +1951,27 @@
 .inscription-card-wrapper {
   position: relative;
   width: 100%;
-  max-width: 340px;
-  /* Reduzido proporcionalmente à altura para evitar achatamento */
+  max-width: 370px;
   margin-inline: auto;
   z-index: 10;
-  margin-bottom: -10.5rem; /* Ajustado para acompanhar a menor altura total */
-  margin-top: 30px; /* Abaixa o card em 30px para afastar do topo do banner */
+  margin-bottom: -13rem;
+  margin-top: 30px;
+  top: 0px;
 }
 
 /* Card de inscrição flutuante */
 .inscription-card {
   background-color: #eceef0;
   border-radius: clamp(24px, 2.4vw, 34px);
-  padding: clamp(0.75rem, 1.2vw, 1.25rem) clamp(1.0rem, 1.7vw, 1.8rem);
+  padding: clamp(1.4rem, 2vw, 2.2rem) clamp(1rem, 1.5vw, 1.5rem);
+  min-height: clamp(470px, 32vw, 530px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  gap: clamp(0.35rem, 0.6vw, 0.7rem);
+  gap: clamp(0.8rem, 1.1vw, 1.1rem);
+  text-align: center;
   position: relative;
+  z-index: 2;
   overflow: visible;
   border: none;
   width: 100%;
@@ -1601,11 +2000,11 @@
 
 .inscription-card-switches {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
-  gap: clamp(0.6rem, 1.0vw, 1.1rem);
+  align-items: flex-start;
+  gap: clamp(0.45rem, 0.7vw, 0.7rem);
 }
 
 /* Switches de Toggle */
@@ -1713,6 +2112,7 @@
   text-align: center;
   line-height: 1;
   margin: clamp(0.1rem, 0.25vw, 0.3rem) 0;
+  margin-top: auto;
   letter-spacing: -0.02em;
 }
 
@@ -2067,6 +2467,7 @@
 
   .inscription-card {
     min-width: unset;
+    min-height: unset;
     padding: 1.5rem 1.35rem;
     gap: 0.95rem;
     border-radius: 30px;
@@ -2120,4 +2521,168 @@
   .course-hero-new .toggle-switch span {
     white-space: normal;
   }
+}
+
+/* --- CARROSSEL DE CURSOS RELACIONADOS --- */
+.section-related-courses {
+  background-color: #ffffff;
+  padding: clamp(4.5rem, 7vw, 7rem) 0 clamp(5rem, 8vw, 8rem);
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.section-related-courses .section-header {
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+  text-align: center;
+}
+
+.section-related-courses .section-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.2rem, 4vw, 3.35rem);
+  font-weight: 400;
+  color: var(--primary-dark);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-related-courses .section-title strong {
+  font-weight: 800;
+}
+
+.section-related-courses .section-subtitle {
+  margin-top: 0.7rem;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+
+.section-related-courses .section-subtitle strong {
+  color: var(--primary-dark);
+}
+
+.related-courses-carousel-wrapper {
+  position: relative;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.related-courses-carousel {
+  overflow: visible;
+  padding-bottom: 36px;
+}
+
+.related-courses-pages {
+  display: grid;
+}
+
+.related-courses-page {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 2.5vw, 2rem);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(28px);
+  transition: opacity 0.38s ease, transform 0.38s ease;
+  visibility: hidden;
+}
+
+.related-courses-page.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.related-courses-page .course-card-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 410px;
+  position: relative;
+}
+
+.related-courses-dots {
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+}
+
+@media (max-width: 1024px) {
+  .related-courses-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .section-related-courses {
+    padding: 4rem 0 5rem;
+  }
+
+  .related-courses-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Botões de controle */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #07162c;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+.carousel-nav-btn:hover {
+  background-color: #07162c;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-nav-btn.prev {
+  left: 0;
+}
+
+.carousel-nav-btn.next {
+  right: 0;
+}
+
+.matriz-footer-cta.matriz-footer-cta--between {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 20;
+  margin: -34px 0 -34px;
+  padding: 0 0 0 calc(clamp(2rem, 17.3vw, 22rem) + 20px);
+}
+
+.matriz-footer-cta.matriz-footer-cta--between .btn-matriz-enroll {
+  width: min(330px, calc(100vw - 4rem));
+  min-height: 63px;
+  padding: 0 2rem;
+  border-radius: 22px;
+  background-color: var(--cta-green);
+  color: var(--text-white);
+  font-size: clamp(1.35rem, 1.5vw, 1.72rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  gap: 0.95rem;
+  box-shadow: none;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.matriz-footer-cta.matriz-footer-cta--between .btn-matriz-enroll i {
+  font-size: 1.25em;
+  -webkit-text-stroke: 1px currentColor;
 }

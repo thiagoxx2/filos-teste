@@ -30,6 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('nav-menu');
     if (!navMenu || !navId) return;
 
+    const mobileLabelTarget = document.querySelector('.header-nav .header-row__center');
+    const labels = {
+      home: 'HOME',
+      cursos: 'CURSOS',
+      vestibular: 'VESTIBULAR',
+      institucional: 'INSTITUCIONAL',
+      sobre: 'SOBRE',
+      blog: 'BLOG',
+      contato: 'CONTATO'
+    };
+
+    if (mobileLabelTarget) {
+      mobileLabelTarget.dataset.mobilePageLabel = labels[navId] || 'HOME';
+    }
+
     navMenu.querySelectorAll('.nav-link').forEach((link) => {
       link.classList.toggle('active', link.dataset.nav === navId);
     });
@@ -338,11 +353,45 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- MOBILE MENU HAMBURGER ---
+  const mobileMenuHost = document.querySelector('.header-nav .header-row__side--end');
+  const mobileMenuButton = document.getElementById('menu-toggle');
+
+  if (mobileMenuHost && mobileMenuButton && mobileMenuButton.parentElement !== mobileMenuHost) {
+    mobileMenuHost.appendChild(mobileMenuButton);
+  }
+
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
   if (menuToggle && navMenu) {
     const closeMobileCourseMenu = initMobileCourseMenu(navMenu, menuToggle);
+    ensureMobileLoginLink(navMenu);
+    const closeMobileInstitutionalMenu = initMobileLinkPanel(navMenu, menuToggle, {
+      triggerSelector: '[data-nav="institucional"]',
+      sourceSelector: '.dropdown-menu-institucional',
+      itemSelector: '.dropdown-item-vertical'
+    });
+    const closeMobileContactMenu = initMobileLinkPanel(navMenu, menuToggle, {
+      triggerSelector: '[data-nav="contato"]',
+      sourceSelector: '.dropdown-menu-contato',
+      itemSelector: '.dropdown-item-vertical'
+    });
+    const closeMobileLoginMenu = initMobileLinkPanel(navMenu, menuToggle, {
+      triggerSelector: '.mobile-login-link',
+      sourceSelector: '#login-dropdown',
+      itemSelector: '.login-dropdown-item'
+    });
+
+    const closeMobilePanels = () => {
+      [
+        closeMobileCourseMenu,
+        closeMobileInstitutionalMenu,
+        closeMobileContactMenu,
+        closeMobileLoginMenu
+      ].forEach((closePanel) => {
+        if (typeof closePanel === 'function') closePanel();
+      });
+    };
 
     menuToggle.addEventListener('click', (e) => {
       e.preventDefault();
@@ -354,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (navMenu.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
       } else {
-        if (typeof closeMobileCourseMenu === 'function') closeMobileCourseMenu();
+        closeMobilePanels();
         document.body.style.overflow = '';
       }
     });
@@ -365,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
         navMenu.classList.remove('active');
-        if (typeof closeMobileCourseMenu === 'function') closeMobileCourseMenu();
+        closeMobilePanels();
         menuToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
@@ -373,80 +422,138 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // --- MOBILE COURSE MENU: accordion below Cursos ---
+  function ensureMobileLoginLink(navMenu) {
+    if (navMenu.querySelector('.mobile-login-item')) return;
+
+    const loginItem = document.createElement('div');
+    loginItem.className = 'nav-item-dropdown mobile-login-item';
+
+    const loginLink = document.createElement('a');
+    loginLink.className = 'nav-link mobile-login-link';
+    loginLink.href = '#';
+    loginLink.textContent = 'Login / Cadastrar';
+    loginItem.appendChild(loginLink);
+    navMenu.appendChild(loginItem);
+  }
+
+  function initMobileLinkPanel(navMenu, menuToggle, config) {
+    const trigger = navMenu.querySelector(config.triggerSelector);
+    const source = document.querySelector(config.sourceSelector) || navMenu.querySelector(config.sourceSelector);
+    if (!trigger || !source) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 1023px)');
+    const triggerItem = trigger.closest('.nav-item, .nav-item-dropdown') || trigger.parentElement;
+    if (!triggerItem || triggerItem.querySelector('.mobile-submenu-panel')) return;
+
+    const panel = document.createElement('div');
+    panel.className = 'mobile-submenu-panel';
+    panel.setAttribute('aria-hidden', 'true');
+
+    Array.from(source.querySelectorAll(config.itemSelector)).forEach((item) => {
+      const link = document.createElement('a');
+      link.className = 'mobile-submenu-link';
+      link.href = item.getAttribute('href') || '#';
+      link.textContent = item.textContent.trim();
+
+      ['target', 'rel'].forEach((attr) => {
+        const value = item.getAttribute(attr);
+        if (value) link.setAttribute(attr, value);
+      });
+
+      panel.appendChild(link);
+    });
+
+    triggerItem.appendChild(panel);
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    const closePanel = () => {
+      panel.classList.remove('is-active');
+      panel.setAttribute('aria-hidden', 'true');
+      trigger.classList.remove('is-mobile-submenu-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+
+    const openPanel = () => {
+      navMenu.dispatchEvent(new CustomEvent('mobile-submenu-open', { detail: panel }));
+      panel.classList.add('is-active');
+      panel.setAttribute('aria-hidden', 'false');
+      trigger.classList.add('is-mobile-submenu-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+
+    trigger.addEventListener('click', (e) => {
+      if (!mobileQuery.matches) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const shouldOpen = !panel.classList.contains('is-active');
+      closePanel();
+      if (shouldOpen) openPanel();
+    });
+
+    panel.addEventListener('click', (e) => {
+      const link = e.target.closest('.mobile-submenu-link');
+      if (!link) return;
+
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      closePanel();
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+
+    navMenu.addEventListener('mobile-submenu-open', (e) => {
+      if (e.detail !== panel) closePanel();
+    });
+
+    window.addEventListener('resize', () => {
+      if (!mobileQuery.matches) closePanel();
+    });
+
+    return closePanel;
+  }
+
+  // --- MOBILE COURSE MENU: course list below Cursos ---
   function initMobileCourseMenu(navMenu, menuToggle) {
     const coursesLink = navMenu.querySelector('[data-nav="cursos"]');
     const coursesDropdown = navMenu.querySelector('.dropdown-menu-cursos');
     if (!coursesLink || !coursesDropdown || navMenu.querySelector('.mobile-course-panel')) return;
 
-    const mobileQuery = window.matchMedia('(max-width: 767px)');
+    const mobileQuery = window.matchMedia('(max-width: 1023px)');
     const columns = Array.from(coursesDropdown.querySelectorAll('.dropdown-column'));
     const coursesItem = coursesLink.closest('.nav-item, .nav-item-dropdown') || coursesLink.parentElement;
     if (!columns.length || !coursesItem) return;
-
-    const normalizeId = (text) => text
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '');
-
-    const getTitle = (column) => {
-      const title = column.querySelector('.dropdown-column-title')?.textContent?.trim() || 'Cursos';
-      return title.replace(/\s+-\s+/g, '-').replace(/\s+/g, ' ');
-    };
 
     const panel = document.createElement('div');
     panel.className = 'mobile-course-panel';
     panel.setAttribute('aria-hidden', 'true');
 
-    columns.forEach((column, index) => {
-      const title = getTitle(column);
-      const viewId = normalizeId(title) || `modalidade-${index}`;
-      const items = Array.from(column.querySelectorAll('.dropdown-item'));
-      if (!items.length) return;
+    const courseList = document.createElement('div');
+    courseList.className = 'mobile-course-list is-active';
 
-      const category = document.createElement('div');
-      category.className = 'mobile-course-category';
+    const items = columns
+      .flatMap((column) => Array.from(column.querySelectorAll('.dropdown-item')))
+      .slice(0, 15);
 
-      const optionButton = document.createElement('button');
-      optionButton.type = 'button';
-      optionButton.className = 'mobile-course-option';
-      optionButton.dataset.mobileCourseToggle = viewId;
-      optionButton.setAttribute('aria-expanded', 'false');
-      optionButton.setAttribute('aria-controls', `${viewId}-list`);
-      optionButton.innerHTML = `<span>${title}</span><span aria-hidden="true">+</span>`;
-
-      const courseList = document.createElement('div');
-      courseList.className = 'mobile-course-list';
-      courseList.id = `${viewId}-list`;
-      courseList.hidden = true;
-
-      items.forEach((item) => {
-        const link = document.createElement('a');
-        link.className = 'mobile-course-link';
-        link.href = item.getAttribute('href') || '#';
-        link.textContent = item.textContent.trim();
-        courseList.appendChild(link);
-      });
-
-      category.append(optionButton, courseList);
-      panel.appendChild(category);
+    items.forEach((item) => {
+      const link = document.createElement('a');
+      link.className = 'mobile-course-link';
+      link.href = item.getAttribute('href') || '#';
+      link.textContent = item.textContent.trim();
+      courseList.appendChild(link);
     });
+
+    const seeAll = document.createElement('a');
+    seeAll.className = 'mobile-course-link mobile-course-link--all';
+    seeAll.href = 'index.html#cursos';
+    seeAll.textContent = 'Ver todos';
+    courseList.appendChild(seeAll);
+    panel.appendChild(courseList);
 
     coursesItem.appendChild(panel);
 
-    const resetCategories = () => {
-      panel.querySelectorAll('[data-mobile-course-toggle]').forEach((button) => {
-        button.setAttribute('aria-expanded', 'false');
-      });
-      panel.querySelectorAll('.mobile-course-list').forEach((list) => {
-        list.hidden = true;
-        list.classList.remove('is-active');
-      });
-    };
-
     const openPanel = () => {
+      navMenu.dispatchEvent(new CustomEvent('mobile-submenu-open', { detail: panel }));
       panel.classList.add('is-active');
       panel.setAttribute('aria-hidden', 'false');
       coursesLink.classList.add('is-mobile-courses-open');
@@ -458,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
       panel.setAttribute('aria-hidden', 'true');
       coursesLink.classList.remove('is-mobile-courses-open');
       coursesLink.setAttribute('aria-expanded', 'false');
-      resetCategories();
     };
 
     coursesLink.setAttribute('aria-haspopup', 'true');
@@ -475,19 +581,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     panel.addEventListener('click', (e) => {
-      const toggleButton = e.target.closest('[data-mobile-course-toggle]');
-      if (toggleButton) {
-        const list = document.getElementById(toggleButton.getAttribute('aria-controls'));
-        const shouldOpen = toggleButton.getAttribute('aria-expanded') !== 'true';
-        resetCategories();
-        if (shouldOpen && list) {
-          toggleButton.setAttribute('aria-expanded', 'true');
-          list.hidden = false;
-          list.classList.add('is-active');
-        }
-        return;
-      }
-
       const courseLink = e.target.closest('.mobile-course-link');
       if (courseLink) {
         menuToggle.classList.remove('active');
@@ -500,6 +593,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
       if (!mobileQuery.matches) closePanel();
+    });
+
+    navMenu.addEventListener('mobile-submenu-open', (e) => {
+      if (e.detail !== panel) closePanel();
     });
 
     return closePanel;

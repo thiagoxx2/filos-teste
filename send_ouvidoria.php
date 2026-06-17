@@ -54,10 +54,10 @@ $options = [
 ];
 
 $context = stream_context_create($options);
-$response = file_get_contents($verify_url, false, $context);
-$response_keys = json_decode($response, true);
+$response = @file_get_contents($verify_url, false, $context);
+$response_keys = $response ? json_decode($response, true) : null;
 
-if (!$response_keys['success']) {
+if (empty($response_keys['success'])) {
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Falha na verificação de segurança do reCAPTCHA. Tente novamente.']);
     exit;
