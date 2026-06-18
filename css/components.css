@@ -1070,12 +1070,10 @@
 }
 
 .course-card-item:not([data-filter="bacharelado"]) .course-card-item-price {
-  display: none;
+  visibility: hidden;
 }
 
-.course-card-item:not([data-filter="bacharelado"]) .course-card-item-footer {
-  justify-content: flex-start;
-}
+
 
 .course-card-item-actions {
   display: block;
