@@ -2326,14 +2326,15 @@
 }
 
 .diferencial-card-new {
+  --card-scale: 1;
   background-color: #07162c;
-  border-radius: 44px;
-  padding: 2.6rem 2rem 3rem;
+  border-radius: calc(44px * var(--card-scale));
+  padding: calc(2.6rem * var(--card-scale)) calc(2rem * var(--card-scale)) calc(3rem * var(--card-scale));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  min-height: 340px;
+  min-height: calc(340px * var(--card-scale));
   height: auto;
   transition: all var(--transition-normal);
   box-shadow: 0 10px 30px rgba(7, 22, 44, 0.15);
@@ -2347,7 +2348,7 @@
 .diferencial-card-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(1rem * var(--card-scale));
 }
 
 .diferencial-card-content--centered {
@@ -2357,38 +2358,43 @@
 
 .diferencial-card-title {
   font-family: var(--font-title);
-  font-size: clamp(1.45rem, 2.05vw, 2rem);
+  font-size: calc(1.75rem * var(--card-scale));
   font-weight: 800;
   color: var(--text-white);
   line-height: 1.15;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 .diferencial-card-desc {
   font-family: var(--font-body);
-  font-size: clamp(1.35rem, 1.55vw, 1.85rem);
+  font-size: calc(1.2rem * var(--card-scale));
   line-height: 1.35;
   color: #ffffff;
-  /* Branco puro para maior contraste */
   font-weight: 400;
-  margin-top: 2rem;
+  margin-top: calc(2rem * var(--card-scale));
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 .btn-diferencial-enroll {
   background-color: var(--cta-green);
   color: var(--text-white);
-  border-radius: 50px;
-  padding: 0.72rem 1.7rem;
+  border-radius: calc(50px * var(--card-scale));
+  padding: calc(0.72rem * var(--card-scale)) calc(1.7rem * var(--card-scale));
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: calc(1.05rem * var(--card-scale));
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: calc(0.5rem * var(--card-scale));
   text-decoration: none;
   transition: all var(--transition-fast);
   position: absolute;
-  bottom: -16px;
+  bottom: calc(-16px * var(--card-scale));
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
@@ -2400,7 +2406,6 @@
 .btn-diferencial-enroll:hover {
   background-color: var(--cta-green-hover);
   transform: translateX(-50%) translateY(-2px);
-  /* Mantém o alinhamento horizontal ao flutuar */
   box-shadow: 0 6px 15px rgba(84, 152, 136, 0.4);
 }
 
@@ -2468,47 +2473,10 @@
   }
 
   .diferencial-card-new {
+    --card-scale: 0.85;
     width: min(100%, 360px);
     max-width: calc(100vw - 2rem);
-    min-height: clamp(300px, 85vw, 380px);
-    height: auto;
-    padding: clamp(1.6rem, 6vw, 2.2rem) clamp(1.2rem, 5vw, 1.8rem) clamp(3rem, 8vw, 3.5rem);
-    border-radius: clamp(2rem, 8vw, 3rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
-
-  .diferencial-card-title {
-    font-size: clamp(1.65rem, 7vw, 2.25rem);
-    line-height: 1.12;
-    max-width: 100%;
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: none;
-  }
-
-  .diferencial-card-desc {
-    font-size: clamp(0.95rem, 4.2vw, 1.15rem);
-    line-height: 1.35;
-    max-width: 100%;
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: none;
-  }
-
-  .btn-diferencial-enroll {
-    max-width: 100%;
-    width: min(100%, 280px);
-    font-size: clamp(0.85rem, 4vw, 1rem);
-    padding: clamp(0.75rem, 3vw, 1rem) clamp(1rem, 5vw, 1.5rem);
-    /* Manter a posição absoluta padrão, mas ajustada para caber no celular */
-    position: absolute;
-    bottom: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
   .course-hero-new {
     padding-bottom: 4rem;
   }
@@ -3139,3 +3107,9 @@
         width: 100%;
       }
     }
+
+@media (max-width: 400px) {
+  .diferencial-card-new {
+    --card-scale: 0.78;
+  }
+}
