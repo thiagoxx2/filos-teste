@@ -1,994 +1,630 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Práticas de Inclusão e Direitos na Educação | Faculdade Filos</title>
-  <meta name="description" content="Formação com foco em práticas docentes de inclusão escolar e o marco legal dos direitos das pessoas com deficiência na educação.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Práticas de Inclusão e Direitos na Educação | Faculdade Filos</title>
+<meta content="Formação com foco em práticas docentes de inclusão escolar e o marco legal dos direitos das pessoas com deficiência na educação." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;0,800;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../css/reset.css" rel="stylesheet"/>
+<link href="../css/variables.css?v=5.0" rel="stylesheet"/>
+<link href="../css/global.css?v=5.0" rel="stylesheet"/>
+<link href="../css/components.css?v=5.40" rel="stylesheet"/>
+<link href="../css/pages.css?v=5.30" rel="stylesheet"/>
+<link href="../css/responsive.css?v=6.23" rel="stylesheet"/>
 
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/variables.css?v=5.0">
-  <link rel="stylesheet" href="../css/global.css?v=5.0">
-  <link rel="stylesheet" href="../css/components.css?v=5.40">
-  <link rel="stylesheet" href="../css/pages.css?v=5.17">
-  <link rel="stylesheet" href="../css/responsive.css?v=6.23">
-
-  <style>
-    :root {
-      --container: min(94vw, 1720px);
-      --container-wide: min(96vw, 1840px);
-      --page-gutter: clamp(16px, 2.5vw, 40px);
-    }
-
-    /* --- ESTILOS SEÇÃO MATRIZ CURRICULAR --- */
-    .section-matriz-admin {
-      position: relative;
-      background-color: #07162c;
-      padding: clamp(1.5rem, 3vw, 2.5rem) 0 calc(clamp(3rem, 5vw, 5rem) + 30px) 0;
-      overflow: visible;
-      overflow-x: clip;
-      z-index: 7;
-    }
-
-    .section-with-bottom-tab:not(.hero-carousel--new)+.section-matriz-admin {
-      padding-top: clamp(1.5rem, 3vw, 2.5rem) !important;
-    }
-
-    .matriz-watermark {
-      position: absolute;
-      left: calc(42% + 240px);
-      top: 50%;
-      transform: translate(-50%, -50%) rotate(-90deg);
-      transform-origin: center;
-      font-family: var(--font-title);
-      font-size: clamp(11rem, 19vw, 24rem);
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.09);
-      pointer-events: none;
-      z-index: 1;
-      user-select: none;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .matriz-container {
-      position: relative;
-      z-index: 5;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: clamp(1.5rem, 4vw, 4rem);
-      align-items: center;
-      max-width: var(--container-wide);
-      width: min(100% - 2 * var(--page-gutter), var(--container-wide));
-    }
-
-    .matriz-left {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-left: 40px;
-    }
-
-    .matriz-header {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-
-    .matriz-icon-phi {
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      margin-left: -40px;
-    }
-
-    .matriz-phi-container {
-      --phi-height: clamp(2.5rem, 4.5vw, 3.6rem);
-      height: var(--phi-height);
-      width: calc(var(--phi-height) * 0.768);
-      overflow: hidden;
-      position: relative;
-      display: block;
-    }
-
-    .matriz-phi-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: auto;
-      max-width: none;
-    }
-
-    .matriz-title {
-      font-family: var(--font-title);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 300;
-      color: var(--text-white);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-    }
-
-    .matriz-title strong {
-      font-weight: 800;
-    }
-
-    .matriz-subtitle {
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 1.5vw, 1.15rem);
-      color: rgba(255, 255, 255, 0.7);
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .matriz-accordion {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      width: 100%;
-      max-width: 650px;
-      align-self: flex-start;
-    }
-
-    .matriz-accordion-item {
-      background-color: rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all var(--transition-normal);
-      overflow: hidden;
-    }
-
-    .matriz-accordion-item:hover {
-      background-color: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .matriz-accordion-header {
-      width: 100%;
-      padding: 0.85rem 2.2rem;
-      background: none;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--text-white);
-      font-family: var(--font-title);
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-align: left;
-      transition: all var(--transition-fast);
-      letter-spacing: 0.05em;
-    }
-
-    .accordion-icon {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.9);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .matriz-accordion-item.active {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      border-radius: 24px;
-    }
-
-    .matriz-accordion-item.active .accordion-icon {
-      transform: rotate(45deg);
-      color: var(--text-white);
-    }
-
-    .matriz-accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
-      padding: 0 1.5rem;
-    }
-
-    .matriz-table {
-      width: 100%;
-      border-collapse: collapse;
-      color: #ffffff;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .matriz-table th {
-      font-family: var(--font-title);
-      font-size: 1rem;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.85);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.25);
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-
-    .matriz-table td {
-      padding: 0.9rem 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      text-align: left;
-      line-height: 1.5;
-      font-weight: 500;
-    }
-
-    .matriz-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .matriz-table .text-center {
-      text-align: center;
-      width: 96px;
-      white-space: nowrap;
-    }
-
-    .matriz-right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .matriz-student-image-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 760px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      transform: translate(-50px, 90px);
-      margin-bottom: -90px;
-    }
-
-    .matriz-student-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.5s ease;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
-    }
-
-    .matriz-student-image-wrapper:hover .matriz-student-img {
-      transform: scale(1.03);
-    }
-
-    .matriz-footer-cta {
-      display: flex;
-      justify-content: center;
-      margin-top: 5rem;
-      position: relative;
-      z-index: 10;
-      margin-bottom: -8rem;
-    }
-
-    .btn-matriz-enroll {
-      background-color: var(--cta-green);
-      color: var(--text-white);
-      border-radius: 50px;
-      padding: 0.9rem 2.4rem;
-      font-family: var(--font-title);
-      font-weight: 700;
-      font-size: 1.2rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      transition: all var(--transition-fast);
-      box-shadow: 0 4px 15px rgba(84, 152, 136, 0.4);
-      letter-spacing: 0.05em;
-    }
-
-    .btn-matriz-enroll:hover {
-      background-color: var(--cta-green-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(84, 152, 136, 0.55);
-    }
-
-    @media (max-width: 1024px) {
-      .matriz-student-image-wrapper {
-        transform: none;
-        margin-bottom: 0;
-      }
-
-      .matriz-footer-cta {
-        margin-top: 4.5rem;
-      }
-
-      .matriz-container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-
-      .matriz-accordion {
-        width: 100%;
-        max-width: 100%;
-        align-self: stretch;
-      }
-
-      .matriz-watermark {
-        display: none;
-      }
-
-      .matriz-right {
-        order: 2;
-      }
-
-      .matriz-left {
-        order: 1;
-        margin-left: 0;
-      }
-
-      .matriz-icon-phi {
-        margin-left: 0;
-      }
-
-      .matriz-header {
-        align-items: center;
-        text-align: center;
-        width: 100%;
-      }
-    }
-  </style>
 </head>
 <body>
-  <!-- --- TOP MARQUEE --- -->
-  <div class="top-marquee">
-    <div class="marquee-track">
-      <div class="marquee-content">
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-      </div>
-      <div class="marquee-content" aria-hidden="true">
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-        <a href="../index.html#direito">DIREITO</a>
-        <a href="../index.html#administracao">ADMINISTRAÇÃO</a>
-        <a href="../index.html#pedagogia">PEDAGOGIA</a>
-        <a href="../index.html#radiologia">RADIOLOGIA</a>
-      </div>
-    </div>
-    <div class="fixed-location">
-      <span>ÁGUAS LINDAS DE GOIÁS</span>
-    </div>
-  </div>
-
-  <header class="site-header" id="site-header">
-    <div class="header-top-wrapper">
-      <div class="header-shell">
-        <div class="header-top header-row">
-          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
-          <div class="header-row__center">
-            <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial da Faculdade Filos">
-              <img src="../assets/images/logo-filos-oficial.png" alt="Faculdade Filos" class="site-logo-img" width="332" height="112">
-            </a>
-          </div>
-          <div class="header-row__side header-row__side--end">
-            <div class="header-login-container">
-              <a href="#" class="header-login" id="login-menu-toggle" aria-expanded="false" aria-haspopup="true">
+<!-- --- TOP MARQUEE --- -->
+<div class="top-marquee">
+<div class="marquee-track">
+<div class="marquee-content">
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+</div>
+<div aria-hidden="true" class="marquee-content">
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+<a href="../index.html#direito">DIREITO</a>
+<a href="../index.html#administracao">ADMINISTRAÇÃO</a>
+<a href="../index.html#pedagogia">PEDAGOGIA</a>
+<a href="../index.html#radiologia">RADIOLOGIA</a>
+</div>
+</div>
+<div class="fixed-location">
+<span>ÁGUAS LINDAS DE GOIÁS</span>
+</div>
+</div>
+<header class="site-header" id="site-header">
+<div class="header-top-wrapper">
+<div class="header-shell">
+<div class="header-top header-row">
+<div aria-hidden="true" class="header-row__side header-row__side--start"></div>
+<div class="header-row__center">
+<a aria-label="Ir para a página inicial da Faculdade Filos" class="logo-link" href="../index.html">
+<img alt="Faculdade Filos" class="site-logo-img" height="112" src="../assets/images/logo-filos-oficial.png" width="332"/>
+</a>
+</div>
+<div class="header-row__side header-row__side--end">
+<div class="header-login-container">
+<a aria-expanded="false" aria-haspopup="true" class="header-login" href="#" id="login-menu-toggle">
                 Login / Cadastrar <i class="fa-solid fa-chevron-down dropdown-chevron" style="font-size: 0.7rem; margin-left: 0.4rem; transition: transform 0.2s ease;"></i>
-              </a>
-              <div class="login-dropdown-menu" id="login-dropdown" aria-label="Opções de Login">
-                <a href="https://faculdadefilos.jacad.com.br/academico/aluno-v2/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Aluno</a>
-                <a href="https://faculdadefilos.jacad.com.br/academico/professor/login" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal Professor</a>
-                <a href="https://ava-faculdadefilos.bashsolutions.com.br/login/index.php" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">AVA</a>
-                <a href="https://faculdadefilos.jacad.com.br/academico/diploma-digital/" target="_blank" rel="noopener noreferrer" class="login-dropdown-item">Portal do Egresso</a>
-              </div>
-            </div>
-            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="header-nav-wrapper">
-      <div class="header-shell">
-        <div class="header-nav header-row">
-          <div class="header-row__side header-row__side--start" aria-hidden="true"></div>
-          <div class="header-row__center">
-            <nav id="nav-menu" class="nav-menu" aria-label="Menu principal">
-              <a href="../index.html#inicio" class="nav-link" data-nav="home">Home</a>
-              <div class="nav-item-dropdown">
-                <a href="../index.html#cursos" class="nav-link" data-nav="cursos">Cursos</a>
-                <div class="dropdown-menu-cursos">
-                  <div class="dropdown-menu-cursos-content">
-                    <!-- Coluna 1: GRADUAÇÃO -->
-                    <div class="dropdown-column dropdown-column--dark">
-                      <h4 class="dropdown-column-title">GRADUAÇÃO</h4>
-                      <ul class="dropdown-list">
-                        <li><a href="direito.html" class="dropdown-item">Direito</a></li>
-                        <li><a href="administracao.html" class="dropdown-item">Administração</a></li>
-                        <li><a href="pedagogia.html" class="dropdown-item">Pedagogia</a></li>
-                        <li><a href="radiologia.html" class="dropdown-item">Radiologia</a></li>
-                      </ul>
-                    </div>
-                    <!-- Coluna 2: PÓS-GRADUAÇÃO -->
-                    <div class="dropdown-column dropdown-column--light">
-                      <h4 class="dropdown-column-title">PÓS - GRADUAÇÃO</h4>
-                      <ul class="dropdown-list">
-                        <li><a href="direito-penal.html" class="dropdown-item">Direito Penal</a></li>
-                        <li><a href="direito-imobiliario.html" class="dropdown-item">Direito Imobiliário</a></li>
-                        <li><a href="gestao-de-operacoes.html" class="dropdown-item">Gestão de Operações 4.0</a></li>
-                        <li><a href="inteligencia-artificial.html" class="dropdown-item">Inteligência Artificial Aplicada aos Negócios</a></li>
-                        <li><a href="docencia-ensino-superior.html" class="dropdown-item">Docência no Ensino Superior</a></li>
-                        <li><a href="ressonancia-magnetica.html" class="dropdown-item">Ressonância Magnética</a></li>
-                        <li><a href="neuropsicopedagogia.html" class="dropdown-item">Neuropsicopedagogia</a></li>
-                      </ul>
-                    </div>
-                    <!-- Coluna 3: CURSOS EXTENSIONISTAS -->
-                    <div class="dropdown-column dropdown-column--light dropdown-column-scrollable">
-                      <h4 class="dropdown-column-title">CURSOS EXTENSIONISTAS</h4>
-                      <div class="dropdown-scroll-wrapper">
-                        <ul class="dropdown-list">
-                          <li><a href="controle-qualidade-imagem.html" class="dropdown-item">Controle de Qualidade de Imagem e Artefatos Médicos</a></li>
-                          <li><a href="vendas-digitais.html" class="dropdown-item">Vendas Digitais (Redes Sociais e WhatsApp)</a></li>
-                          <li><a href="excelencia-atendimento.html" class="dropdown-item">Excelência no Atendimento e Fidelização</a></li>
-                          <li><a href="tecnicas-vendas.html" class="dropdown-item">Técnicas de Vendas e Negociação</a></li>
-                          <li><a href="dominio-ias.html" class="dropdown-item">Domínio das I.As: Criação de Textos e Imagens</a></li>
-                          <li><a href="automacao-pratica.html" class="dropdown-item">Automação Prática sem Programação</a></li>
-                          <li><a href="nocoes-direito-penal.html" class="dropdown-item">Noções de Direito Penal e Segurança Cidadã</a></li>
-                          <li><a href="lei-maria-da-penha.html" class="dropdown-item">Lei Maria da Penha e Proteção à Família</a></li>
-                          <li><a href="introducao-regularizacao-imoveis.html" class="dropdown-item">Introdução à Regularização de Imóveis</a></li>
-                          <li><a href="reurb-na-pratica.html" class="dropdown-item">REURB na Prática (Legalização)</a></li>
-                          <li><a href="biosseguranca-ressonancia.html" class="dropdown-item">Biossegurança em Ressonância</a></li>
-                          <li><a href="anatomia-seccional.html" class="dropdown-item">Anatomia Seccional (Leitura Básica)</a></li>
-                          <li><a href="praticas-inclusao.html" class="dropdown-item">Práticas de Inclusão e Direitos na Educação</a></li>
-                          <li><a href="ferramentas-digitais.html" class="dropdown-item">Ferramentas Digitais e Gamificação</a></li>
-                          <li><a href="oratoria-comunicacao.html" class="dropdown-item">Oratória e Comunicação Assertiva</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a href="../index.html#inicio" class="nav-link" data-nav="vestibular">Vestibular</a>
-              <div class="nav-item-dropdown">
-                <a href="../index.html#quem-somos" class="nav-link" data-nav="institucional">Institucional</a>
-                <div class="dropdown-menu-institucional">
-                  <ul class="dropdown-list-vertical">
-                    <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Revista</a></li>
-                    <li><a href="../ouvidoria.html" class="dropdown-item-vertical">Ouvidoria</a></li>
-                    <li><a href="../biblioteca.html" class="dropdown-item-vertical">Biblioteca</a></li>
-                    <li><a href="../cpa.html" class="dropdown-item-vertical">CPA</a></li>
-                  </ul>
-                </div>
-              </div>
-              <a href="../index.html#quem-somos" class="nav-link" data-nav="sobre">Sobre</a>
-              <a href="#" class="nav-link" data-nav="blog">Blog</a>
-              <div class="nav-item-dropdown">
-                <a href="../index.html#contato" class="nav-link" data-nav="contato">Contato</a>
-                <div class="dropdown-menu-contato">
-                  <ul class="dropdown-list-vertical">
-                    <li><a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="dropdown-item-vertical">Whatsapp</a></li>
-                    <li><a href="tel:6136188111" class="dropdown-item-vertical">Telefone</a></li>
-                    <li><a href="../index.html#contato" class="dropdown-item-vertical">Formulário</a></li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-          <div class="header-row__side header-row__side--end">
-            <button type="button" class="header-favorites-btn" aria-label="Favoritos">
-              <i class="fa-solid fa-heart" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- --- COURSE HERO --- -->
-  <section class="course-hero-new" style="background-image: url('../assets/images/banner-home-classroom.png');">
-    <div class="hero-bg-wrapper">
-      <div class="hero-new-overlay"></div>
-      <div class="hero-phi-logo-bg">FILOS</div>
-      <!-- Logo do Phi à direita -->
-      <div class="hero-phi-right-logo" aria-hidden="true">Φ</div>
-    </div>
-
-    <div class="container hero-new-container">
-      <div class="hero-new-left">
-        <div class="hero-new-content">
-          <span class="hero-new-subtitle">CURSO EXTENSIONISTA</span>
-          <h1 class="hero-new-title">PRÁTICAS DE INCLUSÃO E DIREITOS NA EDUCAÇÃO</h1>
-          <p class="hero-new-desc">Formação com foco em práticas docentes de inclusão escolar e o marco legal dos direitos das pessoas com deficiência na educação.</p>
-          <a href="https://wa.me/5561999061757" class="btn-hero-enroll">
-            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+</a>
+<div aria-label="Opções de Login" class="login-dropdown-menu" id="login-dropdown">
+<a class="login-dropdown-item" href="https://faculdadefilos.jacad.com.br/academico/aluno-v2/login" rel="noopener noreferrer" target="_blank">Portal Aluno</a>
+<a class="login-dropdown-item" href="https://faculdadefilos.jacad.com.br/academico/professor/login" rel="noopener noreferrer" target="_blank">Portal Professor</a>
+<a class="login-dropdown-item" href="https://ava-faculdadefilos.bashsolutions.com.br/login/index.php" rel="noopener noreferrer" target="_blank">AVA</a>
+<a class="login-dropdown-item" href="https://faculdadefilos.jacad.com.br/academico/diploma-digital/" rel="noopener noreferrer" target="_blank">Portal do Egresso</a>
+</div>
+</div>
+<button aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu de navegação" class="menu-toggle" id="menu-toggle" type="button">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="header-nav-wrapper">
+<div class="header-shell">
+<div class="header-nav header-row">
+<div aria-hidden="true" class="header-row__side header-row__side--start"></div>
+<div class="header-row__center">
+<nav aria-label="Menu principal" class="nav-menu" id="nav-menu">
+<a class="nav-link" data-nav="home" href="../index.html#inicio">Home</a>
+<div class="nav-item-dropdown">
+<a class="nav-link" data-nav="cursos" href="../index.html#cursos">Cursos</a>
+<div class="dropdown-menu-cursos">
+<div class="dropdown-menu-cursos-content">
+<!-- Coluna 1: GRADUAÇÃO -->
+<div class="dropdown-column dropdown-column--dark">
+<h4 class="dropdown-column-title">GRADUAÇÃO</h4>
+<ul class="dropdown-list">
+<li><a class="dropdown-item" href="direito.html">Direito</a></li>
+<li><a class="dropdown-item" href="administracao.html">Administração</a></li>
+<li><a class="dropdown-item" href="pedagogia.html">Pedagogia</a></li>
+<li><a class="dropdown-item" href="radiologia.html">Radiologia</a></li>
+</ul>
+</div>
+<!-- Coluna 2: PÓS-GRADUAÇÃO -->
+<div class="dropdown-column dropdown-column--light">
+<h4 class="dropdown-column-title">PÓS - GRADUAÇÃO</h4>
+<ul class="dropdown-list">
+<li><a class="dropdown-item" href="direito-penal.html">Direito Penal</a></li>
+<li><a class="dropdown-item" href="direito-imobiliario.html">Direito Imobiliário</a></li>
+<li><a class="dropdown-item" href="gestao-de-operacoes.html">Gestão de Operações 4.0</a></li>
+<li><a class="dropdown-item" href="inteligencia-artificial.html">Inteligência Artificial Aplicada aos Negócios</a></li>
+<li><a class="dropdown-item" href="docencia-ensino-superior.html">Docência no Ensino Superior</a></li>
+<li><a class="dropdown-item" href="ressonancia-magnetica.html">Ressonância Magnética</a></li>
+<li><a class="dropdown-item" href="neuropsicopedagogia.html">Neuropsicopedagogia</a></li>
+</ul>
+</div>
+<!-- Coluna 3: CURSOS EXTENSIONISTAS -->
+<div class="dropdown-column dropdown-column--light dropdown-column-scrollable">
+<h4 class="dropdown-column-title">CURSOS EXTENSIONISTAS</h4>
+<div class="dropdown-scroll-wrapper">
+<ul class="dropdown-list">
+<li><a class="dropdown-item" href="controle-qualidade-imagem.html">Controle de Qualidade de Imagem e Artefatos Médicos</a></li>
+<li><a class="dropdown-item" href="vendas-digitais.html">Vendas Digitais (Redes Sociais e WhatsApp)</a></li>
+<li><a class="dropdown-item" href="excelencia-atendimento.html">Excelência no Atendimento e Fidelização</a></li>
+<li><a class="dropdown-item" href="tecnicas-vendas.html">Técnicas de Vendas e Negociação</a></li>
+<li><a class="dropdown-item" href="dominio-ias.html">Domínio das I.As: Criação de Textos e Imagens</a></li>
+<li><a class="dropdown-item" href="automacao-pratica.html">Automação Prática sem Programação</a></li>
+<li><a class="dropdown-item" href="nocoes-direito-penal.html">Noções de Direito Penal e Segurança Cidadã</a></li>
+<li><a class="dropdown-item" href="lei-maria-da-penha.html">Lei Maria da Penha e Proteção à Família</a></li>
+<li><a class="dropdown-item" href="introducao-regularizacao-imoveis.html">Introdução à Regularização de Imóveis</a></li>
+<li><a class="dropdown-item" href="reurb-na-pratica.html">REURB na Prática (Legalização)</a></li>
+<li><a class="dropdown-item" href="biosseguranca-ressonancia.html">Biossegurança em Ressonância</a></li>
+<li><a class="dropdown-item" href="anatomia-seccional.html">Anatomia Seccional (Leitura Básica)</a></li>
+<li><a class="dropdown-item" href="praticas-inclusao.html">Práticas de Inclusão e Direitos na Educação</a></li>
+<li><a class="dropdown-item" href="ferramentas-digitais.html">Ferramentas Digitais e Gamificação</a></li>
+<li><a class="dropdown-item" href="oratoria-comunicacao.html">Oratória e Comunicação Assertiva</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="nav-link" data-nav="vestibular" href="../index.html#inicio">Vestibular</a>
+<div class="nav-item-dropdown">
+<a class="nav-link" data-nav="institucional" href="../index.html#quem-somos">Institucional</a>
+<div class="dropdown-menu-institucional">
+<ul class="dropdown-list-vertical">
+<li><a class="dropdown-item-vertical" href="https://revistafaculdadefilos.com.br/index.php/ojs01" rel="noopener noreferrer" target="_blank">Revista</a></li>
+<li><a class="dropdown-item-vertical" href="../ouvidoria.html">Ouvidoria</a></li>
+<li><a class="dropdown-item-vertical" href="../biblioteca.html">Biblioteca</a></li>
+<li><a class="dropdown-item-vertical" href="../cpa.html">CPA</a></li>
+</ul>
+</div>
+</div>
+<a class="nav-link" data-nav="sobre" href="../index.html#quem-somos">Sobre</a>
+<a class="nav-link" data-nav="blog" href="#">Blog</a>
+<div class="nav-item-dropdown">
+<a class="nav-link" data-nav="contato" href="../index.html#contato">Contato</a>
+<div class="dropdown-menu-contato">
+<ul class="dropdown-list-vertical">
+<li><a class="dropdown-item-vertical" href="https://wa.me/5561999061757" rel="noopener noreferrer" target="_blank">Whatsapp</a></li>
+<li><a class="dropdown-item-vertical" href="tel:6136188111">Telefone</a></li>
+<li><a class="dropdown-item-vertical" href="../index.html#contato">Formulário</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<div class="header-row__side header-row__side--end">
+<button aria-label="Favoritos" class="header-favorites-btn" type="button">
+<i aria-hidden="true" class="fa-solid fa-heart"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- --- COURSE HERO --- -->
+<section class="course-hero-new" style="background-image: url('../assets/images/banner-home-classroom.png');">
+<div class="hero-bg-wrapper">
+<div class="hero-new-overlay"></div>
+<div class="hero-phi-logo-bg">FILOS</div>
+<!-- Logo do Phi à direita -->
+<div aria-hidden="true" class="hero-phi-right-logo">Φ</div>
+</div>
+<div class="container hero-new-container">
+<div class="hero-new-left">
+<div class="hero-new-content">
+<span class="hero-new-subtitle">CURSO EXTENSIONISTA</span>
+<h1 class="hero-new-title">PRÁTICAS DE INCLUSÃO E DIREITOS NA EDUCAÇÃO</h1>
+<p class="hero-new-desc">Formação com foco em práticas docentes de inclusão escolar e o marco legal dos direitos das pessoas com deficiência na educação.</p>
+<a class="btn-hero-enroll" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
           </a>
-        </div>
-      </div>
-
-      <div class="hero-new-right">
-        <div class="inscription-card-wrapper">
-          <div class="inscription-card" data-price-card data-price-default="129,00">
-            <h2 class="inscription-card-title">PRÁTICAS DE INCLUSÃO E DIREITOS NA EDUCAÇÃO</h2>
-            <div class="inscription-card-divider"></div>
+</div>
+</div>
+<div class="hero-new-right">
+<div class="inscription-card-wrapper">
+<div class="inscription-card" data-price-card="" data-price-default="129,00">
+<h2 class="inscription-card-title">PRÁTICAS DE INCLUSÃO E DIREITOS NA EDUCAÇÃO</h2>
+<div class="inscription-card-divider"></div>
 <div class="inscription-card-meta-block">
-              <p>Duração de 60 horas</p>
-              <p>Certificação de Extensão | <strong>Curso livre</strong></p>
-              <p><strong>Período Noturno</strong> | Presencial</p>
-            </div>
-
-            <div class="inscription-card-discount-block">
-              <p>Início imediato • <strong>Desconto de pontualidade</strong></p>
-            </div>
-
-            <div class="inscription-card-price" data-price-output>
-              129,00
-            </div>
-
-            <a href="https://wa.me/5561999061757" class="btn-card-enroll-now">
-              <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE AGORA
+<p>Duração de 60 horas</p>
+<p>Certificação de Extensão | <strong>Curso livre</strong></p>
+<p><strong>Período Noturno</strong> | Presencial</p>
+</div>
+<div class="inscription-card-discount-block">
+<p>Início imediato • <strong>Desconto de pontualidade</strong></p>
+</div>
+<div class="course-price-display" style="display: none;">
+  <p class="course-price-from">
+    De <span class="course-price-old">R$ 129,00</span>
+  </p>
+  <p class="course-price-current">
+    por mensalidades a partir de
+    <strong>R$ 129,00*</strong>
+  </p>
+  <p class="course-price-note">
+    *Valor final mediante descontos aplicáveis.
+  </p>
+</div>
+<a class="btn-card-enroll-now" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE AGORA
             </a>
-          </div>
-          <div class="inscription-card-footer-accent"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- --- POR QUE CURSAR --- -->
-  <section class="section section-why-admin">
-    <div class="container why-admin-container">
-      <h2 class="why-admin-title">Por que cursar Práticas de Inclusão e Direitos na Educação?</h2>
-      <div class="why-admin-text-wrapper">
-        <p>Este curso extensionista instrumentaliza professores, assistentes e educadores na aplicação prática de metodologias inclusivas de ensino. O currículo aborda desde o arcabouço de leis e direitos nacionais e internacionais sobre inclusão até técnicas práticas de adaptação curricular, uso de tecnologias assistivas e construção de materiais pedagógicos facilitadores.</p>
-        <p>Altamente indicado para Professores de Educação Básica, Auxiliares de Ensino, Pedagogos, Gestores Escolares e psicólogos institucionais.</p>
-        <p>A formação contempla temas como Legislação sobre Educação Especial, Adaptações Curriculares e Didáticas, Psicologia Escolar e Diversidade e Tecnologias Assistivas na Aprendizagem, conectando teoria e prática de forma objetiva.</p>
-      </div>
-      <p class="why-admin-highlight">Desenvolva novas habilidades com um curso extensionista prático, objetivo e conectado ao mercado.</p>
-      <a href="https://wa.me/5561999061757" class="btn-why-admin-enroll">
-        <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+</div>
+<div class="inscription-card-footer-accent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- --- POR QUE CURSAR --- -->
+<section class="section section-why-admin">
+<div class="container why-admin-container">
+<h2 class="why-admin-title">Por que cursar Práticas de Inclusão e Direitos na Educação?</h2>
+<div class="why-admin-text-wrapper">
+<p>Este curso extensionista instrumentaliza professores, assistentes e educadores na aplicação prática de metodologias inclusivas de ensino. O currículo aborda desde o arcabouço de leis e direitos nacionais e internacionais sobre inclusão até técnicas práticas de adaptação curricular, uso de tecnologias assistivas e construção de materiais pedagógicos facilitadores.</p>
+<p>Altamente indicado para Professores de Educação Básica, Auxiliares de Ensino, Pedagogos, Gestores Escolares e psicólogos institucionais.</p>
+<p>A formação contempla temas como Legislação sobre Educação Especial, Adaptações Curriculares e Didáticas, Psicologia Escolar e Diversidade e Tecnologias Assistivas na Aprendizagem, conectando teoria e prática de forma objetiva.</p>
+</div>
+<p class="why-admin-highlight">Desenvolva novas habilidades com um curso extensionista prático, objetivo e conectado ao mercado.</p>
+<a class="btn-why-admin-enroll" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
       </a>
-    </div>
-
-    <!-- Cabeçalho dos diferenciais compartilhado no mesmo background translúcido -->
-    <div class="container" style="margin-top: 4.5rem; margin-bottom: 0;">
-      <div class="diferenciais-header text-center" style="margin-bottom: 0;">
-              <h2 class="diferenciais-main-title">DIFERENCIAIS <strong>ACADÊMICOS</strong></h2>
-              <p class="diferenciais-subtitle">Do curso de Práticas de Inclusão e Direitos na Educação</p>
-            </div>
-    </div>
-  </section>
-
-  <!-- --- DIFERENCIAIS ACADÊMICOS --- -->
-  <section class="section section-diferenciais-admin section-with-bottom-tab" style="--module-bg: #ffffff; z-index: 8;">
-    <div class="container">
-      <div class="diferenciais-grid-new">
-        <div class="diferencial-card-new">
-          <div class="diferencial-card-content">
-            <h3 class="diferencial-card-title">Legislação sobre Educação Especial</h3>
-            <p class="diferencial-card-desc">Conteúdo direto para aplicar na rotina profissional.</p>
-          </div>
-          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
-            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+</div>
+<!-- Cabeçalho dos diferenciais compartilhado no mesmo background translúcido -->
+<div class="container" style="margin-top: 4.5rem; margin-bottom: 0;">
+<div class="diferenciais-header text-center" style="margin-bottom: 0;">
+<h2 class="diferenciais-main-title">DIFERENCIAIS <strong>ACADÊMICOS</strong></h2>
+<p class="diferenciais-subtitle">Do curso de Práticas de Inclusão e Direitos na Educação</p>
+</div>
+</div>
+</section>
+<!-- --- DIFERENCIAIS ACADÊMICOS --- -->
+<section class="section section-diferenciais-admin section-with-bottom-tab" style="--module-bg: #ffffff; z-index: 8;">
+<div class="container">
+<div class="diferenciais-grid-new">
+<div class="diferencial-card-new">
+<div class="diferencial-card-content diferencial-card-content--centered">
+<p class="diferencial-card-desc" style="margin-top: 0;"><strong>Legislação sobre Educação Especial</strong> conteúdo direto para aplicar na rotina profissional.</p>
+</div>
+<a class="btn-diferencial-enroll" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
           </a>
-        </div>
-        <div class="diferencial-card-new">
-          <div class="diferencial-card-content">
-            <h3 class="diferencial-card-title">Aprendizado objetivo</h3>
-            <p class="diferencial-card-desc">Aulas focadas em habilidades úteis para o mercado.</p>
-          </div>
-          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
-            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+</div>
+<div class="diferencial-card-new">
+<div class="diferencial-card-content diferencial-card-content--centered">
+<p class="diferencial-card-desc" style="margin-top: 0;"><strong>Aprendizado objetivo</strong> aulas focadas em habilidades úteis para o mercado.</p>
+</div>
+<a class="btn-diferencial-enroll" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
           </a>
-        </div>
-        <div class="diferencial-card-new">
-          <div class="diferencial-card-content">
-            <h3 class="diferencial-card-title">Certificação Filos</h3>
-            <p class="diferencial-card-desc">Formação complementar com certificação de extensão.</p>
-          </div>
-          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
-            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+</div>
+<div class="diferencial-card-new">
+<div class="diferencial-card-content diferencial-card-content--centered">
+<p class="diferencial-card-desc" style="margin-top: 0;"><strong>Certificação Filos</strong> formação complementar com certificação de extensão.</p>
+</div>
+<a class="btn-diferencial-enroll" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
           </a>
-        </div>
-        <div class="diferencial-card-new">
-          <div class="diferencial-card-content">
-            <h3 class="diferencial-card-title">Evolução rápida</h3>
-            <p class="diferencial-card-desc">Desenvolva novas competências em menos tempo.</p>
-          </div>
-          <a href="https://wa.me/5561999061757" class="btn-diferencial-enroll">
-            <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+</div>
+<div class="diferencial-card-new">
+<div class="diferencial-card-content diferencial-card-content--centered">
+<p class="diferencial-card-desc" style="margin-top: 0;"><strong>Evolução rápida</strong> desenvolva novas competências em menos tempo.</p>
+</div>
+<a class="btn-diferencial-enroll" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
           </a>
-        </div>
-      </div>
-
-      <div class="diferenciais-footer-note">
-        <p><strong>Práticas de Inclusão e Direitos na Educação na Faculdade Filos.</strong> Formação com atendimento próximo, prática e direcionamento para sua evolução profissional.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- --- MATRIZ CURRICULAR --- -->
-  <section class="section section-matriz-admin">
-    <div class="matriz-watermark" aria-hidden="true">FILOS</div>
-
-    <div class="container matriz-container">
-      <div class="matriz-left">
-        <div class="matriz-header">
-          <div class="matriz-icon-phi">
-            <div class="matriz-phi-container">
-              <img src="../assets/images/logo-faculdade-filos-oficial-white.png" alt="Símbolo Faculdade Filos" class="matriz-phi-img">
-            </div>
-          </div>
-          <h2 class="matriz-title">MATRIZ <strong>CURRICULAR</strong></h2>
-          <p class="matriz-subtitle">Do curso de práticas de inclusão e direitos na educação</p>
-        </div>
-
-        <div class="matriz-accordion">
-          <div class="matriz-accordion-item">
-            <button class="matriz-accordion-header" aria-expanded="false">
-              <span>MÓDULO 1</span>
-              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
-            </button>
-            <div class="matriz-accordion-content">
-              <table class="matriz-table">
-                <thead>
-                  <tr>
-                    <th>DISCIPLINA</th>
-                    <th class="text-center">FOCO</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Legislação sobre Educação Especial</td>
-                    <td class="text-center">Base</td>
-                  </tr>
-                  <tr>
-                    <td>Vivência prática e consolidação do aprendizado</td>
-                    <td class="text-center">Aplic.</td>
-                  </tr>
-                  <tr>
-                    <td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
-                    <td class="text-center">Prática</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="matriz-accordion-item">
-            <button class="matriz-accordion-header" aria-expanded="false">
-              <span>MÓDULO 2</span>
-              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
-            </button>
-            <div class="matriz-accordion-content">
-              <table class="matriz-table">
-                <thead>
-                  <tr>
-                    <th>DISCIPLINA</th>
-                    <th class="text-center">FOCO</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Adaptações Curriculares</td>
-                    <td class="text-center">Base</td>
-                  </tr>
-                  <tr>
-                    <td>Aprendizado objetivo</td>
-                    <td class="text-center">Aplic.</td>
-                  </tr>
-                  <tr>
-                    <td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
-                    <td class="text-center">Prática</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="matriz-accordion-item">
-            <button class="matriz-accordion-header" aria-expanded="false">
-              <span>MÓDULO 3</span>
-              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
-            </button>
-            <div class="matriz-accordion-content">
-              <table class="matriz-table">
-                <thead>
-                  <tr>
-                    <th>DISCIPLINA</th>
-                    <th class="text-center">FOCO</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Didáticas</td>
-                    <td class="text-center">Base</td>
-                  </tr>
-                  <tr>
-                    <td>Certificação Filos</td>
-                    <td class="text-center">Aplic.</td>
-                  </tr>
-                  <tr>
-                    <td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
-                    <td class="text-center">Prática</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="matriz-accordion-item">
-            <button class="matriz-accordion-header" aria-expanded="false">
-              <span>MÓDULO 4</span>
-              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
-            </button>
-            <div class="matriz-accordion-content">
-              <table class="matriz-table">
-                <thead>
-                  <tr>
-                    <th>DISCIPLINA</th>
-                    <th class="text-center">FOCO</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Psicologia Escolar</td>
-                    <td class="text-center">Base</td>
-                  </tr>
-                  <tr>
-                    <td>Evolução rápida</td>
-                    <td class="text-center">Aplic.</td>
-                  </tr>
-                  <tr>
-                    <td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
-                    <td class="text-center">Prática</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="matriz-right">
-        <div class="matriz-student-image-wrapper">
-          <img src="../assets/images/student-pink-isolated.png" alt="Estudante de PRÁTICAS DE INCLUSÃO E DIREITOS NA EDUCAÇÃO - Faculdade Filos" class="matriz-student-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="matriz-footer-cta matriz-footer-cta--between">
-    <a href="https://wa.me/5561999061757" class="btn-matriz-enroll">
-      <i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
+</div>
+</div>
+<div class="diferenciais-footer-note">
+<p><strong>Práticas de Inclusão e Direitos na Educação na Faculdade Filos.</strong> Formação com atendimento próximo, prática e direcionamento para sua evolução profissional.</p>
+</div>
+</div>
+</section>
+<!-- --- MATRIZ CURRICULAR --- -->
+<section class="section section-matriz-admin">
+<div aria-hidden="true" class="matriz-watermark">FILOS</div>
+<div class="container matriz-container">
+<div class="matriz-left">
+<div class="matriz-header">
+<div class="matriz-icon-phi">
+<div class="matriz-phi-container">
+<img alt="Símbolo Faculdade Filos" class="matriz-phi-img" src="../assets/images/logo-faculdade-filos-oficial-white.png"/>
+</div>
+</div>
+<h2 class="matriz-title">MATRIZ <strong>CURRICULAR</strong></h2>
+<p class="matriz-subtitle">Do curso de práticas de inclusão e direitos na educação</p>
+</div>
+<div class="matriz-accordion">
+<div class="matriz-accordion-item">
+<button aria-expanded="false" class="matriz-accordion-header">
+<span>MÓDULO 1</span>
+<span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+</button>
+<div class="matriz-accordion-content">
+<table class="matriz-table">
+<thead>
+<tr>
+<th>DISCIPLINA</th>
+<th class="text-center">FOCO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legislação sobre Educação Especial</td>
+<td class="text-center">Base</td>
+</tr>
+<tr>
+<td>Vivência prática e consolidação do aprendizado</td>
+<td class="text-center">Aplic.</td>
+</tr>
+<tr>
+<td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
+<td class="text-center">Prática</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="matriz-accordion-item">
+<button aria-expanded="false" class="matriz-accordion-header">
+<span>MÓDULO 2</span>
+<span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+</button>
+<div class="matriz-accordion-content">
+<table class="matriz-table">
+<thead>
+<tr>
+<th>DISCIPLINA</th>
+<th class="text-center">FOCO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adaptações Curriculares</td>
+<td class="text-center">Base</td>
+</tr>
+<tr>
+<td>Aprendizado objetivo</td>
+<td class="text-center">Aplic.</td>
+</tr>
+<tr>
+<td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
+<td class="text-center">Prática</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="matriz-accordion-item">
+<button aria-expanded="false" class="matriz-accordion-header">
+<span>MÓDULO 3</span>
+<span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+</button>
+<div class="matriz-accordion-content">
+<table class="matriz-table">
+<thead>
+<tr>
+<th>DISCIPLINA</th>
+<th class="text-center">FOCO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Didáticas</td>
+<td class="text-center">Base</td>
+</tr>
+<tr>
+<td>Certificação Filos</td>
+<td class="text-center">Aplic.</td>
+</tr>
+<tr>
+<td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
+<td class="text-center">Prática</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="matriz-accordion-item">
+<button aria-expanded="false" class="matriz-accordion-header">
+<span>MÓDULO 4</span>
+<span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+</button>
+<div class="matriz-accordion-content">
+<table class="matriz-table">
+<thead>
+<tr>
+<th>DISCIPLINA</th>
+<th class="text-center">FOCO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Psicologia Escolar</td>
+<td class="text-center">Base</td>
+</tr>
+<tr>
+<td>Evolução rápida</td>
+<td class="text-center">Aplic.</td>
+</tr>
+<tr>
+<td>Exercícios orientados, prática aplicada e desenvolvimento de habilidades</td>
+<td class="text-center">Prática</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="matriz-right">
+<div class="matriz-student-image-wrapper">
+<img alt="Estudante de PRÁTICAS DE INCLUSÃO E DIREITOS NA EDUCAÇÃO - Faculdade Filos" class="matriz-student-img" src="../assets/images/student-pink-isolated.png"/>
+</div>
+</div>
+</div>
+</section>
+<div class="matriz-footer-cta matriz-footer-cta--between">
+<a class="btn-matriz-enroll" href="https://wa.me/5561999061757">
+<i class="fa-brands fa-whatsapp"></i> MATRICULE-SE
     </a>
-  </div>
-
-  <section class="section section-related-courses" data-related-courses data-current-course="praticas-inclusao">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">CURSOS <strong>SUPERIORES</strong></h2>
-        <p class="section-subtitle">Conheça também os cursos mais <strong>buscados</strong></p>
-      </div>
-
-      <div class="related-courses-carousel-wrapper">
-        <div class="related-courses-carousel">
-          <div class="related-courses-pages" data-related-courses-pages></div>
-        </div>
-        <div class="courses-pagination-dots related-courses-dots" data-related-courses-dots></div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- --- LOCATION MAP / CONTATO SECTION --- -->
-  <section id="contato" class="section new-location-section section-dark" style="z-index: 4; position: relative;">
-    <div class="container-wide">
-
-      <!-- Logo Symbol Floating Right -->
-      <div class="location-floating-logo">
-        <img src="../assets/images/logo-filos-oficial.png" alt="Logo Faculdade Filos" class="location-floating-logo-img">
-      </div>
-
-      <!-- Section Header -->
-      <div class="new-location-header">
-        <span class="new-location-subtitle">LOCALIZAÇÃO</span>
-        <h2 class="new-location-title">Onde nos <strong>Encontrar</strong></h2>
-      </div>
-
-      <!-- Main Layout -->
-      <div class="new-location-grid">
-
-        <!-- Left side: Mini FAQ -->
-        <div class="new-location-faq">
-          <div class="new-location-faq-header">
-            <div class="new-location-faq-line"></div>
-            <h3><strong>Perguntas</strong> frequentes</h3>
-          </div>
-
-          <div class="new-location-faq-list">
-            <details class="new-location-faq-item">
-              <summary>Qual o endereço completo da Faculdade Filos? <i class="fa-solid fa-plus"></i></summary>
-              <div class="new-location-faq-answer">
+</div>
+<section class="section section-related-courses" data-current-course="praticas-inclusao" data-related-courses="">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">CURSOS <strong>SUPERIORES</strong></h2>
+<p class="section-subtitle">Conheça também os cursos mais <strong>buscados</strong></p>
+</div>
+<div class="related-courses-carousel-wrapper">
+<div class="related-courses-carousel">
+<div class="related-courses-pages" data-related-courses-pages=""></div>
+</div>
+<div class="courses-pagination-dots related-courses-dots" data-related-courses-dots=""></div>
+</div>
+</div>
+</section>
+<!-- --- LOCATION MAP / CONTATO SECTION --- -->
+<section class="section new-location-section section-dark" id="contato" style="z-index: 4; position: relative;">
+<div class="container-wide">
+<!-- Logo Symbol Floating Right -->
+<div class="location-floating-logo">
+<img alt="Logo Faculdade Filos" class="location-floating-logo-img" src="../assets/images/logo-filos-oficial.png"/>
+</div>
+<!-- Section Header -->
+<div class="new-location-header">
+<span class="new-location-subtitle">LOCALIZAÇÃO</span>
+<h2 class="new-location-title">Onde nos <strong>Encontrar</strong></h2>
+</div>
+<!-- Main Layout -->
+<div class="new-location-grid">
+<!-- Left side: Mini FAQ -->
+<div class="new-location-faq">
+<div class="new-location-faq-header">
+<div class="new-location-faq-line"></div>
+<h3><strong>Perguntas</strong> frequentes</h3>
+</div>
+<div class="new-location-faq-list">
+<details class="new-location-faq-item">
+<summary>Qual o endereço completo da Faculdade Filos? <i class="fa-solid fa-plus"></i></summary>
+<div class="new-location-faq-answer">
                 Nosso campus está localizado na Avenida Tiradentes, Quadra 71, Lote 28/31, Jardim Pérola - da Barragem
                 II, Águas Lindas de Goiás - GO, 72911-262.
               </div>
-            </details>
-            <details class="new-location-faq-item">
-              <summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
-              <div class="new-location-faq-answer">
+</details>
+<details class="new-location-faq-item">
+<summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
+<div class="new-location-faq-answer">
                 Sim! Estamos abertos de segunda a sexta, das 8h às 22h. Nossa equipe terá um enorme prazer em apresentar
                 nossa infraestrutura.
               </div>
-            </details>
-            <details class="new-location-faq-item">
-              <summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
-              <div class="new-location-faq-answer">
+</details>
+<details class="new-location-faq-item">
+<summary>Posso visitar a Faculdade Filos presencialmente? <i class="fa-solid fa-plus"></i></summary>
+<div class="new-location-faq-answer">
                 Sim! Nossa secretaria funciona normalmente para lhe atender presencialmente no campus.
               </div>
-            </details>
-          </div>
-
-          <a href="#" class="btn btn-whatsapp-location">
-            <i class="fa-brands fa-whatsapp"></i> Fale com a nossa equipe
+</details>
+</div>
+<a class="btn btn-whatsapp-location" href="#">
+<i class="fa-brands fa-whatsapp"></i> Fale com a nossa equipe
           </a>
-        </div>
-
-        <!-- Right side: Map -->
-        <div class="new-location-map-container">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s"
-            target="_blank" class="map-link-overlay" aria-label="Traçar rota no Google Maps"
-            title="Clique para abrir a rota no GPS"></a>
-          <iframe id="map-iframe" class="new-location-map"
-            src="https://maps.google.com/maps?q=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s&t=&z=16&ie=UTF8&iwloc=near&output=embed"
-            title="Localização Faculdade Filos no Google Maps" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-
-      <div class="new-location-address">
-        <p>
-          <span class="address-line"><a href="https://www.google.com/maps/dir/?api=1&destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s"
-            target="_blank" class="address-icon-link" aria-label="Traçar rota no Google Maps"
-            title="Clique para abrir a rota no GPS">
-            <i class="fa-solid fa-location-dot"></i>
-          </a>Endereço: Avenida Tiradentes, Quadra 71, Lote 28/31, Jardim Pérola - Barragem II, Águas Lindas de Goiás - GO,</span>
-          <span class="address-line">CEP 72911-262. Além do fácil acesso, a instituição disponibiliza atendimento presencial para dúvidas</span>
-          <span class="address-line">sobre cursos, vestibular, matrícula, financeiro e vida acadêmica, proporcionando suporte completo</span>
-          <span class="address-line">desde o primeiro contato.</span>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- --- FOOTER --- -->
-    <footer class="new-footer">
-    <div class="container new-footer-grid">
-      <!-- Col 1 -->
-      <div class="new-footer-col new-footer-col-1">
-        <div class="new-footer-col-top">
-          <a href="../index.html" aria-label="Ir para a home">
-            <img src="../assets/images/logo-faculdade-filos-oficial-white.png" alt="Logo Faculdade Filos" class="new-footer-logo">
-          </a>
-          <p class="new-footer-desc">
+</div>
+<!-- Right side: Map -->
+<div class="new-location-map-container">
+<a aria-label="Traçar rota no Google Maps" class="map-link-overlay" href="https://www.google.com/maps/dir/?api=1&amp;destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s" target="_blank" title="Clique para abrir a rota no GPS"></a>
+<iframe allowfullscreen="" class="new-location-map" id="map-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=near&amp;output=embed" style="border:0;" title="Localização Faculdade Filos no Google Maps"></iframe>
+</div>
+</div>
+<div class="new-location-address">
+<p>
+<span class="address-line"><a aria-label="Traçar rota no Google Maps" class="address-icon-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Faculdade+Filos,+Avenida+Tiradentes,+%C3%81guas+Lindas+de+Goi%C3%A1s" target="_blank" title="Clique para abrir a rota no GPS">
+<i class="fa-solid fa-location-dot"></i>
+</a>Endereço: Avenida Tiradentes, Quadra 71, Lote 28/31, Jardim Pérola - Barragem II, Águas Lindas de Goiás - GO,</span>
+<span class="address-line">CEP 72911-262. Além do fácil acesso, a instituição disponibiliza atendimento presencial para dúvidas</span>
+<span class="address-line">sobre cursos, vestibular, matrícula, financeiro e vida acadêmica, proporcionando suporte completo</span>
+<span class="address-line">desde o primeiro contato.</span>
+</p>
+</div>
+</div>
+</section>
+<!-- --- FOOTER --- -->
+<footer class="new-footer">
+<div class="container new-footer-grid">
+<!-- Col 1 -->
+<div class="new-footer-col new-footer-col-1">
+<div class="new-footer-col-top">
+<a aria-label="Ir para a home" href="../index.html">
+<img alt="Logo Faculdade Filos" class="new-footer-logo" src="../assets/images/logo-faculdade-filos-oficial-white.png"/>
+</a>
+<p class="new-footer-desc">
             A <strong>Faculdade Filos, reconhecida pelo MEC</strong>, oferece <strong>graduação, pós-graduação</strong> e
             cursos extensionistas com ensino de qualidade <strong>em Águas Lindas de Goiás</strong>. Com aulas noturnas e
             experiências práticas, prepara alunos para o mercado de trabalho.
           </p>
-        </div>
-        <div class="new-footer-location">
-          <i class="fa-solid fa-location-dot"></i>
-          <p>
-            <span style="white-space: nowrap;">Avenida Tiradentes, Quadra 71, Lote 28/31,</span><br>
-            <span style="white-space: nowrap;">Jardim Pérola - Barragem II, Águas Lindas de GO</span><br>
-            <span style="white-space: nowrap;">CEP 72911-262</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- Col 2 -->
-      <div class="new-footer-col new-footer-col-2">
-        <div class="new-footer-section">
-          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CURSOS</h4>
-          <ul class="new-footer-links">
-            <li><a href="#">Direito</a></li>
-            <li><a href="#">Pedagogia</a></li>
-            <li><a href="#">Radiologia</a></li>
-            <li><a href="#">Administração</a></li>
-          </ul>
-        </div>
-
-        <div class="new-footer-section new-footer-margin-top">
-          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> CONTATO</h4>
-          <ul class="new-footer-links new-footer-contact">
-            <li><strong>WHATSAPP:</strong> 6199906-1757</li>
-            <li><strong>TELEFONE:</strong> 3618-8111</li>
-            <li>contato@faculdadefilos.com.br</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Col 3 -->
-      <div class="new-footer-col new-footer-col-3">
-        <div class="new-footer-section">
-          <h4 class="new-footer-title"><span class="phi-symbol">&Phi;</span> INSTITUCIONAL</h4>
-          <ul class="new-footer-links">
-            <li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" target="_blank"
-                rel="noopener noreferrer">Revista</a></li>
-            <li><a href="../ouvidoria.html">Ouvidoria</a></li>
-            <li><a href="../cpa.html">CPA</a></li>
-            <li><a href="../biblioteca.html">Biblioteca</a></li>
-            <li class="footer-link-divider"><a href="#" style="font-weight: 700; color: #ffffff;">Colégio</a></li>
-            <li><a href="#">Portal do Aluno</a></li>
-            <li><a href="#">Portal do professor</a></li>
-          </ul>
-        </div>
-
-        <div class="new-footer-socials">
-          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="new-footer-bottom">
-      <div class="container">
-        <p>Desenvolvido pela <a href="https://www.daraagencia.com/" target="_blank" rel="noopener noreferrer" class="footer-dara-link">agência Dara</a> | 2026</p>
-      </div>
-    </div>
-  </footer>
-
-  <aside class="floating-sidebar-left" aria-label="Atalhos rápidos">
-    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Instagram Faculdade Filos">
-      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-    </a>
-    <a href="https://wa.me/5561999061757" target="_blank" rel="noopener noreferrer" class="floating-side-btn floating-side-btn--whatsapp" aria-label="WhatsApp Faculdade Filos">
-      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    <a href="#" target="_blank" rel="noopener noreferrer" class="floating-side-btn" aria-label="Facebook Faculdade Filos">
-      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-    </a>
-    <button type="button" class="floating-side-btn" data-floating-search aria-label="Buscar cursos">
-      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-    </button>
-    <a href="../index.html#contato" class="floating-side-btn floating-side-btn--circle" data-floating-location aria-label="Localização e contato">
-      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-    </a>
-  </aside>
-
-  <div class="floating-buttons">
-    <a href="https://wa.me/5561999061757" target="_blank" class="btn-float btn-whatsapp" aria-label="WhatsApp Faculdade Filos"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-  </div>
-  <script>
+</div>
+<div class="new-footer-location">
+<i class="fa-solid fa-location-dot"></i>
+<p>
+<span style="white-space: nowrap;">Avenida Tiradentes, Quadra 71, Lote 28/31,</span><br/>
+<span style="white-space: nowrap;">Jardim Pérola - Barragem II, Águas Lindas de GO</span><br/>
+<span style="white-space: nowrap;">CEP 72911-262</span>
+</p>
+</div>
+</div>
+<!-- Col 2 -->
+<div class="new-footer-col new-footer-col-2">
+<div class="new-footer-section">
+<h4 class="new-footer-title"><span class="phi-symbol">Φ</span> CURSOS</h4>
+<ul class="new-footer-links">
+<li><a href="#">Direito</a></li>
+<li><a href="#">Pedagogia</a></li>
+<li><a href="#">Radiologia</a></li>
+<li><a href="#">Administração</a></li>
+</ul>
+</div>
+<div class="new-footer-section new-footer-margin-top">
+<h4 class="new-footer-title"><span class="phi-symbol">Φ</span> CONTATO</h4>
+<ul class="new-footer-links new-footer-contact">
+<li><strong>WHATSAPP:</strong> 6199906-1757</li>
+<li><strong>TELEFONE:</strong> 3618-8111</li>
+<li>contato@faculdadefilos.com.br</li>
+</ul>
+</div>
+</div>
+<!-- Col 3 -->
+<div class="new-footer-col new-footer-col-3">
+<div class="new-footer-section">
+<h4 class="new-footer-title"><span class="phi-symbol">Φ</span> INSTITUCIONAL</h4>
+<ul class="new-footer-links">
+<li><a href="https://revistafaculdadefilos.com.br/index.php/ojs01" rel="noopener noreferrer" target="_blank">Revista</a></li>
+<li><a href="../ouvidoria.html">Ouvidoria</a></li>
+<li><a href="../cpa.html">CPA</a></li>
+<li><a href="../biblioteca.html">Biblioteca</a></li>
+<li class="footer-link-divider"><a href="#" style="font-weight: 700; color: #ffffff;">Colégio</a></li>
+<li><a href="#">Portal do Aluno</a></li>
+<li><a href="#">Portal do professor</a></li>
+</ul>
+</div>
+<div class="new-footer-socials">
+<a aria-label="WhatsApp" href="#"><i class="fa-brands fa-whatsapp"></i></a>
+<a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="new-footer-bottom">
+<div class="container">
+<p>Desenvolvido pela <a class="footer-dara-link" href="https://www.daraagencia.com/" rel="noopener noreferrer" target="_blank">agência Dara</a> | 2026</p>
+</div>
+</div>
+</footer>
+<aside aria-label="Atalhos rápidos" class="floating-sidebar-left">
+<a aria-label="Instagram Faculdade Filos" class="floating-side-btn" href="#" rel="noopener noreferrer" target="_blank">
+<i aria-hidden="true" class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="WhatsApp Faculdade Filos" class="floating-side-btn floating-side-btn--whatsapp" href="https://wa.me/5561999061757" rel="noopener noreferrer" target="_blank">
+<i aria-hidden="true" class="fa-brands fa-whatsapp"></i>
+</a>
+<a aria-label="Facebook Faculdade Filos" class="floating-side-btn" href="#" rel="noopener noreferrer" target="_blank">
+<i aria-hidden="true" class="fa-brands fa-facebook-f"></i>
+</a>
+<button aria-label="Buscar cursos" class="floating-side-btn" data-floating-search="" type="button">
+<i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+</button>
+<a aria-label="Localização e contato" class="floating-side-btn floating-side-btn--circle" data-floating-location="" href="../index.html#contato">
+<i aria-hidden="true" class="fa-solid fa-location-dot"></i>
+</a>
+</aside>
+<div class="floating-buttons">
+<a aria-label="WhatsApp Faculdade Filos" class="btn-float btn-whatsapp" href="https://wa.me/5561999061757" target="_blank"><i aria-hidden="true" class="fa-brands fa-whatsapp"></i></a>
+</div>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
       const headers = document.querySelectorAll(".matriz-accordion-header");
       headers.forEach(function(header) {
@@ -1009,11 +645,10 @@
       });
     });
   </script>
-
-  <script src="../js/cookies.js"></script>
-  <script src="../js/forms.js"></script>
-  <script src="../js/carousel.js?v=1.4"></script>
-  <script src="../js/main.js?v=1.8"></script>
-  <script src="../js/courses-carousel.js?v=1.7"></script>
+<script src="../js/cookies.js"></script>
+<script src="../js/forms.js"></script>
+<script src="../js/carousel.js?v=1.4"></script>
+<script src="../js/main.js?v=1.91"></script>
+<script src="../js/courses-carousel.js?v=1.7"></script>
 </body>
 </html>

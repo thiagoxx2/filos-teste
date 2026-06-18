@@ -791,4 +791,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initDynamicMarquee();
 
+
+
+  const headers = document.querySelectorAll(".matriz-accordion-header");
+  if(headers.length > 0) {
+    headers.forEach(header => {
+      header.addEventListener("click", function() {
+        const item = this.parentElement;
+        const content = item.querySelector(".matriz-accordion-content");
+        const isExpanded = this.getAttribute("aria-expanded") === "true";
+        this.setAttribute("aria-expanded", !isExpanded);
+        item.classList.toggle("active");
+        if (item.classList.contains("active")) {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+          content.style.maxHeight = "0";
+        }
+      });
+    });
+  }
 });

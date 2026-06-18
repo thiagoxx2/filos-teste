@@ -1555,6 +1555,7 @@
 }
 
 .faq-answer-contacts {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1562,11 +1563,13 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .faq-answer-contact-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: var(--primary-dark);
   font-family: var(--font-title);
@@ -1574,7 +1577,13 @@
   font-weight: 700;
   text-decoration: none;
   word-spacing: 0.35em;
+  text-align: center;
   transition: color var(--transition-fast);
+}
+
+.faq-answer-contacts a {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .faq-answer-contact-link:hover {

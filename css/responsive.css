@@ -48,21 +48,30 @@ body {
   background-color: var(--bg-white) !important;
 }
 
-body {
+body.home {
   padding-top: calc(var(--site-header-offset-top) + var(--site-header-logo-area) + var(--site-header-nav-area) + var(--site-header-content-gap)) !important;
+}
+
+body {
+  padding-top: calc(var(--site-header-offset-top) + var(--site-header-logo-area) + var(--site-header-nav-area)) !important;
 }
 
 /* =========================================================
    Layout global - Primeiro conteúdo após o header
    ========================================================= */
 
-body>section:first-of-type,
-body>main:first-of-type {
+body.home>section:first-of-type,
+body.home>main:first-of-type {
   margin-top: 0 !important;
 }
 
-body>section:first-of-type {
+body.home>section:first-of-type {
   padding-top: 0 !important;
+}
+
+body:not(.home)>section:first-of-type,
+body:not(.home)>main:first-of-type {
+  margin-top: calc(-1 * var(--site-header-content-gap)) !important;
 }
 
 /* =========================================================
@@ -1676,7 +1685,7 @@ body>section:first-of-type {
   flex-wrap: wrap !important;
   gap: 0.75rem 1.25rem !important;
   align-items: center !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
   margin-top: 1rem !important;
 }
 
@@ -1774,7 +1783,7 @@ body>section:first-of-type {
 
   #faq .faq-answer-contacts {
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     padding-left: 1.15rem !important;
     padding-right: 1.15rem !important;
   }
