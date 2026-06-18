@@ -1541,6 +1541,19 @@
   padding-bottom: 1.5rem;
 }
 
+.faq-answer ul {
+  margin: 0.75rem 0 1rem 1.25rem;
+  padding-left: 1rem;
+}
+
+.faq-answer li {
+  margin-bottom: 0.35rem;
+  text-align: justify;
+  color: var(--text-muted);
+  font-size: clamp(0.92rem, 1vw, 1.05rem);
+  line-height: 1.55;
+}
+
 .faq-answer-contacts {
   display: flex;
   justify-content: center;
