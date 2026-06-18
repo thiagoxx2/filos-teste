@@ -1654,8 +1654,43 @@ body:not(.home)>main:first-of-type {
   }
 
   #depoimentos .testimonial-card {
-    width: calc((100% - 12.8rem) / 5) !important;
-    flex: 0 0 calc((100% - 12.8rem) / 5) !important;
+    width: calc((100% - 9.6rem) / 4) !important;
+    flex: 0 0 calc((100% - 9.6rem) / 4) !important;
+    min-height: clamp(31.25rem, 30vw, 37.5rem) !important;
+    padding: clamp(2.4rem, 2.9vw, 3.25rem) clamp(1.9rem, 2.2vw, 2.6rem) !important;
+  }
+
+  #depoimentos .testimonial-user {
+    margin-bottom: clamp(3.25rem, 4.5vw, 5rem) !important;
+  }
+
+  #depoimentos .testimonial-meta {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  #depoimentos .testimonial-name {
+    font-size: clamp(1.05rem, 1.2vw, 1.5rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.065em !important;
+  }
+
+  #depoimentos .testimonial-course {
+    font-size: clamp(0.9rem, 1.05vw, 1.2rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.06em !important;
+    overflow-wrap: break-word !important;
+  }
+
+  #depoimentos .testimonial-text {
+    font-size: clamp(0.95rem, 1.1vw, 1.25rem) !important;
+    line-height: 1.22 !important;
+    max-width: 92% !important;
+    margin: 0 auto 2.75rem !important;
+  }
+
+  #depoimentos .testimonial-rating {
+    font-size: clamp(0.95rem, 1.15vw, 1.35rem) !important;
   }
 }
 
