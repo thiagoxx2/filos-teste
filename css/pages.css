@@ -3081,3 +3081,270 @@
 .related-courses-placeholder .section-related-courses {
   padding-top: clamp(5rem, 7vw, 7rem);
 }
+/* Botões do carrossel (Setinhas) */
+.section-related-courses .carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(35px, 4vw, 45px);
+  height: clamp(35px, 4vw, 45px);
+  border-radius: 50%;
+  background-color: var(--primary-dark);
+  color: #fff;
+  border: none;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.section-related-courses .carousel-nav-btn:hover {
+  background-color: var(--accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.section-related-courses .carousel-nav-btn.prev {
+  left: -20px;
+}
+
+.section-related-courses .carousel-nav-btn.next {
+  right: -20px;
+}
+
+@media (max-width: 1024px) {
+  .section-related-courses .carousel-nav-btn {
+    display: none;
+  }
+}
+
+/* Wrapper do carrossel deslizante */
+.section-related-courses .courses-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.section-related-courses .courses-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 2rem; /* Espaço para sombra/hover dos cards */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.section-related-courses .courses-carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.section-related-courses .courses-carousel-item {
+  flex: 0 0 calc(33.333% - 1rem);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1024px) {
+  .section-related-courses .courses-carousel-item {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .section-related-courses .courses-carousel-item {
+    flex: 0 0 100%;
+  }
+}
+
+/* Bloco compacto de preço — somente cursos superiores com valor oficial */
+.course-card-price-display {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: clamp(0.85rem, 1.2vw, 1.1rem);
+  padding: clamp(0.7rem, 1vw, 0.9rem) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+}
+
+.course-card-price-from {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 0.85vw, 0.9rem);
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.course-card-price-old {
+  color: rgba(255, 255, 255, 0.48);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  font-weight: 600;
+}
+
+.course-card-price-current-label {
+  margin: 0.12rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.82rem, 0.9vw, 0.95rem);
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.course-card-price-current {
+  margin: 0.1rem 0 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.28rem;
+  font-family: var(--font-title);
+  line-height: 0.95;
+  color: var(--cta-green);
+  letter-spacing: -0.04em;
+}
+
+.course-card-price-currency {
+  padding-top: 0.28em;
+  font-size: clamp(1rem, 1.25vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.course-card-price-current strong {
+  font-size: clamp(2rem, 2.9vw, 3.05rem);
+  font-weight: 900;
+  color: var(--cta-green);
+}
+
+.course-card-price-asterisk {
+  padding-top: 0.12em;
+  font-size: clamp(1rem, 1.2vw, 1.35rem);
+  font-weight: 800;
+  color: var(--cta-green);
+}
+
+.course-card-price-note {
+  margin: 0.18rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.66rem, 0.72vw, 0.76rem);
+  line-height: 1.15;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* Card sem preço não deve ficar artificialmente alto */
+.course-card-item {
+  min-height: 480px;
+}
+
+.course-card-item-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.course-card-item-footer {
+  margin-top: auto;
+}
+
+@media (max-width: 767px) {
+  .course-card-item {
+    min-height: 460px;
+  }
+
+  .course-card-price-current strong {
+    font-size: clamp(2.15rem, 10vw, 2.85rem);
+  }
+}
+/* HOME — filtros de cursos centralizados e compactos no mobile */
+@media (max-width: 767px) {
+  .home #cursos .courses-filter-circles {
+    display: grid !important;
+    grid-template-columns: repeat(2, max-content) !important;
+    justify-content: center !important;
+    align-items: center;
+    justify-items: start;
+
+    column-gap: clamp(0.25rem, 1.5vw, 0.5rem);
+    row-gap: clamp(0.9rem, 3vw, 1.25rem);
+
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    padding-inline: 0.75rem;
+  }
+
+  .home #cursos .filter-circle {
+    width: auto !important;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(0.42rem, 1.6vw, 0.6rem);
+    padding: 0;
+  }
+
+  .home #cursos .filter-circle-dot {
+    width: clamp(0.55rem, 2vw, 0.7rem);
+    height: clamp(0.55rem, 2vw, 0.7rem);
+    min-width: clamp(0.55rem, 2vw, 0.7rem);
+    border-width: 2px;
+    flex: 0 0 auto;
+  }
+
+  .home #cursos .filter-circle-label {
+    font-size: clamp(0.9rem, 3.7vw, 1.18rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .home #cursos .filter-circle.active .filter-circle-label {
+    font-weight: 800;
+  }
+}
+
+/* Celulares menores: mantém 2 por linha, ainda centralizado */
+@media (max-width: 480px) {
+  .home #cursos .courses-filter-circles {
+    grid-template-columns: repeat(2, max-content) !important;
+    justify-content: center !important;
+
+    column-gap: clamp(0.15rem, 1vw, 0.3rem);
+    row-gap: 0.85rem;
+
+    padding-inline: 0.5rem;
+  }
+
+  .home #cursos .filter-circle {
+    gap: 0.4rem;
+  }
+
+  .home #cursos .filter-circle-label {
+    font-size: clamp(0.82rem, 3.55vw, 1rem);
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .home #cursos .filter-circle-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    min-width: 0.55rem;
+  }
+}
+/* Ajustes finos visuais solicitados para compensar a largura do grid */
+@media (max-width: 767px) {
+  .home #cursos .filter-circle:nth-child(1) {
+    transform: translateX(17px) !important;
+  }
+  .home #cursos .filter-circle:nth-child(2) {
+    transform: translateX(-17px) !important;
+  }
+  .home #cursos .filter-circle:nth-child(3) {
+    transform: translateX(-2px) !important;
+  }
+  .home #cursos .filter-circle:nth-child(4) {
+    transform: translateX(2px) !important;
+  }
+}

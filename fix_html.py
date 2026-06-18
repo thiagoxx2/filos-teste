@@ -1,17 +1,22 @@
-import glob
-import os
-import re
+with open("js/related-courses.js", "r", encoding="utf-8") as f:
+    js = f.read()
 
-html_files = glob.glob('cursos/*.html')
+# Replace:
+#           <div class="courses-paginated" id="related-courses-paginated">
+#              ${pagesHtml}
+#           </div>
+#           
+#           ${arrowsHtml}
+# With:
+#           <div class="courses-paginated" id="related-courses-paginated" style="position: relative;">
+#              ${pagesHtml}
+#              ${arrowsHtml}
+#           </div>
 
-for file_path in html_files:
-    with open(file_path, 'r', encoding='utf-8') as f:
-        html = f.read()
+js = js.replace(
+    '<div class="courses-paginated" id="related-courses-paginated">\n             ${pagesHtml}\n          </div>\n          \n          ${arrowsHtml}',
+    '<div class="courses-paginated" id="related-courses-paginated">\n             ${pagesHtml}\n             ${arrowsHtml}\n          </div>'
+)
 
-    # The user asked me to REPLACE the manual related courses with the placeholder.
-    # Let's find <div class="matriz-footer-cta"> or <section class="section section-related-courses">
-    # and remove it if it exists.
-    
-    # Wait, the user said "A seção deve aparecer logo após o fechamento da seção: <section class="section-matriz-admin">"
-    # Some files might have `<div class="matriz-footer-cta">` outside the section, which shouldn't be there according to the previous task (where I moved it inside, or maybe I didn't?). Let me check a fresh file.
-    pass
+with open("js/related-courses.js", "w", encoding="utf-8") as f:
+    f.write(js)

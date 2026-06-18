@@ -1029,12 +1029,17 @@
 .course-card-item-footer {
   border-top: none;
   padding-top: 0.25rem;
+  padding-bottom: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
   flex-direction: row;
   gap: clamp(0.75rem, 1vw, 1.25rem);
+}
+
+.course-card-item[data-filter="graduacao"] .course-card-item-footer {
+  transform: translateY(-18px);
 }
 
 .course-card-item-saiba {
@@ -1069,7 +1074,7 @@
   white-space: nowrap;
 }
 
-.course-card-item:not([data-filter="bacharelado"]) .course-card-item-price {
+.course-card-item:not([data-filter="graduacao"]) .course-card-item-price {
   visibility: hidden;
 }
 

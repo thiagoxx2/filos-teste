@@ -737,8 +737,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const marqueeTrack = document.querySelector('.top-marquee .marquee-track');
     if (!marqueeTrack) return;
 
-    // 1. Obter todos os cards de graduação (bacharelado) na página
-    const graduationCards = Array.from(document.querySelectorAll('.course-card-item[data-filter="bacharelado"]'));
+    // 1. Obter todos os cards de graduação (graduacao) na página
+    const graduationCards = Array.from(document.querySelectorAll('.course-card-item[data-filter="graduacao"]'));
 
     // Se não houver cards (ex: em páginas secundárias se não tiverem os cards na DOM), 
     // ou se quisermos manter fallback estático caso nada seja encontrado.
