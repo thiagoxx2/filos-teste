@@ -109,10 +109,10 @@
   line-height: 0;
 }
 
-/* Trocar o src quando a logo final (imagem) estiver disponível */
+/* Tamanho da logo da Navbar */
 .site-logo-img {
   display: block;
-  height: 92px;
+  height: 82px;
   width: auto;
   max-width: min(390px, 56vw);
   object-fit: contain;
