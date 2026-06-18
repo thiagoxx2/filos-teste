@@ -1772,7 +1772,7 @@
   background-position: center;
   background-repeat: no-repeat;
   color: var(--text-white);
-  padding: 4rem 0 calc(clamp(8rem, 9.5vw, 11.5rem) - 25px) 0;
+  padding: 4rem 0 calc(clamp(8rem, 9.5vw, 11.5rem) - 5px) 0;
   /* Altura aumentada para acomodar o card completo */
   z-index: 10;
 }
@@ -2191,6 +2191,7 @@
   font-size: clamp(2.35rem, 3.6vw, 3.3rem);
   font-weight: 800;
   color: var(--primary-dark);
+  margin-top: 30px;
   margin-bottom: 2.1rem;
   text-align: center;
 }

@@ -367,24 +367,9 @@ document.addEventListener('DOMContentLoaded', () => {
     startGaleriaAutoplay();
   }
 
-  function initGaleriaForMode() {
+    function initGaleriaForMode() {
     stopGaleriaAutoplay();
-    if (isGaleriaMobile()) {
-      buildMobileGaleria();
-      // Conecta tabs ao mobile mode
-      galeriaTabs.forEach((tab, i) => {
-        tab.onclick = () => {
-          stopGaleriaAutoplay();
-          // Vai para o primeiro item do slide correspondente
-          const firstItemIdx = mobileItems.findIndex(m => m.slideIndex === i);
-          if (firstItemIdx >= 0) goToMobileGaleriaItem(firstItemIdx);
-          startMobileGaleriaAutoplay();
-        };
-      });
-      startMobileGaleriaAutoplay();
-    } else {
-      resetDesktopGaleria();
-    }
+    resetDesktopGaleria();
   }
 
   if (galeriaTrack) {
