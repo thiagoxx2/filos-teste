@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bannerIndicators = document.querySelectorAll('.carousel-indicator');
   let bannerInterval = null;
   let currentBannerIndex = 0;
-  const BANNER_TIMEOUT = 2500; // 2.5 seconds autoplay
+  const BANNER_TIMEOUT = 5000; // 5 seconds autoplay
 
   function showBanner(index) {
     if (bannerSlides.length === 0) return;
