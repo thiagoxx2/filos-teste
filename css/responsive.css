@@ -97,7 +97,7 @@ body:not(.home)>main:first-of-type {
 #inicio .hero-carousel-container::before,
 #inicio .hero-carousel-container::after {
   top: clamp(20px, 2.8vw, 38px) !important;
-  bottom: calc(var(--hero-tab-height, 44px) + clamp(1.25rem, 2vw, 1.75rem)) !important;
+  bottom: calc(var(--hero-tab-height, 44px) + clamp(20px, 2.8vw, 38px)) !important; /* Exatamente o mesmo offset do top para ficar simétrico */
 }
 
 /* Home - Estrutura base do carrossel */
@@ -672,7 +672,7 @@ body:not(.home)>main:first-of-type {
   .header-nav {
     display: grid !important;
     grid-template-columns: minmax(0, 0.72fr) auto minmax(0, 1.28fr) !important;
-    align-items: center !important;
+    align-items: stretch !important;
     min-height: clamp(58px, 8.8vw, 76px) !important;
     padding: 0 !important;
     width: 100% !important;
@@ -701,7 +701,7 @@ body:not(.home)>main:first-of-type {
 
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
+    align-items: stretch !important;
     justify-content: center !important;
     gap: clamp(1.25rem, 2.2vw, 3rem) !important;
   }
@@ -714,6 +714,9 @@ body:not(.home)>main:first-of-type {
     width: auto !important;
     max-width: none !important;
     flex: 0 0 auto !important;
+  }
+  .nav-menu>.nav-item-dropdown {
+    align-items: stretch !important;
   }
 
   /* Header desktop - Links do menu */
@@ -751,9 +754,9 @@ body:not(.home)>main:first-of-type {
     content: "" !important;
     position: absolute !important;
     left: 50% !important;
-    bottom: -14px !important;
+    bottom: -1px !important;
     transform: translateX(-50%) !important;
-    width: calc(100% + 18px) !important;
+    width: 100% !important;
     height: 8px !important;
     background-color: #ffffff !important;
     z-index: 5 !important;
@@ -768,7 +771,7 @@ body:not(.home)>main:first-of-type {
   .nav-item-dropdown {
     position: relative !important;
     display: flex !important;
-    align-items: center !important;
+    align-items: stretch !important;
     justify-content: center !important;
     width: auto !important;
     max-width: none !important;
@@ -843,7 +846,7 @@ body:not(.home)>main:first-of-type {
 
 @media (max-width: 1023px) {
   .site-header {
-    position: fixed !important;
+    position: absolute !important;
     top: 34px !important;
     left: 0 !important;
     right: 0 !important;
@@ -1574,8 +1577,8 @@ body:not(.home)>main:first-of-type {
   #depoimentos .testimonial-card {
     width: calc((100% - 9.6rem) / 4) !important;
     flex: 0 0 calc((100% - 9.6rem) / 4) !important;
-    min-height: clamp(420px, 27vw, 500px) !important;
-    padding: clamp(2.2rem, 2.8vw, 3.1rem) clamp(1.8rem, 2.3vw, 2.5rem) !important;
+    min-height: clamp(390px, 25vw, 470px) !important;
+    padding: clamp(1.8rem, 2vw, 2.5rem) clamp(1.5rem, 1.8vw, 2rem) !important;
     border-radius: clamp(54px, 4.5vw, 88px) !important;
     background: rgba(74, 91, 112, 0.78) !important;
     box-shadow: none !important;
@@ -1616,11 +1619,11 @@ body:not(.home)>main:first-of-type {
 
   #depoimentos .testimonial-text {
     max-width: 92% !important;
-    margin: 0 auto 2.5rem !important;
+    margin: 0 auto 1.5rem !important;
     font-size: clamp(0.95rem, 1.22vw, 1.38rem) !important;
     line-height: 1.18 !important;
     font-weight: 500 !important;
-    text-align: center !important;
+    text-align: justify !important;
   }
 
   #depoimentos .testimonial-rating {
@@ -1656,8 +1659,8 @@ body:not(.home)>main:first-of-type {
   #depoimentos .testimonial-card {
     width: calc((100% - 9.6rem) / 4) !important;
     flex: 0 0 calc((100% - 9.6rem) / 4) !important;
-    min-height: clamp(31.25rem, 30vw, 37.5rem) !important;
-    padding: clamp(2.4rem, 2.9vw, 3.25rem) clamp(1.9rem, 2.2vw, 2.6rem) !important;
+    min-height: clamp(28rem, 26vw, 34rem) !important;
+    padding: clamp(2rem, 2.4vw, 2.8rem) clamp(1.6rem, 2vw, 2.2rem) !important;
   }
 
   #depoimentos .testimonial-user {
@@ -1686,7 +1689,8 @@ body:not(.home)>main:first-of-type {
     font-size: clamp(0.95rem, 1.1vw, 1.25rem) !important;
     line-height: 1.22 !important;
     max-width: 92% !important;
-    margin: 0 auto 2.75rem !important;
+    margin: 0 auto 1.8rem !important;
+    text-align: justify !important;
   }
 
   #depoimentos .testimonial-rating {
@@ -1840,10 +1844,13 @@ body:not(.home)>main:first-of-type {
   }
 
   #faq .btn-whatsapp-faq {
-    width: min(100%, 260px) !important;
+    width: min(100%, 290px) !important;
     min-height: 42px !important;
     margin-inline: auto !important;
-    font-size: 0.72rem !important;
+    font-size: 0.68rem !important;
+    white-space: nowrap !important;
+    padding: 0.7rem 1.4rem !important;
+    justify-content: center !important;
   }
 }
 
@@ -2473,29 +2480,29 @@ body:not(.home)>main:first-of-type {
 
 /* HOME — centralização de títulos e subtítulos no mobile */
 @media (max-width: 767px) {
-  .home .section-header,
-  .home .section-title,
-  .home .section-subtitle,
-  .home .institucional-new-title,
-  .home .mini-galeria-title,
-  .home .faq-title-area,
-  .home .faq-title,
-  .home .destaques-header,
-  .home .destaques-title,
-  .home .new-location-header,
-  .home .new-location-title,
-  .home .new-location-subtitle {
+  .section-header,
+  .section-title,
+  .section-subtitle,
+  .institucional-new-title,
+  .mini-galeria-title,
+  .faq-title-area,
+  .faq-title,
+  .destaques-header,
+  .destaques-title,
+  .new-location-header,
+  .new-location-title,
+  .new-location-subtitle {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
-  .home .section-header,
-  .home .institucional-new-title,
-  .home .mini-galeria-title,
-  .home .destaques-header,
-  .home .new-location-header,
-  .home .faq-title-area {
+  .section-header,
+  .institucional-new-title,
+  .mini-galeria-title,
+  .destaques-header,
+  .new-location-header,
+  .faq-title-area {
     width: min(100% - 4rem, 520px) !important;
     max-width: 520px !important;
     padding-left: 0 !important;
@@ -2503,11 +2510,11 @@ body:not(.home)>main:first-of-type {
     display: block !important;
   }
 
-  .home .section-title,
-  .home .section-subtitle,
-  .home .faq-title,
-  .home .destaques-title,
-  .home .new-location-title {
+  .section-title,
+  .section-subtitle,
+  .faq-title,
+  .destaques-title,
+  .new-location-title {
     max-width: 100% !important;
     line-height: 1.12 !important;
   }
@@ -2579,20 +2586,20 @@ body:not(.home)>main:first-of-type {
 
 /* HOME — Localização: FAQ compacto no mobile */
 @media (max-width: 767px) {
-  .home #contato.new-location-section {
+  #contato.new-location-section {
     padding-top: clamp(4rem, 12vw, 5.5rem);
     padding-bottom: clamp(4rem, 12vw, 5.5rem);
     overflow: hidden;
   }
 
-  .home #contato .container-wide {
+  #contato .container-wide {
     width: min(100% - 2rem, 520px);
     margin-inline: auto;
     padding-inline: 0;
   }
 
   /* Cabeçalho principal da seção */
-  .home #contato .new-location-header {
+  #contato .new-location-header {
     text-align: center !important;
     margin-inline: auto;
     margin-bottom: clamp(3rem, 10vw, 4.5rem);
@@ -2602,7 +2609,7 @@ body:not(.home)>main:first-of-type {
     padding-right: 0 !important;
   }
 
-  .home #contato .new-location-subtitle {
+  #contato .new-location-subtitle {
     display: block;
     text-align: center;
     font-size: clamp(0.9rem, 3.4vw, 1.05rem);
@@ -2610,7 +2617,7 @@ body:not(.home)>main:first-of-type {
     margin-bottom: 0.65rem;
   }
 
-  .home #contato .new-location-title {
+  #contato .new-location-title {
     text-align: center !important;
     font-size: clamp(2rem, 8vw, 2.75rem) !important;
     line-height: 1.1;
@@ -2618,7 +2625,7 @@ body:not(.home)>main:first-of-type {
   }
 
   /* Grid vira coluna */
-  .home #contato .new-location-grid {
+  #contato .new-location-grid {
     display: flex !important;
     flex-direction: column !important;
     gap: clamp(2rem, 7vw, 3rem) !important;
@@ -2626,25 +2633,25 @@ body:not(.home)>main:first-of-type {
   }
 
   /* Bloco FAQ */
-  .home #contato .new-location-faq {
+  #contato .new-location-faq {
     width: 100% !important;
     max-width: 100% !important;
     margin-inline: auto;
   }
 
-  .home #contato .new-location-faq-header {
+  #contato .new-location-faq-header {
     align-items: flex-start;
     text-align: left;
     margin-bottom: clamp(1.35rem, 5vw, 2rem);
   }
 
-  .home #contato .new-location-faq-line {
+  #contato .new-location-faq-line {
     width: 72px !important;
     height: 6px !important;
     margin-bottom: 1.4rem;
   }
 
-  .home #contato .new-location-faq-header h3 {
+  #contato .new-location-faq-header h3 {
     font-size: clamp(1.7rem, 7vw, 2.25rem) !important;
     line-height: 1.05 !important;
     text-align: left !important;
@@ -2652,7 +2659,7 @@ body:not(.home)>main:first-of-type {
     padding: 0 !important;
   }
 
-  .home #contato .new-location-faq-list {
+  #contato .new-location-faq-list {
     display: flex !important;
     flex-direction: column !important;
     gap: 0.85rem !important;
@@ -2660,7 +2667,7 @@ body:not(.home)>main:first-of-type {
   }
 
   /* Perguntas compactas */
-  .home #contato .new-location-faq-item {
+  #contato .new-location-faq-item {
     width: 100% !important;
     border-radius: 18px !important;
     background: rgba(115, 128, 144, 0.52) !important;
@@ -2668,7 +2675,7 @@ body:not(.home)>main:first-of-type {
     overflow: hidden !important;
   }
 
-  .home #contato .new-location-faq-item summary {
+  #contato .new-location-faq-item summary {
     min-height: 46px !important;
     padding: 0.72rem 1rem !important;
     display: flex !important;
@@ -2682,12 +2689,12 @@ body:not(.home)>main:first-of-type {
     list-style: none !important;
   }
 
-  .home #contato .new-location-faq-item summary i {
+  #contato .new-location-faq-item summary i {
     font-size: 0.85rem !important;
     flex: 0 0 auto !important;
   }
 
-  .home #contato .new-location-faq-answer {
+  #contato .new-location-faq-answer {
     padding: 0 1rem 1rem !important;
     font-size: clamp(0.85rem, 3.3vw, 0.95rem) !important;
     line-height: 1.45 !important;
@@ -2695,7 +2702,7 @@ body:not(.home)>main:first-of-type {
   }
 
   /* Botão WhatsApp compacto, sem quebrar texto */
-  .home #contato .btn-whatsapp-location {
+  #contato .btn-whatsapp-location {
     width: fit-content !important;
     max-width: 100% !important;
     min-height: 52px !important;
@@ -2711,13 +2718,13 @@ body:not(.home)>main:first-of-type {
     white-space: nowrap !important;
   }
 
-  .home #contato .btn-whatsapp-location i {
+  #contato .btn-whatsapp-location i {
     font-size: 1.25em !important;
     flex: 0 0 auto !important;
   }
 
   /* Mapa abaixo do FAQ/botão: sai do container estreito */
-  .home #contato .new-location-map-container {
+  #contato .new-location-map-container {
     width: calc(100% - 30px) !important;
     margin-left: auto !important;
     margin-right: 0 !important;
@@ -2726,20 +2733,20 @@ body:not(.home)>main:first-of-type {
     overflow: hidden !important;
   }
 
-  .home #contato .new-location-map {
+  #contato .new-location-map {
     width: 100% !important;
     height: clamp(260px, 72vw, 360px) !important;
     display: block !important;
   }
 
   /* Endereço compacto */
-  .home #contato .new-location-address {
+  #contato .new-location-address {
     width: calc(100% - 30px) !important;
     margin: clamp(2.5rem, 8vw, 3.5rem) 0 0 auto !important;
     text-align: justify !important;
   }
 
-  .home #contato .new-location-address p {
+  #contato .new-location-address p {
     font-size: clamp(0.86rem, 3.4vw, 1rem) !important;
     line-height: 1.45 !important;
     text-align: justify !important;
@@ -2748,12 +2755,12 @@ body:not(.home)>main:first-of-type {
     margin: 0 !important;
   }
 
-  .home #contato .address-line {
+  #contato .address-line {
     display: inline !important;
     white-space: normal !important;
   }
 
-  .home #contato .address-icon-link {
+  #contato .address-icon-link {
     display: inline-flex !important;
     margin-right: 0.45rem !important;
     vertical-align: middle !important;
@@ -3048,3 +3055,14 @@ body:not(.home)>main:first-of-type {
   }
 }
 
+
+@media (max-width: 767px) {
+  .btn-whatsapp-floating {
+    font-size: 0.68rem !important;
+    padding: 0.7rem 1.4rem !important;
+    white-space: nowrap !important;
+  }
+  .btn-whatsapp-floating i {
+    font-size: 0.95rem !important;
+  }
+}

@@ -6,10 +6,8 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
-// --- CONFIGURAÇÕES ---
-// Substitua estas chaves pelas suas chaves oficiais do Google reCAPTCHA v2 obtidas no console do Google
-define('RECAPTCHA_SECRET_KEY', '6LeIxAcTAAAAAGG-vFI1TnFTxWqCD1Sp29saZmWw'); // CHAVE SECRETA DE TESTES GLOBAIS DO GOOGLE
-define('DESTINATARIO_EMAIL', 'ouvidoria@faculdadefilos.com.br');
+// Carrega as chaves secretas do arquivo de configuração blindado
+require_once __DIR__ . '/config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);

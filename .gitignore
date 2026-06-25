@@ -2,3 +2,8 @@
 .DS_Store
 .kiro/
 AGENTS.md
+
+# Ocultar o arquivo de chaves secretas
+config/config.php
+
+.env

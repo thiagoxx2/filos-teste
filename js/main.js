@@ -605,7 +605,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const seeAll = document.createElement('a');
     seeAll.className = 'mobile-course-link mobile-course-link--all';
-    seeAll.href = 'index.html#cursos';
+    const onCoursePage = /\/cursos\//i.test(window.location.pathname);
+    seeAll.href = onCoursePage ? '../index.html#cursos' : 'index.html#cursos';
     seeAll.textContent = 'Todos os cursos';
 
     courseList.appendChild(seeAll);
@@ -810,4 +811,75 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+});
+
+// Share Icons functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const shareIconsContainer = document.querySelector('.share-icons');
+  if (shareIconsContainer) {
+    const shareLinks = shareIconsContainer.querySelectorAll('.share-icon');
+    
+    // share-nodes: copy link or native share
+    if (shareLinks[0]) {
+      shareLinks[0].addEventListener('click', async (e) => {
+        e.preventDefault();
+        const url = window.location.href;
+        const title = document.title;
+        
+        if (navigator.share) {
+          try {
+            await navigator.share({ title, url });
+          } catch (err) {
+            console.log('Error sharing', err);
+          }
+        } else {
+          navigator.clipboard.writeText(url).then(() => {
+            alert('Link copiado para a área de transferência!');
+          });
+        }
+      });
+    }
+    
+    // facebook
+    if (shareLinks[1]) {
+      shareLinks[1].addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+      });
+    }
+    
+    // whatsapp
+    if (shareLinks[2]) {
+      shareLinks[2].addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+        window.open(`https://api.whatsapp.com/send?text=${title}%20-%20${url}`, '_blank');
+      });
+    }
+    
+    // linkedin
+    if (shareLinks[3]) {
+      shareLinks[3].addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=600');
+      });
+    }
+  }
+});
+
+
+// Ajuste dinâmico de tamanho de fonte para títulos longos de curso
+document.addEventListener('DOMContentLoaded', () => {
+  const cardTitles = document.querySelectorAll('.inscription-card-title');
+  cardTitles.forEach(title => {
+    if (title.textContent.trim().length > 25) {
+      title.style.fontSize = 'clamp(1rem, 1.4vw, 1.3rem)';
+      title.style.lineHeight = '1.2';
+      title.style.textWrap = 'balance';
+    }
+  });
 });

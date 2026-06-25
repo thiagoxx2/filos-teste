@@ -84,6 +84,7 @@
   color: #ffffff;
   padding: clamp(0.8rem, 1vw, 1rem) clamp(2.5rem, 5vw, 4.5rem);
   border-radius: clamp(20px, 2.2vw, 28px);
+  z-index: 20;
   font-family: var(--font-title);
   font-weight: 800;
   font-size: clamp(1.3rem, 1.6vw, 1.5rem);
@@ -1816,10 +1817,9 @@
 
 .hero-phi-right-logo {
   position: absolute;
-  right: calc(clamp(15px, 2.5vw, 40px) + 20px);
-  top: 50%;
-  transform: translateY(calc(-50% - 210px));
-  /* Subida em 210px a pedido do usuario (mais 30px) */
+  right: 60px;
+  top: 60px;
+  transform: none;
   font-family: 'Playfair Display', Georgia, serif;
   /* Fonte com serifa caligráfica para a logo */
   font-size: clamp(4.4rem, 5.9vw, 8.9rem);
@@ -1959,7 +1959,7 @@
 .inscription-card-wrapper {
   position: relative;
   width: 100%;
-  max-width: 410px;
+  max-width: 480px;
   margin-inline: auto;
   z-index: 10;
   margin-bottom: -13rem;
@@ -1972,7 +1972,7 @@
   background-color: #eceef0;
   border-radius: clamp(24px, 2.4vw, 34px);
   padding: clamp(1.4rem, 2vw, 2.2rem) clamp(1rem, 1.5vw, 1.5rem);
-  min-height: clamp(470px, 32vw, 530px);
+  min-height: clamp(550px, 36vw, 580px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
@@ -2000,10 +2000,11 @@
 
 .inscription-card-divider {
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: #0d1e34;
-  opacity: 0.4;
-  margin-bottom: clamp(0.15rem, 0.4vw, 0.5rem);
+  opacity: 1;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .inscription-card-switches {
@@ -2072,21 +2073,21 @@
 .inscription-card-discount-block {
   background-color: #738090;
   border-radius: clamp(10px, 1.0vw, 16px);
-  padding: clamp(0.4rem, 0.7vw, 0.75rem) clamp(0.8rem, 1.3vw, 1.6rem);
+  padding: clamp(0.7rem, 1.0vw, 1.1rem) clamp(0.8rem, 1.3vw, 1.6rem);
   color: var(--text-white);
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.18rem, 0.35vw, 0.45rem);
+  gap: clamp(0.25rem, 0.4vw, 0.55rem);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .inscription-card-meta-block p {
   margin: 0;
   font-family: var(--font-title);
-  font-size: clamp(0.72rem, 0.9vw, 0.9rem);
+  font-size: clamp(0.8rem, 1.0vw, 1.05rem);
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.5;
   letter-spacing: -0.015em;
 }
 
@@ -2095,16 +2096,16 @@
 }
 
 .inscription-card-discount-block {
-  padding: clamp(0.4rem, 0.7vw, 0.75rem) clamp(0.8rem, 1.3vw, 1.6rem);
+  padding: clamp(0.7rem, 1.0vw, 1.1rem) clamp(0.8rem, 1.3vw, 1.6rem);
 }
 
 .inscription-card-discount-block p {
   margin: 0;
   font-family: var(--font-title);
-  font-size: clamp(0.72rem, 0.9vw, 0.9rem);
+  font-size: clamp(0.8rem, 1.0vw, 1.05rem);
   font-weight: 500;
   letter-spacing: -0.015em;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .inscription-card-discount-block p strong {
@@ -2142,6 +2143,7 @@
   box-shadow: 0 4px 14px rgba(33, 132, 75, 0.3);
   width: 100%;
   letter-spacing: 0.02em;
+  margin-top: auto;
 }
 
 .btn-card-enroll-now:hover {
@@ -2153,13 +2155,13 @@
 /* Faixa escura tridimensional na base do card */
 .inscription-card-footer-accent {
   position: absolute;
-  bottom: clamp(-28px, -2.0vw, -18px);
+  bottom: clamp(-37px, -3.5vw, -27px);
   left: 7%;
   width: 86%;
-  height: clamp(60px, 5.0vw, 85px);
+  height: clamp(80px, 6.0vw, 105px);
   background-color: #0a1728;
   /* Mais escuro */
-  border-radius: 0 0 clamp(24px, 2.4vw, 34px) clamp(24px, 2.4vw, 34px);
+  border-radius: 0 0 clamp(32px, 3.4vw, 44px) clamp(32px, 3.4vw, 44px);
   /* Apenas cantos inferiores arredondados */
   z-index: 1;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
@@ -2191,9 +2193,11 @@
   font-size: clamp(2.35rem, 3.6vw, 3.3rem);
   font-weight: 800;
   color: var(--primary-dark);
-  margin-top: 30px;
+  margin-top: 60px;
   margin-bottom: 2.1rem;
-  text-align: center;
+  text-align: left;
+  width: 100%;
+  max-width: 1060px;
 }
 
 .why-admin-text-wrapper {
@@ -2475,7 +2479,8 @@
 }
 
 @media (max-width: 600px) {
-  .section-diferenciais-admin {
+  .section-diferenciais-admin,
+  .section-why-admin {
     padding-left: clamp(3.5rem, 14vw, 4.5rem);
     padding-right: 1rem;
   }
@@ -2535,7 +2540,7 @@
 
 .course-hero-new .inscription-card-title {
   white-space: normal;
-  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .course-hero-new .price-mode-note {
@@ -2734,14 +2739,15 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
+  margin-top: 90px;
 }
 
 .matriz-icon-phi {
   line-height: 1;
   display: flex;
   align-items: center;
-  margin-left: -40px;
-  /* Recua o símbolo 40px para a esquerda */
+  margin-left: 0;
+  transform: translateY(-30px);
 }
 
 .matriz-phi-container {
@@ -3040,13 +3046,17 @@
   }
 
   .matriz-icon-phi {
-    margin-left: 0;
+    margin-left: -20px;
+    margin-top: -30px;
+    align-self: flex-start;
   }
 
   .matriz-header {
     align-items: center;
     text-align: center;
     width: 100%;
+    padding-left: 45px;
+    padding-right: 15px;
   }
 
   .matriz-download {
@@ -3082,6 +3092,7 @@
 .related-courses-placeholder .section-related-courses {
   padding-top: clamp(5rem, 7vw, 7rem);
 }
+
 /* Botões do carrossel (Setinhas) */
 .section-related-courses .carousel-nav-btn {
   position: absolute;
@@ -3100,7 +3111,7 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .section-related-courses .carousel-nav-btn:hover {
@@ -3134,13 +3145,17 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding-bottom: 2rem; /* Espaço para sombra/hover dos cards */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  padding-bottom: 2rem;
+  /* Espaço para sombra/hover dos cards */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .section-related-courses .courses-carousel-track::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 .section-related-courses .courses-carousel-item {
@@ -3162,11 +3177,11 @@
 
 /* Bloco compacto de preço — somente cursos superiores com valor oficial */
 .course-card-price-display {
+  display: none !important;
   width: 100%;
   margin-top: auto;
   margin-bottom: clamp(0.85rem, 1.2vw, 1.1rem);
   padding: clamp(0.7rem, 1vw, 0.9rem) 0 0;
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.12rem;
@@ -3258,6 +3273,7 @@
     font-size: clamp(2.15rem, 10vw, 2.85rem);
   }
 }
+
 /* HOME — filtros de cursos centralizados e compactos no mobile */
 @media (max-width: 767px) {
   .home #cursos .courses-filter-circles {
@@ -3334,18 +3350,391 @@
     min-width: 0.55rem;
   }
 }
+
 /* Ajustes finos visuais solicitados para compensar a largura do grid */
 @media (max-width: 767px) {
   .home #cursos .filter-circle:nth-child(1) {
     transform: translateX(17px) !important;
   }
+
   .home #cursos .filter-circle:nth-child(2) {
     transform: translateX(-17px) !important;
   }
+
   .home #cursos .filter-circle:nth-child(3) {
     transform: translateX(-2px) !important;
   }
+
   .home #cursos .filter-circle:nth-child(4) {
     transform: translateX(2px) !important;
   }
+}
+
+/* Garantindo que o banner azul tenha tamanho exato no desktop em todas as páginas */
+@media (min-width: 1024px) {
+  .course-hero-new {
+    height: clamp(620px, 45vw, 680px) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    min-height: unset !important;
+  }
+}
+
+/* Mensagem de consulta de preço */
+.course-consult-message {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 1.5vw, 1.45rem);
+  color: #475569;
+  line-height: 1.6;
+  margin: auto 0;
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   BLOG PAGE STYLES
+   ========================================================================== */
+
+.section-blog {
+  padding: 5.5rem 0 4rem;
+  background-color: #ffffff;
+}
+
+.blog-main-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.blog-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 40px;
+  background-color: #A0A4AB;
+  transition: transform 0.3s ease;
+}
+
+.blog-card-image-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 24px;
+  background-color: #ffffff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  z-index: 5;
+}
+
+.blog-card-image-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.blog-card-image-wrapper:hover .blog-card-overlay {
+  opacity: 1;
+}
+
+.blog-card-overlay-text {
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.blog-card-overlay-text strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.blog-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.blog-card-title {
+  width: 100%;
+  font-family: var(--font-title);
+  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+  font-weight: 800;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  min-height: 3.9em;
+  /* ~3 lines */
+}
+
+.blog-card-meta {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-card-meta strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.blog-card-excerpt {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: auto;
+  padding-bottom: 1.5rem;
+  max-width: 90%;
+}
+
+.blog-card-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.blog-card-readmore {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  align-self: flex-end;
+  /* Align right */
+  margin-right: 5%;
+  transition: color 0.2s ease;
+}
+
+.blog-card-readmore:hover {
+  color: var(--primary-color);
+}
+
+/* Pagination */
+.blog-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.blog-page-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.blog-page-dot.active,
+.blog-page-dot:hover {
+  background-color: #000;
+}
+
+/* Promo Text */
+.blog-promo-text {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 8rem;
+}
+
+.blog-promo-text strong {
+  font-weight: 800;
+  color: #000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem 1rem;
+  }
+
+  .blog-card-title {
+    min-height: auto;
+  }
+
+  .blog-card-readmore {
+    align-self: center;
+    margin-right: 0;
+  }
+}
+
+/* =========================================
+   PÁGINA DA MATÉRIA (BLOG INTERNO)
+========================================= */
+.materia-hero {
+  background-color: var(--primary-color, #0F2040);
+  /* Adjust if needed to match dark blue */
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.materia-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.4rem, 2vw, 2.2rem);
+  font-weight: 700;
+  max-width: 900px;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.materia-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.materia-subtitle strong {
+  font-weight: 800;
+}
+
+.materia-body-section {
+  background-color: #fff;
+  padding: 4rem 1rem;
+}
+
+.materia-content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--font-body);
+  color: #000;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.materia-content-container h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.materia-content-container p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Shape Divider above Location section */
+.location-shape-divider {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 50' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M 0 0 C 50 0, 50 50, 100 50 L 300 50 C 350 50, 350 0, 400 0 Z' fill='%23FFFFFF' /%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .location-shape-divider {
+    width: 300px;
+    height: 35px;
+  }
+}
+
+/* Share Section inside articles */
+.materia-share-section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.materia-share-section .share-text {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.materia-share-section .share-icons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.materia-share-section .share-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+.materia-share-section .share-icon:hover {
+  background-color: #333;
+  color: #fff;
 }

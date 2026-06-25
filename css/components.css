@@ -94,7 +94,7 @@
   grid-column: 2;
   justify-self: center;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
@@ -274,7 +274,7 @@
     transform: translateX(-50%);
     bottom: -1px;
     /* Alinha exatamente com a borda inferior da barra cinza */
-    width: calc(100% + 18px);
+    width: 100%;
     height: 8px;
     background-color: #ffffff;
     /* Fundo branco para misturar com a seção inferior */
@@ -411,7 +411,7 @@
   position: absolute;
   top: 1.5rem;
   /* Margin-top do banner */
-  bottom: calc(1.5rem + var(--hero-tab-height));
+  bottom: calc(var(--hero-tab-height) + 1.5rem); /* Simétrico à margem de cima */
   background-color: #0d1b2a;
   z-index: 0;
 }
@@ -1223,8 +1223,8 @@
   -webkit-backdrop-filter: blur(12px);
   border: none;
   border-radius: 24px;
-  padding: 2rem 1.5rem;
-  min-height: 360px;
+  padding: 1.4rem 1.5rem;
+  min-height: 330px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -1243,7 +1243,7 @@
   justify-content: flex-start;
   /* Alinhado à esquerda */
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   text-align: left;
 }
 
@@ -1285,12 +1285,11 @@
 }
 
 .testimonial-text {
-  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  line-height: 1.5;
   color: #ffffff;
-  margin-bottom: 1.25rem;
-  text-align: left;
-  /* Alinhado à esquerda como no PDF */
+  margin-bottom: 1rem;
+  text-align: justify;
 }
 
 .testimonial-rating {
@@ -2255,30 +2254,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(0.75rem, 1vw, 1.15rem);
+  gap: 7px; /* Cerca de 7px como solicitado */
   pointer-events: none;
 }
 
-.floating-sidebar-left>* {
+.floating-sidebar-left > * {
   pointer-events: auto;
 }
 
 .floating-side-btn {
   width: clamp(42px, 3.32vw, 58px);
   height: clamp(42px, 3.32vw, 58px);
-  border-radius: clamp(10px, 0.8vw, 14px);
+  border-radius: clamp(12px, 1.1vw, 18px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-white);
+  background-color: #F4F4F4;
   color: var(--primary-dark);
   box-shadow: 0 4px 14px rgba(4, 24, 48, 0.1);
   border: none;
   cursor: pointer;
-  font-size: clamp(1.08rem, 1.6vw, 1.8rem);
+  font-size: clamp(1.45rem, 1.9vw, 2.25rem);
   line-height: 1;
   text-decoration: none;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.floating-side-btn i {
+  -webkit-text-stroke: 1.5px currentColor; /* Deixa os ícones visivelmente mais grossos, como no print */
 }
 
 .floating-side-btn:hover {
@@ -2287,16 +2290,30 @@
 }
 
 .floating-side-btn--whatsapp {
-  background-color: #177d45;
-  color: var(--text-white);
+  background-color: #378E53;
+  color: #ffffff;
 }
 
 .floating-side-btn--whatsapp:hover {
-  background-color: #15924b;
+  background-color: #2D7A46;
+}
+
+/* Ajuste específico para o botão do Facebook para a letra 'f' encostar na borda inferior */
+.floating-side-btn[aria-label="Facebook Faculdade Filos"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-side-btn[aria-label="Facebook Faculdade Filos"] i {
+  position: absolute;
+  bottom: -4px; /* Compensa o espaçamento natural da fonte para colar na borda */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(1.8rem, 2.4vw, 2.8rem); /* Aumenta a letra para preencher mais o topo também */
 }
 
 .floating-side-btn--circle {
-  border-radius: clamp(10px, 0.8vw, 14px);
+  border-radius: 50% !important;
 }
 
 @media (min-width: 1025px) {
@@ -2312,9 +2329,10 @@
 .floating-buttons {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
+  right: calc(2rem - 15px); /* Movido 15px para a direita */
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   z-index: 99;
 }
@@ -3693,7 +3711,7 @@ input:disabled+.cookies-slider {
 .nav-item-dropdown {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   /* No mobile, o wrapper se comporta como um bloco simples dentro do menu vertical */
   width: 100%;
   max-width: 280px;
