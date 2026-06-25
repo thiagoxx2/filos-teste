@@ -3441,6 +3441,14 @@
   transition: transform 0.3s ease;
 }
 
+.blog-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.12); /* Amplia a imagem para preencher a margem transparente exportada no PNG */
+}
+
 .blog-card-image-wrapper::after {
   content: "";
   position: absolute;
