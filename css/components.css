@@ -3905,12 +3905,14 @@ input:disabled+.cookies-slider {
     border-radius: 8px;
     transition: all var(--transition-fast);
     text-decoration: none;
-    overflow-wrap: anywhere;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .dropdown-column--light .dropdown-item:hover {
     color: var(--primary-dark);
-    font-weight: 700;
+    font-weight: 600;
     background-color: rgba(4, 24, 48, 0.05);
     transform: translateX(4px);
   }
