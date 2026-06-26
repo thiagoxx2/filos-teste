@@ -872,7 +872,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Ajuste dinâmico de tamanho de fonte para títulos longos de curso
+// Ajuste dinâmico de tamanho de fonte para títulos longos de curso e cards de diferenciais
 document.addEventListener('DOMContentLoaded', () => {
   const cardTitles = document.querySelectorAll('.inscription-card-title');
   cardTitles.forEach(title => {

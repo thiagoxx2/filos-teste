@@ -645,7 +645,7 @@
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(7, 22, 44, 0.92) 0%, rgba(11, 33, 56, 0.88) 58%, rgba(6, 19, 35, 0.94) 100%),
-    url('../assets/images/banner-home-classroom.png');
+    url('../assets/images/banner-home-classroom.webp');
   background-size: cover;
   background-position: center;
   padding: clamp(4rem, 7vw, 7rem) 0;
@@ -1152,7 +1152,7 @@
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(7, 22, 44, 0.92) 0%, rgba(11, 33, 56, 0.88) 58%, rgba(6, 19, 35, 0.94) 100%),
-    url('../assets/images/banner-home-classroom.png');
+    url('../assets/images/banner-home-classroom.webp');
   background-size: cover;
   background-position: center;
   padding: clamp(4rem, 7vw, 7rem) 0;
@@ -1631,7 +1631,7 @@
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(7, 22, 44, 0.92) 0%, rgba(11, 33, 56, 0.88) 58%, rgba(6, 19, 35, 0.94) 100%),
-    url('../assets/images/banner-home-classroom.png');
+    url('../assets/images/banner-home-classroom.webp');
   background-size: cover;
   background-position: center;
   padding: clamp(4rem, 7vw, 7rem) 0;
@@ -2171,7 +2171,7 @@
 .section-why-admin {
   position: relative;
   z-index: 5;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../assets/images/bg-classroom-blur.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../assets/images/bg-classroom-blur.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2385,14 +2385,15 @@
 
 .diferencial-card-desc {
   font-family: var(--font-body);
-  font-size: calc(1.2rem * var(--card-scale));
-  line-height: 1.35;
+  font-size: clamp(1.35rem, 1.8vw, 1.7rem);
+  line-height: 1.45;
   color: #ffffff;
   font-weight: 400;
   margin-top: calc(2rem * var(--card-scale));
   word-break: normal;
   overflow-wrap: normal;
   hyphens: none;
+  text-align: justify;
 }
 
 .btn-diferencial-enroll {
@@ -2461,7 +2462,16 @@
     text-align: center;
     max-width: 100%;
     margin-left: 0;
+    padding-left: clamp(3.5rem, 14vw, 4.5rem); /* Protege contra a sidebar flutuante na esquerda */
+    padding-right: 1rem;
+    box-sizing: border-box;
     /* Resetado para centralizar no mobile */
+  }
+
+  .hero-new-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.5rem); /* Menor no mobile para caber palavras longas */
+    word-break: break-word;
+    hyphens: auto;
   }
 
   .why-admin-container {
@@ -2697,7 +2707,7 @@
   position: relative;
   background:
     linear-gradient(rgba(7, 22, 44, 0.92), rgba(7, 22, 44, 0.92)),
-    url('../assets/images/bg-classroom-blur.jpg');
+    url('../assets/images/bg-classroom-blur.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
