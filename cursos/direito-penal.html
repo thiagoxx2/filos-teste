@@ -121,7 +121,7 @@
 <div aria-hidden="true" class="header-row__side header-row__side--start"></div>
 <div class="header-row__center">
 <nav aria-label="Menu principal" class="nav-menu" id="nav-menu">
-<a class="nav-link" data-nav="home" href="../index.html#inicio">Home</a>
+<a class="nav-link" data-nav="home" href="../index.html">Home</a>
 <div class="nav-item-dropdown">
 <a class="nav-link" data-nav="cursos" href="../index.html#cursos">Cursos</a>
 <div class="dropdown-menu-cursos">
@@ -157,7 +157,6 @@
 <li><a class="dropdown-item" href="calculo-seguranca-cadeia-medicamentosa.html">Cálculo e Segurança na Cadeia Medicamentosa</a></li>
 <li><a class="dropdown-item" href="acolhimento-classificacao-risco-obstetricia.html">Acolhimento e Classificação de Risco em Obstetrícia</a></li>
 <li><a class="dropdown-item" href="atualizacao-tratamento-feridas.html">Atualização no Tratamento de Feridas</a></li>
-
 <li><a class="dropdown-item" href="controle-qualidade-imagem.html">Controle de Qualidade de Imagem e Artefatos Médicos</a></li>
 <li><a class="dropdown-item" href="vendas-digitais.html">Vendas Digitais (Redes Sociais e WhatsApp)</a></li>
 <li><a class="dropdown-item" href="excelencia-atendimento.html">Excelência no Atendimento e Fidelização</a></li>
@@ -241,7 +240,7 @@
 <div class="inscription-card-divider"></div>
 <div class="inscription-card-meta-block">
 <p>Duração de 10 meses | <strong>10 módulos</strong></p>
-<p>Carga horária total | <strong data-course-workload-total>—</strong></p>
+<p>Carga horária total | <strong>360 horas</strong></p>
 <p>Certificação Filos | <strong>Pós-graduação</strong></p>
 <p><strong>Período Noturno</strong> | Presencial</p>
 </div>
@@ -579,7 +578,7 @@
       </div>
 
       <!-- Section Header -->
-      <div class="new-location-header" style="margin-top: 120px;">
+      <div class="new-location-header">
         <span class="new-location-subtitle">LOCALIZAÇÃO</span>
         <h2 class="new-location-title">Onde nos <strong>Encontrar</strong></h2>
       </div>
@@ -762,26 +761,8 @@
 <script src="../js/cookies.js" defer></script>
 <script src="../js/forms.js" defer></script>
 <script src="../js/carousel.js?v=1.4" defer></script>
-<script src="../js/main.js?v=1.97" defer></script>
+<script src="../js/main.js?v=1.98" defer></script>
 <script src="../js/courses-carousel.js?v=1.7" defer></script>
   <script src="../js/related-courses.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const workloadEl = document.querySelector('[data-course-workload-total]');
-      if (!workloadEl) return;
-
-      const hourCells = document.querySelectorAll('.matriz-table tbody td.text-center');
-      let total = 0;
-
-      hourCells.forEach((cell) => {
-        const value = parseInt(cell.textContent.trim(), 10);
-        if (!Number.isNaN(value)) total += value;
-      });
-
-      if (total > 0) {
-        workloadEl.textContent = `${total} horas`;
-      }
-    });
-  </script>
 </body>
 </html>

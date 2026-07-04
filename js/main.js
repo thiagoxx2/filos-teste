@@ -82,6 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const navId = link.dataset.nav;
         if (!navId) return;
 
+        if (navId === 'home') {
+          e.preventDefault();
+          const rawHref = link.getAttribute('href') || 'index.html';
+          const homeUrl = rawHref.split('#')[0] || 'index.html';
+          sessionStorage.setItem(NAV_STORAGE_KEY, 'home');
+          const target = new URL(homeUrl, window.location.href);
+          const samePath = target.pathname === window.location.pathname;
+
+          if (samePath && !window.location.hash) {
+            window.location.reload();
+          } else {
+            window.location.href = target.pathname + target.search;
+          }
+          return;
+        }
+
         isScrollingFromClick = true;
         sessionStorage.setItem(NAV_STORAGE_KEY, navId);
         setActiveNav(navId);

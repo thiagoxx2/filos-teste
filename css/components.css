@@ -1890,7 +1890,7 @@
 .new-location-header {
   text-align: center;
   margin-top: 0 !important;
-  margin-bottom: 7.5rem;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
 .new-location-subtitle {
@@ -1918,17 +1918,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: center;
+  align-items: start;
   margin-bottom: 3rem;
 }
 
 .new-location-faq {
   padding-left: clamp(1.5rem, 4.2vw, 5.5rem);
+  padding-top: 0;
+  margin-top: 0;
 }
 
 /* Left side (Mini FAQ) */
 .new-location-faq-header {
-  margin-bottom: 3.25rem;
+  margin-bottom: clamp(1.75rem, 2.5vw, 2.25rem);
 }
 
 .new-location-faq-line {

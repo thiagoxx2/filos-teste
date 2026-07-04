@@ -3391,6 +3391,42 @@
   }
 }
 
+/* Graduação: reduz área morta no topo em telas grandes (notebooks/Mac) */
+@media (min-width: 1366px) {
+  .course-hero-new--graduacao {
+    height: auto !important;
+    min-height: clamp(560px, 38vw, 620px) !important;
+    align-items: flex-start !important;
+    padding: clamp(2rem, 2.8vw, 3rem) 0 clamp(7.5rem, 8vw, 9rem) 0 !important;
+  }
+
+  .course-hero-new--graduacao .hero-new-container {
+    max-width: min(86vw, 1460px);
+    width: min(100% - (var(--page-gutter) * 2), 1460px);
+    gap: clamp(2.25rem, 3.5vw, 4rem);
+    align-items: center;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+    padding-top: 0;
+  }
+
+  .course-hero-new--graduacao .hero-new-left {
+    margin-left: 10px;
+  }
+
+  .course-hero-new--graduacao .hero-new-content {
+    margin-left: clamp(48px, 5.5vw, 72px);
+    gap: clamp(0.5rem, 0.8vw, 0.75rem);
+  }
+
+  .course-hero-new--graduacao .inscription-card-wrapper {
+    margin-top: clamp(0.75rem, 1.2vw, 1.25rem);
+  }
+
+  .course-hero-new--graduacao .inscription-card {
+    min-height: clamp(480px, 31vw, 540px);
+  }
+}
+
 /* Mensagem de consulta de preço */
 .course-consult-message {
   font-family: var(--font-body);
@@ -3408,7 +3444,7 @@
    ========================================================================== */
 
 .section-blog {
-  padding: 5.5rem 0 4rem;
+  padding: clamp(2rem, 3vw, 3rem) 0 4rem;
   background-color: #ffffff;
 }
 

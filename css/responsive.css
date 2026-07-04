@@ -2655,6 +2655,8 @@ body:not(.home)>main:first-of-type {
     width: 100% !important;
     max-width: 100% !important;
     margin-inline: auto;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
   #contato .new-location-faq-header {
