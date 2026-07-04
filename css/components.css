@@ -1697,7 +1697,13 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   max-width: 100%;
-  margin: 0 auto 3rem;
+  margin: 0 auto 1.25rem;
+  box-sizing: border-box;
+}
+
+.mini-galeria-slide {
+  box-sizing: border-box;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
 
 .mini-galeria-item {
@@ -1770,6 +1776,7 @@
   display: flex;
   justify-content: center;
   gap: 0.75rem;
+  margin-top: clamp(0.75rem, 2vw, 1.25rem);
   margin-bottom: 2rem;
 }
 
@@ -1850,7 +1857,7 @@
 
 /* --- NEW LOCATION SECTION --- */
 .new-location-section {
-  padding: clamp(3.5rem, 5vw, 5rem) 0 clamp(4rem, 5vw, 5.5rem) 0;
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0 clamp(4rem, 5vw, 5.5rem) 0;
   color: var(--text-white);
   overflow: hidden;
   background-image:
@@ -1858,6 +1865,11 @@
     url('../assets/images/bg-auditorio-desfocado.webp');
   background-size: cover;
   background-position: center;
+}
+
+/* Home: compensa apenas a aba da galeria acima, sem espaço morto extra */
+.home #galeria.section-with-bottom-tab + #contato.new-location-section {
+  padding-top: clamp(2.75rem, 5vw, 3.75rem);
 }
 
 .location-floating-logo {
@@ -1877,6 +1889,7 @@
 
 .new-location-header {
   text-align: center;
+  margin-top: 0 !important;
   margin-bottom: 7.5rem;
 }
 

@@ -21,7 +21,7 @@ FOOTER_ROOT = '''  <footer class="new-footer">
           <i class="fa-solid fa-location-dot"></i>
           <p>
             <span style="white-space: nowrap;">Avenida Tiradentes, Quadra 71, Lote 28/31,</span><br>
-            <span style="white-space: nowrap;">Jardim Pérola - Barragem II, Águas Lindas de GO</span><br>
+            <span style="white-space: nowrap;">Pérola II, Águas Lindas de GO</span><br>
             <span style="white-space: nowrap;">CEP 72911-262</span>
           </p>
         </div>

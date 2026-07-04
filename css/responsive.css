@@ -2574,7 +2574,7 @@ body:not(.home)>main:first-of-type {
     justify-content: center !important;
     align-items: center !important;
     gap: 0.45rem !important;
-    margin-top: clamp(1.25rem, 5vw, 2rem) !important;
+    margin-top: clamp(0.65rem, 2.5vw, 1rem) !important;
     max-width: 100% !important;
     flex-wrap: nowrap !important;
   }
@@ -2601,9 +2601,13 @@ body:not(.home)>main:first-of-type {
 /* HOME — Localização: FAQ compacto no mobile */
 @media (max-width: 767px) {
   #contato.new-location-section {
-    padding-top: clamp(4rem, 12vw, 5.5rem);
+    padding-top: clamp(2.25rem, 6vw, 3.25rem);
     padding-bottom: clamp(4rem, 12vw, 5.5rem);
     overflow: hidden;
+  }
+
+  .home #galeria.section-with-bottom-tab + #contato.new-location-section {
+    padding-top: clamp(2.75rem, 7vw, 3.75rem);
   }
 
   #contato .container-wide {
