@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const HASH_NAV = {
     cursos: 'cursos',
     contato: 'contato',
-    depoimentos: 'sobre',
     galeria: 'sobre',
     faq: 'contato',
   };

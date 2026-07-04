@@ -14,6 +14,17 @@
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/favicon-96x96-dark.png" sizes="96x96" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Filos">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#041830" media="(prefers-color-scheme: dark)">
+
 <title>Pós-graduação em Direito Penal em Águas Lindas de Goiás</title>
 <meta content="Curso de Direito Penal e Processo Penal na Faculdade Filos em Águas Lindas de Goiás. Especialização Lato Sensu focada no direito criminal prático contemporâneo." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -229,7 +240,8 @@
 <h2 class="inscription-card-title">DIREITO PENAL E PROCESSO PENAL</h2>
 <div class="inscription-card-divider"></div>
 <div class="inscription-card-meta-block">
-<p>Duração de 11 meses | <strong>11 módulos</strong></p>
+<p>Duração de 10 meses | <strong>10 módulos</strong></p>
+<p>Carga horária total | <strong data-course-workload-total>—</strong></p>
 <p>Certificação Filos | <strong>Pós-graduação</strong></p>
 <p><strong>Período Noturno</strong> | Presencial</p>
 </div>
@@ -518,7 +530,7 @@
 </div>
 <div class="matriz-accordion-item">
 <button aria-expanded="false" class="matriz-accordion-header">
-<span>MÓDULO 11</span>
+<span>MÓDULO 10</span>
 <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
 </button>
 <div class="matriz-accordion-content">
@@ -754,5 +766,23 @@
 <script src="../js/main.js?v=1.97"></script>
 <script src="../js/courses-carousel.js?v=1.7"></script>
   <script src="../js/related-courses.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const workloadEl = document.querySelector('[data-course-workload-total]');
+      if (!workloadEl) return;
+
+      const hourCells = document.querySelectorAll('.matriz-table tbody td.text-center');
+      let total = 0;
+
+      hourCells.forEach((cell) => {
+        const value = parseInt(cell.textContent.trim(), 10);
+        if (!Number.isNaN(value)) total += value;
+      });
+
+      if (total > 0) {
+        workloadEl.textContent = `${total} horas`;
+      }
+    });
+  </script>
 </body>
 </html>

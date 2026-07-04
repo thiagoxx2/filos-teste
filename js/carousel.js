@@ -1,5 +1,5 @@
 /**
- * carousel.js - Banner and Testimonials sliders
+ * carousel.js - Banner and page carousels
  * Faculdade Filos
  */
 
@@ -67,135 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-  // --- TESTIMONIALS CAROUSEL ---
-  // Desktop: 4 comentários por página
-  // Tablet: 2 comentários por página
-  // Mobile: 1 comentário por página
-  const track = document.querySelector('.testimonials-track');
-  const indicatorsContainer = document.querySelector('.testimonials-indicators');
-
-  if (track) {
-    const originalCards = Array.from(track.querySelectorAll('.testimonial-card'));
-    const totalCards = originalCards.length;
-
-    function getTestimonialsPerPage() {
-      if (window.innerWidth <= 767) return 1;
-      if (window.innerWidth <= 1023) return 2;
-      return 4;
-    }
-
-    let testimonialsCurrentPage = 0;
-    let testimonialsAutoplay = null;
-
-    function initTestimonialsCarousel() {
-      track.classList.remove('testimonials-marquee');
-      track.style.animation = 'none';
-      track.style.animationPlayState = 'paused';
-      track.style.display = 'flex';
-      track.style.transition = 'transform 0.4s ease';
-      track.style.width = '';
-      track.style.transform = 'translateX(0)';
-
-      track.innerHTML = '';
-      originalCards.forEach(card => {
-        const clone = card.cloneNode(true);
-        track.appendChild(clone);
-      });
-
-      testimonialsCurrentPage = 0;
-      buildTestimonialsDots();
-      goToTestimonialsPage(0);
-      startTestimonialsAutoplay();
-    }
-
-    function buildTestimonialsDots() {
-      if (!indicatorsContainer) return;
-      indicatorsContainer.innerHTML = '';
-      indicatorsContainer.style.display = 'flex';
-
-      const totalPages = Math.max(1, Math.ceil(totalCards / getTestimonialsPerPage()));
-      for (let i = 0; i < totalPages; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Página de depoimentos ' + (i + 1));
-        dot.addEventListener('click', () => {
-          goToTestimonialsPage(i);
-          restartTestimonialsAutoplay();
-        });
-        indicatorsContainer.appendChild(dot);
-      }
-    }
-
-    function goToTestimonialsPage(index) {
-      const perPage = getTestimonialsPerPage();
-      const totalPages = Math.max(1, Math.ceil(totalCards / perPage));
-      testimonialsCurrentPage = ((index % totalPages) + totalPages) % totalPages;
-
-      const firstCard = track.children[0];
-      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0);
-      const cardWidth = firstCard ? firstCard.offsetWidth : 0;
-      const offset = testimonialsCurrentPage * perPage * (cardWidth + gap);
-      track.style.transform = `translateX(${-offset}px)`;
-
-      if (indicatorsContainer) {
-        Array.from(indicatorsContainer.children).forEach((dot, i) => {
-          dot.classList.toggle('active', i === testimonialsCurrentPage);
-        });
-      }
-    }
-
-    function startTestimonialsAutoplay() {
-      stopTestimonialsAutoplay();
-      testimonialsAutoplay = setInterval(() => {
-        goToTestimonialsPage(testimonialsCurrentPage + 1);
-      }, 2500);
-    }
-
-    function stopTestimonialsAutoplay() {
-      if (testimonialsAutoplay) {
-        clearInterval(testimonialsAutoplay);
-        testimonialsAutoplay = null;
-      }
-    }
-
-    function restartTestimonialsAutoplay() {
-      stopTestimonialsAutoplay();
-      startTestimonialsAutoplay();
-    }
-
-    track.parentElement.addEventListener('mouseenter', stopTestimonialsAutoplay);
-    track.parentElement.addEventListener('mouseleave', startTestimonialsAutoplay);
-    track.parentElement.addEventListener('touchstart', stopTestimonialsAutoplay, { passive: true });
-    track.parentElement.addEventListener('touchend', restartTestimonialsAutoplay, { passive: true });
-
-    // ---- INIT e RESIZE ----
-    let lastItemsPerPage = getTestimonialsPerPage();
-
-    function initCarousel() {
-      stopTestimonialsAutoplay();
-      initTestimonialsCarousel();
-      lastItemsPerPage = getTestimonialsPerPage();
-    }
-
-    initCarousel();
-
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        const currentItemsPerPage = getTestimonialsPerPage();
-        if (currentItemsPerPage !== lastItemsPerPage) {
-          initCarousel();
-        } else {
-          goToTestimonialsPage(testimonialsCurrentPage);
-        }
-      }, 200);
-    });
-  }
-
-
-
   // --- MINI GALERIA CAROUSEL ---
   const galeriaTrack = document.querySelector('.mini-galeria-track');
   const galeriaOriginalSlides = Array.from(document.querySelectorAll('.mini-galeria-slide'));
@@ -205,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentGaleriaIndex = 0;
   let galeriaInterval = null;
-  const GALERIA_TIMEOUT = 2500;
+  const GALERIA_TIMEOUT = 5000;
 
   function isGaleriaMobile() {
     return window.innerWidth <= 768;
