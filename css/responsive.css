@@ -1456,31 +1456,52 @@ body:not(.home)>main:first-of-type {
     max-width: calc(100vw - 2rem) !important;
     flex: none !important;
     min-height: auto !important;
-    padding: 1.45rem 1.25rem !important;
+    padding: 1.6rem 1.35rem !important;
     border-radius: 28px !important;
-    gap: 0.7rem !important;
+    gap: 1rem !important;
     margin: 0 auto !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
   }
 
   #depoimentos .testimonial-user {
-    margin-bottom: 0.55rem !important;
-    gap: 0.65rem !important;
+    min-height: 4rem !important;
+    margin-bottom: 0 !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  #depoimentos .testimonial-meta {
+    align-items: center !important;
+    text-align: center !important;
   }
 
   #depoimentos .testimonial-name {
-    font-size: 0.9rem !important;
-    line-height: 1.1 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.2 !important;
+    min-height: 2.6em !important;
+    text-transform: none !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
   }
 
   #depoimentos .testimonial-course {
-    font-size: 0.72rem !important;
-    line-height: 1.2 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.25 !important;
+    min-height: 1.25em !important;
+    text-transform: none !important;
   }
 
   #depoimentos .testimonial-text {
-    font-size: 0.78rem !important;
-    line-height: 1.45 !important;
-    margin-bottom: 0.6rem !important;
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    max-width: 100% !important;
   }
 
   #depoimentos .testimonials-indicators {
@@ -1535,7 +1556,27 @@ body:not(.home)>main:first-of-type {
     flex: 0 0 calc((100% - 1.5rem) / 2) !important;
     min-height: 360px !important;
     border-radius: 52px !important;
-    padding: 2rem 1.6rem !important;
+    padding: 2rem 1.75rem !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    gap: 1.1rem !important;
+  }
+
+  #depoimentos .testimonial-user {
+    min-height: 5rem !important;
+    align-items: flex-start !important;
+  }
+
+  #depoimentos .testimonial-name {
+    min-height: 2.85em !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+
+  #depoimentos .testimonial-course {
+    min-height: 1.3em !important;
   }
 }
 
@@ -1587,38 +1628,61 @@ body:not(.home)>main:first-of-type {
     box-shadow: none !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    gap: clamp(1.15rem, 1.5vw, 1.5rem) !important;
   }
 
   #depoimentos .testimonial-user {
     display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    min-height: clamp(5.75rem, 8vw, 7.25rem) !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+  }
+
+  #depoimentos .testimonial-meta {
     align-items: center !important;
-    justify-content: flex-start !important;
-    gap: clamp(1.1rem, 1.6vw, 1.7rem) !important;
-    margin-bottom: clamp(3rem, 5vw, 4.8rem) !important;
-    text-align: left !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 
   #depoimentos .testimonial-name {
-    font-size: clamp(1.1rem, 1.45vw, 1.65rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: 0.07em !important;
+    font-size: clamp(1rem, 1.25vw, 1.35rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
     font-weight: 800 !important;
+    text-transform: none !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    min-height: 3.6em !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
   }
 
   #depoimentos .testimonial-course {
-    font-size: clamp(0.95rem, 1.25vw, 1.4rem) !important;
-    line-height: 1.1 !important;
-    letter-spacing: 0.08em !important;
+    font-size: clamp(0.85rem, 1.05vw, 1.05rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.03em !important;
     font-weight: 500 !important;
+    text-transform: none !important;
+    min-height: 1.35em !important;
+    width: 100% !important;
   }
 
   #depoimentos .testimonial-text {
-    max-width: 92% !important;
-    margin: 0 auto 1.5rem !important;
-    font-size: clamp(0.95rem, 1.22vw, 1.38rem) !important;
-    line-height: 1.18 !important;
-    font-weight: 500 !important;
-    text-align: justify !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: clamp(0.88rem, 1.05vw, 1.05rem) !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
   }
 
   #depoimentos .testimonials-indicators {
@@ -1647,36 +1711,53 @@ body:not(.home)>main:first-of-type {
     flex: 0 0 calc((100% - 9.6rem) / 4) !important;
     min-height: clamp(28rem, 26vw, 34rem) !important;
     padding: clamp(2rem, 2.4vw, 2.8rem) clamp(1.6rem, 2vw, 2.2rem) !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    gap: clamp(1.15rem, 1.4vw, 1.6rem) !important;
   }
 
   #depoimentos .testimonial-user {
-    margin-bottom: clamp(3.25rem, 4.5vw, 5rem) !important;
+    min-height: clamp(6rem, 7.5vw, 7.5rem) !important;
+    margin-bottom: 0 !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   #depoimentos .testimonial-meta {
     min-width: 0 !important;
     flex: 1 1 auto !important;
+    align-items: center !important;
+    text-align: center !important;
   }
 
   #depoimentos .testimonial-name {
-    font-size: clamp(1.05rem, 1.2vw, 1.5rem) !important;
-    line-height: 1.08 !important;
-    letter-spacing: 0.065em !important;
+    font-size: clamp(1rem, 1.15vw, 1.25rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+    min-height: 3.6em !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
   }
 
   #depoimentos .testimonial-course {
-    font-size: clamp(0.9rem, 1.05vw, 1.2rem) !important;
-    line-height: 1.15 !important;
-    letter-spacing: 0.06em !important;
+    font-size: clamp(0.85rem, 0.95vw, 1rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.03em !important;
     overflow-wrap: break-word !important;
+    text-transform: none !important;
+    min-height: 1.35em !important;
   }
 
   #depoimentos .testimonial-text {
-    font-size: clamp(0.95rem, 1.1vw, 1.25rem) !important;
-    line-height: 1.22 !important;
-    max-width: 92% !important;
-    margin: 0 auto 1.8rem !important;
-    text-align: justify !important;
+    font-size: clamp(0.88rem, 1vw, 1.05rem) !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
   }
 
 }

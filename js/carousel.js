@@ -318,13 +318,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (destaquesSlides.length > 0) {
     showDestaque(0);
-    startDestaquesAutoplay();
 
-    // Pausar autoplay ao passar o mouse por cima
-    const destaquesContainer = document.querySelector('.destaques-container');
-    if (destaquesContainer) {
-      destaquesContainer.addEventListener('mouseenter', stopDestaquesAutoplay);
-      destaquesContainer.addEventListener('mouseleave', startDestaquesAutoplay);
+    if (destaquesSlides.length > 1) {
+      startDestaquesAutoplay();
+
+      // Pausar autoplay ao passar o mouse por cima
+      const destaquesContainer = document.querySelector('.destaques-container');
+      if (destaquesContainer) {
+        destaquesContainer.addEventListener('mouseenter', stopDestaquesAutoplay);
+        destaquesContainer.addEventListener('mouseleave', startDestaquesAutoplay);
+      }
     }
   }
 

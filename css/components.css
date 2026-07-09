@@ -1187,6 +1187,7 @@
 
 .testimonials-track {
   display: flex;
+  align-items: stretch;
   gap: 2rem;
 }
 
@@ -1241,11 +1242,15 @@
   -webkit-backdrop-filter: blur(12px);
   border: none;
   border-radius: 24px;
-  padding: 1.4rem 1.5rem;
+  padding: 1.75rem 1.5rem;
   min-height: 330px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 1.25rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
@@ -1257,17 +1262,22 @@
 
 .testimonial-user {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  /* Alinhado à esquerda */
-  gap: 0.75rem;
-  margin-bottom: 0.8rem;
-  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 4.75rem;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .testimonial-meta {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  width: 100%;
 }
 
 .testimonial-name {
@@ -1275,24 +1285,38 @@
   font-weight: 800;
   font-size: 1.05rem;
   color: var(--text-white);
-  margin-bottom: 0.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  width: 100%;
+  min-height: 2.75em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .testimonial-course {
   font-size: 0.85rem;
-  color: #ffffff;
-  font-weight: 400;
-  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  min-height: 1.3em;
+  width: 100%;
 }
 
 .testimonial-text {
-  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
-  line-height: 1.5;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.55;
   color: #ffffff;
-  margin-bottom: 1rem;
-  text-align: justify;
+  margin: 0;
+  text-align: center;
+  max-width: 100%;
+  flex: 1;
+  align-self: stretch;
 }
 
 
