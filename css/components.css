@@ -1265,21 +1265,6 @@
   text-align: left;
 }
 
-.testimonial-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--bg-white);
-  flex-shrink: 0;
-}
-
-.avatar-placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-white);
-}
-
 .testimonial-meta {
   display: flex;
   flex-direction: column;
@@ -1308,17 +1293,6 @@
   color: #ffffff;
   margin-bottom: 1rem;
   text-align: justify;
-}
-
-.testimonial-rating {
-  display: flex;
-  justify-content: flex-end;
-  /* Estrelas alinhadas à direita */
-  gap: 0.2rem;
-  margin-top: auto;
-  color: #FACC15;
-  /* star yellow */
-  font-size: 0.8rem;
 }
 
 
