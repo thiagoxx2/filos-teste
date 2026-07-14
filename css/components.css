@@ -1171,6 +1171,11 @@
 
 
 /* --- DEPOIMENTOS SECTION --- */
+.testimonials-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
 .testimonials-carousel-container {
   position: relative;
   max-width: min(100%, 1400px);
@@ -1186,9 +1191,27 @@
 }
 
 .testimonials-track {
-  display: flex;
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.testimonials-page {
+  display: none;
   align-items: stretch;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+}
+
+.testimonials-page.active {
+  display: flex;
+}
+
+/* Antes do JS: mostra só o 1º card no mobile */
+@media (max-width: 767px) {
+  #depoimentos .testimonials-track:not(.is-initialized) > .testimonial-card:not(:first-child) {
+    display: none;
+  }
 }
 
 .testimonials-marquee {
@@ -1234,24 +1257,27 @@
 }
 
 .testimonial-card {
-  width: clamp(380px, 32vw, 480px);
-  flex: 0 0 clamp(380px, 32vw, 480px);
-  /* Fundo glass branco com 20% de opacidade */
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: none;
-  border-radius: 24px;
-  padding: 1.75rem 1.5rem;
-  min-height: 330px;
+  border-radius: clamp(20px, 3vw, 28px);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1rem, 2vw, 1.5rem);
+  min-height: auto;
+  height: auto;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  gap: 1.25rem;
+  gap: clamp(0.85rem, 1.5vw, 1.25rem);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
   transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
@@ -1266,7 +1292,7 @@
   justify-content: center;
   flex-shrink: 0;
   width: 100%;
-  min-height: 4.75rem;
+  min-height: clamp(3.5rem, 8vw, 5rem);
   margin-bottom: 0;
   text-align: center;
 }
@@ -1283,22 +1309,24 @@
 .testimonial-name {
   font-family: var(--font-title);
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   color: var(--text-white);
   margin-bottom: 0.35rem;
   text-transform: none;
   letter-spacing: 0.02em;
   line-height: 1.25;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
   width: 100%;
-  min-height: 2.75em;
+  min-height: clamp(2.4em, 4vw, 3em);
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
 .testimonial-course {
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 0.95vw, 0.85rem);
   color: rgba(255, 255, 255, 0.92);
   font-weight: 500;
   text-transform: none;
@@ -1309,14 +1337,16 @@
 }
 
 .testimonial-text {
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-size: clamp(0.8125rem, 1vw, 1rem);
   line-height: 1.55;
   color: #ffffff;
   margin: 0;
   text-align: center;
   max-width: 100%;
-  flex: 1;
+  flex: 1 1 auto;
   align-self: stretch;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 
@@ -1361,6 +1391,31 @@
   background:
     linear-gradient(rgba(4, 24, 48, 0.9), rgba(4, 24, 48, 0.9)),
     url('../assets/images/banner-home-classroom.webp') center top / cover no-repeat;
+  --testimonial-viewport-height: auto;
+}
+
+#depoimentos .testimonials-carousel {
+  width: 100%;
+}
+
+#depoimentos .testimonials-track-container {
+  height: var(--testimonial-viewport-height);
+  min-height: var(--testimonial-viewport-height);
+}
+
+#depoimentos .testimonials-track,
+#depoimentos .testimonials-page.active {
+  height: 100%;
+}
+
+#depoimentos .testimonial-card {
+  height: 100%;
+  min-height: 100%;
+}
+
+#depoimentos .testimonial-text {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 #depoimentos.section-with-bottom-tab+#faq.section {
